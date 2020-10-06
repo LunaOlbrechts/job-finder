@@ -16,6 +16,9 @@ class CreateUserTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
             $table->string('age');
             $table->string('fase');
             $table->text('preference');
@@ -24,6 +27,8 @@ class CreateUserTable extends Migration
             $table->text('bio');
             $table->text('cv');
             $table->timestamps();
+            $table->rememberToken();
+
         });
     }
 
