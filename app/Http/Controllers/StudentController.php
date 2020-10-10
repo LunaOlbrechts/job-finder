@@ -14,7 +14,7 @@ class StudentController extends Controller
         return view('students/index', $data);
     }
 
-    public function show(Student $student)
+    public function profile(Student $student)
     {
         $data['student'] = $student;
         return view('students/profile', $data);

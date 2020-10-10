@@ -15,9 +15,9 @@ class InternshipController extends Controller
         return view('/internships/index', $data);
     }
 
-    public function detail(Internship $internship)
+    public function detail($internship)
     {
-        $data['internship'] = $internship;
+        $data['internship'] = Internship::where('id', $internship)->with('company')->get();
         return view('/internships/detail', $data);
     }
 }

@@ -10,13 +10,14 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $data['companies'] = DB::table('company')->get();
+        $data['companies'] = DB::table('companies')->get();
         return view('companies/index', $data);
     }
 
-    public function detail(Company $company)
+    public function profile($company)
     {
-        $data['company'] = $company;
+        $data['company'] = Company::where('id', $company)->with('internships')->get();
+        //dd($data);
         return view('companies/profile', $data);
     }
 }

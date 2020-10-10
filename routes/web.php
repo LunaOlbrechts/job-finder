@@ -44,10 +44,10 @@ Route::get('/internships/{internship}', [InternshipController::class, 'detail'])
 Route::get('/companies', [CompanyController::class, 'index']);
 
 // Route for company profile
-Route::get('/companies/{company}', [CompanyController::class, 'detail']);
+Route::get('/companies/{company}', [CompanyController::class, 'profile']);
 
 // Route for students
 Route::get('/students', [StudentController::class, 'index']);
 
 // Route for student profile
-Route::get('/students/{student}', [StudentController::class, 'show']);
+Route::get('/students/{student}', [StudentController::class, 'profile']);
