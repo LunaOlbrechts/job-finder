@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\DB;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,14 +29,16 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
-// Route for detail page of company
-Route::get('/company', function () {
-    return view('company');
+// Route for companies
+Route::get('/companies', function () {
+    $companies = DB::table('companies')->get();
+    dd($companies);
 });
 
-// Route for detail page of a student 
-Route::get('/student', function () {
-    return view('student');
+// Route for students
+Route::get('/students', function () {
+    $students = DB::table('students')->get();
+    dd($students);
 });
 
 
