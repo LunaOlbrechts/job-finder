@@ -15,11 +15,12 @@ class CreateInternshipsTable extends Migration
     {
         Schema::create('internships', function (Blueprint $table) {
             $table->id();
-            $table->string('company');
+            $table->integer('company_id');
             $table->text('bio');
             $table->string('type');
             $table->text('expectations');
             $table->text('offers');
+            $table->string('location');
             $table->timestamps();
         });
     }
