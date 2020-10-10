@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\StudentController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -34,10 +34,10 @@ Route::get('/profile', function () {
 });
 
 // Route for companies
-Route::get('/companies', function () {
-    $companies = DB::table('companies')->get();
-    dd($companies);
-});
+Route::get('/companies', [CompanyController::class, 'index']);
+
+// Route for company profile
+Route::get('/companies/{company}', [CompanyController::class, 'detail']);
 
 // Route for students
 Route::get('/students', [StudentController::class, 'index']);
