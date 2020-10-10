@@ -4,6 +4,7 @@ use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\StudentController;
 
 /*
@@ -32,6 +33,12 @@ Route::get('/login', function () {
 Route::get('/profile', function () {
     return view('profile');
 });
+
+// Route for internships
+Route::get('/internships', [InternshipController::class, 'index']);
+
+// Route for internship vacature
+Route::get('/internships/{internship}', [InternshipController::class, 'detail']);
 
 // Route for companies
 Route::get('/companies', [CompanyController::class, 'index']);
