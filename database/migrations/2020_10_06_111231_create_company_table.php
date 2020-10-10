@@ -19,6 +19,9 @@ class CreateCompanyTable extends Migration
             $table->text('bio');
             $table->text('projects');
             $table->string('employees');
+            $table->string('location');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
