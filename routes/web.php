@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\StudentController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,10 +40,7 @@ Route::get('/companies', function () {
 });
 
 // Route for students
-Route::get('/students', function () {
-    $students = DB::table('students')->get();
-    dd($students);
-});
+Route::get('/students', [StudentController::class, 'index']);
 
-
-
+// Route for student profile
+Route::get('/students/{student}', [StudentController::class, 'show']);
