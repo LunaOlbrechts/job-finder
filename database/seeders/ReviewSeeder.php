@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company;
+use App\Models\Internship;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
