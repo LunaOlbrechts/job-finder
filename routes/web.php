@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +26,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route for login page
-Route::get('/login', function () {
-    return view('login');
-});
+
+
 
 // Route for profile (edit) page of company or student
 // TODO: work with id's or make a different route for each
@@ -51,3 +52,7 @@ Route::get('/students', [StudentController::class, 'index']);
 
 // Route for student profile
 Route::get('/students/{student}', [StudentController::class, 'profile']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
