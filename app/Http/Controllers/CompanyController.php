@@ -6,6 +6,7 @@ use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class CompanyController extends Controller
@@ -25,7 +26,8 @@ class CompanyController extends Controller
         $company->phone = $request->input('phone');
         $company->password = Hash::make($request->input('password'));
         $company->save();
-        return view('companies/register');
+
+        return redirect('register/company');
     }
     
     public function login()
@@ -33,9 +35,12 @@ class CompanyController extends Controller
         return view('companies/login');
     }
 
-    public function handleLogin()
+    public function handleLogin(Request $request)
     {
-        return view('companies/login');
+        $credentials = $request->only('email', 'password');
+        $result = Auth::guard('company')->attempt($credentials);
+        dd($result);
+        //return view('companies/login');
     }
 
     public function index()

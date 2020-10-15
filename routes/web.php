@@ -40,7 +40,11 @@ Route::get('/internships/{internship}', [InternshipController::class, 'detail'])
 
 Route::get('register/company', [CompanyController::class, 'register']);
 
-Route::get('register/company', [CompanyController::class, 'handleRegister']);
+Route::post('register/company', [CompanyController::class, 'handleRegister']);
+
+Route::get('login/company', [CompanyController::class, 'login']);
+
+Route::post('login/company', [CompanyController::class, 'handleLogin']);
 
 // Route for companies
 Route::get('/companies', [CompanyController::class, 'index']);
@@ -53,6 +57,10 @@ Route::get('/students', [StudentController::class, 'index']);
 
 // Route for student profile
 Route::get('/students/{student}', [StudentController::class, 'profile']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 

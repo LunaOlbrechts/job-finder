@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <form class="container">
+    <form class="container" method="post">
+        {{csrf_field()}}
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputName">Company Name</label>
