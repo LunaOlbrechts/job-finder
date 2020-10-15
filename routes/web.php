@@ -26,9 +26,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-
 // Route for profile (edit) page of company or student
 // TODO: work with id's or make a different route for each
 Route::get('/profile', function () {

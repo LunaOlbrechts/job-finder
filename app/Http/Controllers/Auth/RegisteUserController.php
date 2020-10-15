@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
-    | Register Controller
+    | Register User Controller
     |--------------------------------------------------------------------------
     |
     | This controller handles the registration of new users as well as their
