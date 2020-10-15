@@ -38,6 +38,10 @@ Route::get('/internships', [InternshipController::class, 'index']);
 // Route for internship vacature
 Route::get('/internships/{internship}', [InternshipController::class, 'detail']);
 
+Route::get('register/company', [CompanyController::class, 'register']);
+
+Route::get('register/company', [CompanyController::class, 'handleRegister']);
+
 // Route for companies
 Route::get('/companies', [CompanyController::class, 'index']);
 
