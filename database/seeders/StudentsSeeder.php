@@ -16,7 +16,7 @@ class StudentsSeeder extends Seeder
     public function run()
     {
 
-        DB::table('users')->insert([
+        DB::table('students')->insert([
             [
 
                 'name' => "Luna",

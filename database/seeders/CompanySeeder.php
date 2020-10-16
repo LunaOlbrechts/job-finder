@@ -23,7 +23,8 @@ class CompanySeeder extends Seeder
                 'employees'=> "",
                 'location'=> "56",
                 'email'=> "jobs@calibrate.be",
-                'phone'=> "042101632"
+                'phone'=> "042101632",
+                'password'=> "test",
             ],
             [
                 'name' => "Multimedium",
@@ -34,7 +35,8 @@ class CompanySeeder extends Seeder
                 Minderhoutsestraat 1
                 2320 Hoogstraten",
                 'email'=> "hallo@multimedium.be",
-                'phone'=> "+3232977154"
+                'phone'=> "+3232977154",
+                'password'=> "test",
             ],
             [
                 'name' => "Digitag",
@@ -52,7 +54,9 @@ class CompanySeeder extends Seeder
                 1170 Brussels
                 Belgium",
                 'email'=> "hello@digitag.co",
-                'phone'=> "3232977154"
+                'phone'=> "3232977154",
+                'password'=> "test",
+
             ],
             [
                 'name' => "Lunar",
@@ -69,7 +73,8 @@ class CompanySeeder extends Seeder
                 
                 2000 Antwerpen",
                 'email'=> "",
-                'phone'=> "3232977154"
+                'phone'=> "3232977154",
+                'password'=> "test",
             ],
             [
                 'name' => "World of digits",
@@ -81,7 +86,9 @@ class CompanySeeder extends Seeder
                 Blue Tower 1
                 9000 Gent",
                 'email'=> "",
-                'phone'=> "+3228992020"
+                'phone'=> "+3228992020",
+                'password'=> "test"
+
             ],
             [
                 'name' => "8trust",
@@ -97,7 +104,9 @@ class CompanySeeder extends Seeder
                 1050 BRUSSELS
                 VAT BE0537.939.729",
                 'email'=> "hello@8trust.com",
-                'phone'=> "+32492738878"
+                'phone'=> "+32492738878",
+                'password'=> "test"
+
             ],
             
         ]);

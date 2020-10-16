@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,15 +36,15 @@ Route::get('/profile', function () {
 Route::get('/internships', [InternshipController::class, 'index']);
 
 // Route for internship vacature
-Route::get('/internships/{internship}', [InternshipController::class, 'detail']);
+Route::get('/login/student', [LoginController::class, 'showStudentLoginForm'])->name('login/student');
+Route::get('/login/company', [LoginController::class, 'showCompanyLoginForm'])->name('login/company');
+Route::get('/register/student', [RegisterController::class, 'showStudentRegisterForm'])->name('register/student');
+Route::get('/register/company', [RegisterController::class, 'showCompanyRegisterForm'])->name('register/company');
 
-Route::get('register/company', [CompanyController::class, 'register']);
-
-Route::post('register/company', [CompanyController::class, 'handleRegister']);
-
-Route::get('login/company', [CompanyController::class, 'login']);
-
-Route::post('login/company', [CompanyController::class, 'handleLogin']);
+Route::post('/login/student', [LoginController::class, 'studentLogin']);
+Route::post('/login/company', [LoginController::class, 'companyLogin']);
+Route::post('/register/student', [RegisterController::class, 'createStudent']);
+Route::post('/register/company', [RegisterController::class, 'createCompany']);
 
 // Route for companies
 Route::get('/companies', [CompanyController::class, 'index']);
@@ -57,10 +57,6 @@ Route::get('/students', [StudentController::class, 'index']);
 
 // Route for student profile
 Route::get('/students/{student}', [StudentController::class, 'profile']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
