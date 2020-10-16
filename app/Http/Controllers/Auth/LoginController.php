@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -36,5 +38,45 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest:web')->except('logout');
+        $this->middleware('guest:company')->except('logout');
+    }
+
+    public function showStudentLoginForm()
+    {
+        return view('auth/login', ['url' => 'student']);
+    }
+
+    public function StudentLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect()->intended('students');
+        }
+        
+        return back()->withInput($request->only('email'));
+    }
+
+    public function showCompanyLoginForm()
+    {
+        return view('auth/login', ['url' => 'company']);
+    }
+
+    public function companyLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if (Auth::guard('company')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect('company');
+        }
+        
+        return redirect('login/student');
     }
 }
