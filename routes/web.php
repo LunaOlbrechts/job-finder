@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\InternshipController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +34,22 @@ Route::get('/profile', function () {
     return view('profile');
 });
 
-// Route for detail page of company
-Route::get('/company', function () {
-    return view('company');
-});
-
-// Route for detail page of a student 
-Route::get('/student', function () {
-    return view('student');
-});
+// Route for internships
+Route::get('/internships', [InternshipController::class, 'index']);
+Route::post('/internships', [InternshipController::class, 'index']);
 
 
+// Route for internship vacature
+Route::get('/internships/{internship}', [InternshipController::class, 'detail']);
 
+// Route for companies
+Route::get('/companies', [CompanyController::class, 'index']);
+
+// Route for company profile
+Route::get('/companies/{company}', [CompanyController::class, 'profile']);
+
+// Route for students
+Route::get('/students', [StudentController::class, 'index']);
+
+// Route for student profile
+Route::get('/students/{student}', [StudentController::class, 'profile']);
