@@ -74,7 +74,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('company')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect('company');
+            return redirect('companies');
         }
         
         return redirect('login/student');
