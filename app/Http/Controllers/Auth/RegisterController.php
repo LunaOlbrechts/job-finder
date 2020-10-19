@@ -44,13 +44,13 @@ class RegisterController extends Controller
 
     protected function createStudent(Request $request)
     {
-        $this->validator($request->all())->validate();
         $student = Student::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('login/admin');
+
+        return redirect()->intended('students');
     }
 
     protected function createCompany(Request $request)
