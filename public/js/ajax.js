@@ -11,18 +11,25 @@ $(function() {
       success: function( data ) {
         // Code for handling API response
         console.log(data);
+        $(".autocompleteResponse").remove();
         var response = $(data.response.venues);
         if(inputValue != ""){
           $.each(response, function(i,venue){
-            $("#companyNameDiv").append('<div>' + venue.name + '</div>');
+            $("#companyNameDiv").append('<a href="#" class="autocompleteResponse"><div>' + venue.name + '</div></a>');
+            $(".autocompleteResponse").on("click", function(){
+              $("#location").val(venue.location["address"] + " " + venue.location["city"] );
+            });
           });
         }
+
+        
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // Code for handling errors
       }
     });
 
+  
 
   });
 
