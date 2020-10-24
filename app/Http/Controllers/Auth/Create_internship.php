@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Company;
+use App\Models\Internship;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -38,7 +39,7 @@ class Create_internship extends Controller
         
         $request->flash();
         
-        $internship = new internship();
+        $internship = new Internship();
         $internship->name = $request->input('name');
         $internship->email = $request->input('email');
         $internship->location = $request->input('location');
