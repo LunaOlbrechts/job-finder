@@ -17,15 +17,18 @@ class CompanyController extends Controller
     public function index()
     {
         $data['companies'] = DB::table('companies')->get();
-        $response = Http::get('https://docs.irail.be/stations/');
-        dd($response->json());
         return view('companies/index', $data);
     }
 
     public function profile($company)
     {
-        $data['company'] = Company::where('id', $company)->with('internships')->get();
-        //dd($data);
+        $company = Company::where('id', $company)->with('internships')->first();
+        $data['company'] = $company;
+        $location = $company->location;
+        
+        $apiLink = 'https://docs.irail.be/stations/NMBS?lang=nl&q=' . $location;
+        $response = Http::get($apiLink);
+        dd($response->json());
         return view('companies/profile', $data);
     }
     

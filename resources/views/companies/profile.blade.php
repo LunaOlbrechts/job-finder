@@ -1,11 +1,11 @@
 <h1>Company</h1>
 
-<h1>{{ $company[0]->name}}</h1>
-<p>{{ $company[0]->bio}}</p>
-<p>{{ $company[0]->projects}}</p>
-<p>{{ $company[0]->location}}</p>
-<p>{{ $company[0]->email}}</p>
-<p>{{ $company[0]->phone}}</p>
+<h1>{{ $company->name}}</h1>
+<p>{{ $company->bio}}</p>
+<p>{{ $company->projects}}</p>
+<p>{{ $company->location}}</p>
+<p>{{ $company->email}}</p>
+<p>{{ $company->phone}}</p>
 
 
 <h1>Internships</h1>
