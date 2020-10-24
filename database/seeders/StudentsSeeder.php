@@ -23,12 +23,13 @@ class StudentsSeeder extends Seeder
                 'email'=> "luna.olbrechts@gmail.com",
                 'password'=> "test",
                 'age'=> "22",
-                'fase'=> "1",
+                'portfolio'=> "",
                 'preference'=> "test",
                 'tools'=> "test",
                 'location'=> "Steendorp",
                 'bio'=> "test",
-                'cv'=> "test"
+                //'cv'=> "test",
+                'linkedin' => ""
             ],
             [
      
@@ -36,36 +37,39 @@ class StudentsSeeder extends Seeder
                 'email'=> "britt.vdl@hotmail.com",
                 'password'=> "testing",
                 'age'=> "20",
-                'fase'=> "3",
+                'portfolio'=> "",
                 'preference'=> "Development",
                 'tools'=> "test",
                 'location'=> "Minderhout",
                 'bio'=> "test",
-                'cv'=> "working on it"
+                //'cv'=> "working on it",
+                'linkedin' => ""
             ],
             [
                 'name' => "Jasper",
                 'email'=> "jasper@gmail.com",
                 'password'=> "tester",
                 'age'=> "21",
-                'fase'=> "2",
+                'portfolio'=> "",
                 'preference'=> "Project manager",
                 'tools'=> "test",
                 'location'=> "Mechelen",
                 'bio'=> "Just writing something",
-                'cv'=> "tester"
+                //'cv'=> "tester",
+                'linkedin' => ""
             ],
             [
                 'name' => "Benjamin",
                 'email'=> "benjamin@gmail.com",
                 'password'=> "12345",
                 'age'=> "23",
-                'fase'=> "1",
+                'portfolio'=> "",
                 'preference'=> "Design",
                 'tools'=> "test",
                 'location'=> "Mechelen",
                 'bio'=> "Mijn bio",
-                'cv'=> "In the making"
+                //'cv'=> "In the making",
+                'linkedin' => ""
             ]
         ]);
 

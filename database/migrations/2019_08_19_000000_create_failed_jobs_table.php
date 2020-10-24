@@ -33,6 +33,9 @@ class CreateFailedJobsTable extends Migration
     {
         Schema::dropIfExists('failed_jobs');
         Schema::dropIfExists('users');
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9aaa10284e9b7f067a30d8d4217577f2429acbe3
     }
 }

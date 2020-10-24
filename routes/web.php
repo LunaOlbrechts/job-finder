@@ -64,6 +64,10 @@ Route::get('/students', [StudentController::class, 'index']);
 // Route for student profile
 Route::get('/students/{student}', [StudentController::class, 'profile']);
 
+// Route for update student profile
+Route::get('/students/{student}/update', [StudentController::class, 'edit'])->name('students/edit');
+Route::post('/students/{student}/update', [StudentController::class, 'update'])->name('students/update');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

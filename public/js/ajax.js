@@ -10,9 +10,9 @@ $(function() {
       data: {},
       success: function( data ) {
         // Code for handling API response
-        console.log(data);
         $(".autocompleteResponse").remove();
         var response = $(data.response.venues);
+        
         if(inputValue != ""){
           $.each(response, function(i,venue){
             $("#companyNameDiv").append('<a href="#" class="autocompleteResponse"><div>' + venue.name + '</div></a>');
@@ -21,17 +21,12 @@ $(function() {
             });
           });
         }
-
-        
       },
       error: function(jqXHR, textStatus, errorThrown) {
         // Code for handling errors
       }
     });
 
-  
-
   });
-
 });
 
