@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use Illuminate\support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 
 class StudentController extends Controller
@@ -33,6 +34,9 @@ class StudentController extends Controller
         } else {
             return redirect()->back();
         }*/
+
+
+
         $data['student'] = $student;
         return view('students/update', $data);
     }
@@ -75,9 +79,17 @@ class StudentController extends Controller
                 ]);
             }
 
+            $adress = $request['location'];
+            $url = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=cRpECXLczLUIfUJVWoh-zg6XvvMbc8kKeQVk0k5lyPY&query=$adress";
+            $response = Http::get($url)->json();
+            if($response['suggestions'] == NULL){
+                $myresponse = $request['location'];
+            } else {
+                $myresponse = $response['suggestions'][0]['label'];
+            }
        
-                DB::table('students')->where('id', $id)->update($request->except('_token'));
-
+                DB::table('students')->where('id', $id)->update($request->except('_token', 'location'));
+                DB::table('students')->where('id', $id)->update(['location' => $myresponse]);
                 $request->session()->flash('success', 'Your details have now been updated.');
                 return redirect()->back();
         } else {

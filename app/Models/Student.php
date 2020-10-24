@@ -22,6 +22,9 @@ class Student extends Authenticatable
         'name',
         'email',
         'password',
+        'location',
+        'location-latitude',
+        'location-longitude'
     ];
 
     /**

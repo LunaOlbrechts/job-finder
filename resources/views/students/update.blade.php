@@ -117,6 +117,7 @@
                             <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Adress') }}</label>
                             <div class="col-md-6">
                                 <input id="location" value="{{ $student['location'] }}" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('location') }}"  autocomplete="location">
+                            
                                 @error('location')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -142,6 +143,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Update profile') }}
                                 </button>
+
                             </div>
                         </div>
                     </form>
