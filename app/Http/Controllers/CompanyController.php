@@ -10,13 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\Response;
 
-
-
 class CompanyController extends Controller
 {
     public function index()
     {
         $data['companies'] = DB::table('companies')->get();
+        
         return view('companies/index', $data);
     }
 
@@ -29,14 +28,7 @@ class CompanyController extends Controller
         $apiLink = 'https://irail.be/stations/NMBS?lang=nl&format=json&q=' . $location;
         $response = Http::withHeaders([
             'Accept' => 'application/json'])->get($apiLink);
-        dd($response->json());
-        return view('companies/profile', $data);
-    }
-    
-    public function publicTransportation()
-    {
-        $response = Http::get(' https://docs.irail.be/#stations/{json,nl}');
-        $data = $response->json();
-        dd($data);
+            
+        return view('companies/profile', $data, $response);
     }
 }
