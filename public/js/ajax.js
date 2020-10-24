@@ -14,6 +14,7 @@ $(function() {
         var response = $(data.response.venues);
         
         if(inputValue != ""){
+        
           $.each(response, function(i,venue){
             $("#companyNameDiv").append('<a href="#" class="autocompleteResponse"><div>' + venue.name + '</div></a>');
             $(".autocompleteResponse").on("click", function(){
