@@ -37,8 +37,9 @@ Route::get('/profile', function () {
 Route::get('/internships', [InternshipController::class, 'index']);
 Route::post('/internships', [InternshipController::class, 'index']);
 
-Route::get('/internships/create', [Create_internship::class, 'showInternshipRegisterForm']);
-Route::post('/internships/create', [Create_internship::class, 'createInternship']);
+Route::get('/internships/create/{company_id}', [InternshipController::class, 'create']);
+Route::post('/internships', [InternshipController::class, 'createInternship']);
+
 
 
 // Route for internship vacature
