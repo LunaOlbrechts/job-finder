@@ -29,6 +29,7 @@ class MakeProjectsAndEmployeesNullableCompanies extends Migration
         Schema::table('companies', function (Blueprint $table) {
             $table->text('projects')->change();
             $table->text('employees')->change();
+            Schema::dropIfExists('applications');
         });
     }
 }
