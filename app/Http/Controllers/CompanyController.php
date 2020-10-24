@@ -26,8 +26,9 @@ class CompanyController extends Controller
         $data['company'] = $company;
         $location = $company->location;
         
-        $apiLink = 'https://docs.irail.be/stations/NMBS?lang=nl&q=' . $location;
-        $response = Http::get($apiLink);
+        $apiLink = 'https://irail.be/stations/NMBS?lang=nl&format=json&q=' . $location;
+        $response = Http::withHeaders([
+            'Accept' => 'application/json'])->get($apiLink);
         dd($response->json());
         return view('companies/profile', $data);
     }
