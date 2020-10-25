@@ -21,7 +21,7 @@ class CompanySeeder extends Seeder
                 'bio'=> "Je werkt binnen een gemoedelijke sfeer waar je als nieuwe collega wordt verwelkomd met humor en een open geest. Je collega's staan klaar om te helpen en je ontvangt persoonlijke begeleiding bij al je ambities. Heb je vragen? Zowel je management als je directe collega's zijn meteen aanspreekbaar. Geen barrières, geen regeltjes. Gewoon gezond verstand, een flinke dosis humor en af en toe wat zelfrelativering ;-)",
                 'projects'=> "Drupal platform voor Q8, multisite website platform voor een grote stad, Digitaal erfgoed platform met 3 websites in 1",
                 'employees'=> "",
-                'location'=> "56",
+                'location'=> "Kontich",
                 'email'=> "jobs@calibrate.be",
                 'phone'=> "042101632",
                 'password'=> "test",

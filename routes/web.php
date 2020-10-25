@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\Create_internship;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,8 @@ use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\TrainStationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,18 +36,29 @@ Route::get('/profile', function () {
 });
 
 // Route for internships
+<<<<<<< HEAD
 Route::get('/internships/{internship}', [InternshipController::class, 'index']);
 Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail']);
+=======
+Route::get('/internships', [InternshipController::class, 'index']);
+Route::post('/internships', [InternshipController::class, 'index']);
+>>>>>>> 69620a3bf1882ed3c934c05e061a96751101a941
 
-// Route for internship vacature
-Route::get('/login/student', [LoginController::class, 'showStudentLoginForm'])->name('login/student');
-Route::get('/login/company', [LoginController::class, 'showCompanyLoginForm'])->name('login/company');
+Route::get('/internships/create/{company_id}', [InternshipController::class, 'create']);
+Route::post('/internships', [InternshipController::class, 'createInternship']);
+
+// Route for register and login student
 Route::get('/register/student', [RegisterController::class, 'showStudentRegisterForm'])->name('register/student');
-Route::get('/register/company', [RegisterController::class, 'showCompanyRegisterForm'])->name('register/company');
+Route::get('/login/student', [LoginController::class, 'showStudentLoginForm'])->name('login/student');
 
 Route::post('/login/student', [LoginController::class, 'studentLogin']);
-Route::post('/login/company', [LoginController::class, 'companyLogin']);
 Route::post('/register/student', [RegisterController::class, 'createStudent']);
+
+// Route for register and login company
+Route::get('/register/company', [RegisterController::class, 'showCompanyRegisterForm'])->name('register/company');
+Route::get('/login/company', [LoginController::class, 'showCompanyLoginForm'])->name('login/company');
+
+Route::post('/login/company', [LoginController::class, 'companyLogin']);
 Route::post('/register/company', [RegisterController::class, 'createCompany']);
 
 // Route for companies
