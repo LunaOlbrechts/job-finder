@@ -24,11 +24,7 @@ class CompanyController extends Controller
         $company = Company::where('id', $company)->with('internships')->first();
         $data['company'] = $company;
         $location = $company->location;
-        
-        $apiLink = 'https://irail.be/stations/NMBS?lang=nl&format=json&q=' . $location;
-        $response = Http::withHeaders([
-            'Accept' => 'application/json'])->get($apiLink);
-            
-        return view('companies/profile', $data, $response);
+
+        return view('companies/profile', $data);
     }
 }

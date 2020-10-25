@@ -7,9 +7,7 @@
 <p>{{ $company->email}}</p>
 <p>{{ $company->phone}}</p>
 
-
 <h1>Internships</h1>
-
 
 @foreach ($company[0]->internships as $internship )
     <a href="/internships/{{$internship->id}}"><h1>{{$internship->id}}</h1></a>

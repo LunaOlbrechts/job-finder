@@ -10,6 +10,8 @@ use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\TrainStationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +68,8 @@ Route::get('/students/{student}', [StudentController::class, 'profile']);
 // Route for update student profile
 Route::get('/students/{student}/update', [StudentController::class, 'edit'])->name('students/edit');
 Route::post('/students/{student}/update', [StudentController::class, 'update'])->name('students/update');
+
+Route::get('/trains', [TrainStationController::class, 'trainStations']);
 
 Auth::routes();
 
