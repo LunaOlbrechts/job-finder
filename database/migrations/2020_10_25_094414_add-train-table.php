@@ -17,15 +17,8 @@ class AddTrainTable extends Migration
             $table->id();
             $table->string('uri');
             $table->string('name');
-            $table->string('alternative-fr');
-            $table->string('alternative-nl');
-            $table->string('alternative-de');
-            $table->string('alternative-en');
-            $table->string('country-code');
             $table->double('longitude');
             $table->double('latitude');
-            $table->double('avg_stop_times');
-            $table->integer('official_transfer_time');
         });
     }
 
