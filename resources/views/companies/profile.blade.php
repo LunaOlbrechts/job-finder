@@ -9,7 +9,7 @@
 
 <h1>Internships</h1>
 
-@foreach ($company[0]->internships as $internship )
+@foreach ($company->internships as $internship )
     <a href="/internships/{{$internship->id}}"><h1>{{$internship->id}}</h1></a>
     <p>{{$internship->bio}}</p>
 @endforeach
