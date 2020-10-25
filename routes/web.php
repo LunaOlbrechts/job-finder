@@ -62,6 +62,10 @@ Route::get('/companies', [CompanyController::class, 'index']);
 // Route for company profile
 Route::get('/companies/{company}', [CompanyController::class, 'profile']);
 
+// Route for application filtering
+Route::get('/companies/{company}/filter', [CompanyController::class, 'edit'])->name('company/edit');
+Route::post('/companies/{company}/filter', [StudentController::class, 'filter'])->name('company/filter');
+
 // Route for students
 Route::get('/students', [StudentController::class, 'index']);
 

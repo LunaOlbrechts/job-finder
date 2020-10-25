@@ -9,6 +9,9 @@
 
 <h1>Internships</h1>
 
+<p><a href="/companies/{{$company->id}}/filter"><h1>{{  __('Applications') }}</h1></a></p>
+<br>
+
 @foreach ($company->internships as $internship )
     <a href="/internships/{{$internship->id}}"><h1>{{$internship->id}}</h1></a>
     <p>{{$internship->bio}}</p>

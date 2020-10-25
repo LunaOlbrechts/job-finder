@@ -15,12 +15,15 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('internship_id');
-            $table->integer('students_id');
+            $table->bigInteger('internship_id')->unsigned();
+            $table->foreign('internship_id')->references('id')->on('internships');
+            $table->bigInteger('students_id')->unsigned();
+            $table->foreign('students_id')->references('id')->on('students');
             $table->text('content');
             $table->integer('stars');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -30,6 +33,8 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('reviews');
+        Schema::enableForeignKeyConstraints();
     }
 }
