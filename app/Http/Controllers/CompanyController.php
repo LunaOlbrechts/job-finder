@@ -19,8 +19,22 @@ class CompanyController extends Controller
     {
         $company = Company::where('id', $company)->with('internships')->first();
         $data['company'] = $company;
+        $companyLong = $company->longitude;
+        $companyLat = $company->latitude;
         
-        return view('companies/profile', $data);
+        $query = "SELECT *, DEGREES(ACOS(SIN(RADIANS(?)) * SIN(RADIANS(`latitude`)) +  COS(RADIANS(?)) * COS(RADIANS(`latitude`)) * COS(RADIANS(? - `longitude`)))) *6371 AS distance
+                    FROM trains
+                    ORDER BY distance ASC
+                    LIMIT 1";
+                    
+        $getNearestTrainStation = DB::select(DB::raw($query), [
+            $companyLat,
+            $companyLat,
+            $companyLong
+        ]);
+        
+        $nearestStation['getNearestTrainStation'] = $getNearestTrainStation;
+        return view('companies/profile', $data, $nearestStation);
     }
 
     public function edit(Request $request, $company){
