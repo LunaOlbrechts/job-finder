@@ -18,6 +18,8 @@ $(function() {
                         $("#companyNameDiv").append('<a href="#" class="autocompleteResponse"><div>' + venue.name + '</div></a>');
                         $(".autocompleteResponse").on("click", function() {
                             $("#location").val(venue.location["address"] + " " + venue.location["city"]);
+                            $("#longitude").val(venue.location["lng"]);
+                            $("#latitude").val(venue.location["lat"]);
                         });
                     });
                 }
