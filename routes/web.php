@@ -36,13 +36,8 @@ Route::get('/profile', function () {
 });
 
 // Route for internships
-<<<<<<< HEAD
-Route::get('/internships/{internship}', [InternshipController::class, 'index']);
-Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail']);
-=======
 Route::get('/internships', [InternshipController::class, 'index']);
 Route::post('/internships', [InternshipController::class, 'index']);
->>>>>>> 69620a3bf1882ed3c934c05e061a96751101a941
 
 Route::get('/internships/create/{company_id}', [InternshipController::class, 'create']);
 Route::post('/internships', [InternshipController::class, 'createInternship']);

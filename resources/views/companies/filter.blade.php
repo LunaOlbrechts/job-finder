@@ -53,9 +53,7 @@
                                             <td>{{$application->label}}</td>
                                             <td style="width: 250px;">
                                                 <a href="#" class="btn btn-danger">Decline</a>
-                                            </td>
-                                            <td style="width: 250px;">
-                                                <a href="#" class="btn btn-danger">Approve</a>
+                                                <a href="#" class="btn btn-success">Approve</a>
                                             </td>
                                         </tr>
                                     @endforeach
