@@ -27,16 +27,14 @@ class CompanyController extends Controller
                     ORDER BY distance ASC
                     LIMIT 1";
                     
-        $station = DB::select(DB::raw($query), [
+        $getNearestTrainStation = DB::select(DB::raw($query), [
             $companyLat,
             $companyLat,
             $companyLong
         ]);
         
-        $dat['stations'] = $station;
-        dd($dat);
-        
-        return view('companies/profile', $data);
+        $nearestStation['getNearestTrainStation'] = $getNearestTrainStation;
+        return view('companies/profile', $data, $nearestStation);
     }
 
     public function edit(Request $request, $company){
