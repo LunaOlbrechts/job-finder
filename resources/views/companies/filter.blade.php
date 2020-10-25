@@ -18,7 +18,7 @@
                         <form action="" class="form-inline">
                             <label for="label_filter">Filter by label &nbsp;</label>
                             <select name="label" id="label_filter" class="form-control">
-                                <option value="">Select label</option>
+                                <option value="none">Select label</option>
                                 <option value="approved">Approved</option>
                                 <option value="declined">Declined</option>
                                 <option value="starred">Starred</option>
@@ -28,7 +28,7 @@
                             <input type="text" class="form-control" name="keyword" placeholder="Enter keyword" id="keyword">
                             <span>&nbsp;</span>
 
-                            <button id="search_button" type="button" onclick="search_application()" class="btn btn-primary">Search</button>
+                            <button id="search_button" type="button" class="btn btn-primary">Search</button>
                             <a href="" class="btn btn-success">Clear</a>
                         </form>
                     </div>
@@ -52,8 +52,13 @@
                                             <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->bio }}</a></td>
                                             <td>{{$application->label}}</td>
                                             <td style="width: 250px;">
-                                                <a href="#" class="btn btn-danger">Decline</a>
-                                                <a href="#" class="btn btn-success">Approve</a>
+
+                                            <form action="{{ route('file_update', $application->id) }}" method="POST">
+                                                {{ csrf_field() }}
+                                                {{ method_field('PATCH') }}
+                                                <button name="decline" value="decline" type="submit" class="btn btn-danger" style="margin-top: 10px;">Decline</button>
+                                                <button name="approve" value="approve" type="submit" class="btn btn-success" style="margin-top: 10px;">Approve</button>
+                                            </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,15 +83,32 @@
         var dropDownValue = document.getElementById("label_filter");
         var applicationData = document.querySelectorAll(".application_data");
 
+        var keywordValue = '';
+        var applicationName = '';
+        var applicationBio = '';
+
         document.getElementById("search_button").addEventListener("click", function(){
+            keywordValue = document.getElementById("keyword").value;
             var dropDownResult = dropDownValue.options[dropDownValue.selectedIndex].value;
+
             for(var i = 0; i<applicationData.length; i++){
+
                 var applicationDataLabel = applicationData[i].getAttribute('data-label');
-                
-                if(applicationDataLabel != dropDownResult){
+                if(dropDownResult == 'none'){
+                    applicationData[i].style.display = "table-row";
+                } else if(applicationDataLabel != dropDownResult){
                     applicationData[i].style.display = "none";
                 } else {
                     applicationData[i].style.display = "table-row";
+                }
+
+                applicationName = applicationData[i].childNodes[2].nextSibling.childNodes[0].innerHTML.toLowerCase();
+                applicationBio = applicationData[i].childNodes[5].innerText.toLowerCase();
+
+                if(applicationName.includes(keywordValue.toLowerCase()) || applicationBio.includes(keywordValue.toLowerCase())){
+                    applicationData[i].style.display = "table-row";
+                } else {
+                    applicationData[i].style.display = "none";
                 }
             }
         });

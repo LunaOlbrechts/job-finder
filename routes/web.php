@@ -39,6 +39,8 @@ Route::get('/profile', function () {
 Route::get('/internships', [InternshipController::class, 'index']);
 Route::post('/internships', [InternshipController::class, 'index']);
 
+Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail']);
+
 Route::get('/internships/create/{company_id}', [InternshipController::class, 'create']);
 Route::post('/internships', [InternshipController::class, 'createInternship']);
 
@@ -64,6 +66,7 @@ Route::get('/companies/{company}', [CompanyController::class, 'profile']);
 
 // Route for application filtering
 Route::get('/companies/{company}/filter', [CompanyController::class, 'edit'])->name('company/edit');
+Route::patch('/companies/{company}/filter', [CompanyController::class, 'file_update'])->name('file_update');
 Route::post('/companies/{company}/filter', [StudentController::class, 'filter'])->name('company/filter');
 
 // Route for students

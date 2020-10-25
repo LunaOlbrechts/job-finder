@@ -48,4 +48,23 @@ class CompanyController extends Controller
 
         return view('companies/filter')->withApplications($data);
     }
+
+
+    public function file_update(Request $request, $application){
+        if(isset($_POST['decline'])){
+            DB::table('applications')
+                ->where('id', $application)
+                ->update(['label' => 'declined']);
+
+            return redirect()->back();
+        }elseif(isset($_POST['approve'])){
+            DB::table('applications')
+                ->where('id', $application)
+                ->update(['label' => 'approved']);
+
+            return redirect()->back();
+        }
+        
+        return redirect()->back();
+    }
 }
