@@ -6,11 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Company;
 use Illuminate\Http\Request;
-use App\Providers\RouteServiceProvider;
-use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {

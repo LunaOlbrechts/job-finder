@@ -42,15 +42,18 @@ Route::post('/internships', [InternshipController::class, 'index']);
 Route::get('/internships/create/{company_id}', [InternshipController::class, 'create']);
 Route::post('/internships', [InternshipController::class, 'createInternship']);
 
-// Route for internship vacature
-Route::get('/login/student', [LoginController::class, 'showStudentLoginForm'])->name('login/student');
-Route::get('/login/company', [LoginController::class, 'showCompanyLoginForm'])->name('login/company');
+// Route for register and login student
 Route::get('/register/student', [RegisterController::class, 'showStudentRegisterForm'])->name('register/student');
-Route::get('/register/company', [RegisterController::class, 'showCompanyRegisterForm'])->name('register/company');
+Route::get('/login/student', [LoginController::class, 'showStudentLoginForm'])->name('login/student');
 
 Route::post('/login/student', [LoginController::class, 'studentLogin']);
-Route::post('/login/company', [LoginController::class, 'companyLogin']);
 Route::post('/register/student', [RegisterController::class, 'createStudent']);
+
+// Route for register and login company
+Route::get('/register/company', [RegisterController::class, 'showCompanyRegisterForm'])->name('register/company');
+Route::get('/login/company', [LoginController::class, 'showCompanyLoginForm'])->name('login/company');
+
+Route::post('/login/company', [LoginController::class, 'companyLogin']);
 Route::post('/register/company', [RegisterController::class, 'createCompany']);
 
 // Route for companies
@@ -68,8 +71,6 @@ Route::get('/students/{student}', [StudentController::class, 'profile']);
 // Route for update student profile
 Route::get('/students/{student}/update', [StudentController::class, 'edit'])->name('students/edit');
 Route::post('/students/{student}/update', [StudentController::class, 'update'])->name('students/update');
-
-Route::get('/trains', [TrainStationController::class, 'trainStations']);
 
 Auth::routes();
 
