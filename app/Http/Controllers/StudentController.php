@@ -77,15 +77,26 @@ class StudentController extends Controller
                 ]);
             }
 
+            //location optimizer
+            $request->flash();
             $adress = $request['location'];
-            $url = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=cRpECXLczLUIfUJVWoh-zg6XvvMbc8kKeQVk0k5lyPY&query=$adress";
+            $url = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=aIPQX3C8hUC98kgWUAdekaOUrrCI9Q1BtuCXIhJw1_k&query=$adress";
             $response = Http::get($url)->json();
-            if($response['suggestions'] == NULL){
+            if($response['error'] == 'Unauthorized'){
+                $myresponse = $request['location'];
+            } else if($response['suggestions'] == NULL){
                 $myresponse = $request['location'];
             } else {
                 $myresponse = $response['suggestions'][0]['label'];
-            }
-       
+            } 
+
+            //behance projecten vinden
+                //$behance = $request['behance'];
+                //$behanceUrl = "https://dribbble.com/oauth/authorize?client_id=959aa3996fcb9f13fd9565186b223482106125362514dfabc8153daed8efac1c";
+                //$behanceResponse = Http::get($behanceUrl)->json();
+                //dd($behanceResponse);
+            
+            //toevoegen aan db
                 DB::table('students')->where('id', $id)->update($request->except('_token', 'location'));
                 DB::table('students')->where('id', $id)->update(['location' => $myresponse]);
                 $request->session()->flash('success', 'Your details have now been updated.');
