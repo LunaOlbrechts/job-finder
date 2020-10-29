@@ -12,7 +12,6 @@
 
 
 <h1>Internships</h1>
-
 <p><a href="/companies/{{$company->id}}/filter"><h1>{{  __('Applications') }}</h1></a></p>
 <br>
 
