@@ -5,17 +5,25 @@ Create internship
 @endsection
 
 @section('content')
+
     <div class="container">
-        
+
     <div class="row justify-content-center">
-    <h1>Create new internship</h1>
 
         <div class="col-md-8">
+        <h1>Create Internship</h1> 
+
             <div class="card">
+
      <form method="post" action="/internships">
-     
+
 
           {{ csrf_field() }}
+          
+          <div class="form-group">
+          <label for="title">Title</label>
+          <textarea class="form-control" id="title" name="title" rows="1" placeholder="Title"></textarea>
+          </div>
 
           <div class="form-group">
           <label for="bio">Bio</label>

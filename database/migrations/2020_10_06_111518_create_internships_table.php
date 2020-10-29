@@ -15,6 +15,7 @@ class CreateInternshipsTable extends Migration
     {
         Schema::create('internships', function (Blueprint $table) {
             $table->id();
+            $table->text('title');
             $table->bigInteger('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies');
             $table->text('bio');

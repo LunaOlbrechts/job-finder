@@ -23,45 +23,17 @@ class InternshipController extends Controller
     }
 
 
-<<<<<<< HEAD
-public function create()
-{
-    return view('internships/create');
-}
-
-public function createInternship(Request $request)
-{
-
-    
-    $request->flash();
-    
-    $internship = new \App\Models\Internship();
-    $internship->bio = $request->input('bio');
-    $internship->type = $request->input('type');
-    $internship->expectations = $request->input('expectations');
-    $internship->offers = $request->input('offers');
-    $internship->location =$request->input('location');
-    $internship->company_id = $request->input('company_id');
-
-    $internship->save();
-
-    return redirect('/companies');
-}
-
-
-}
-=======
     public function create()
     {
         return view('internships/create');
     }
->>>>>>> fc4bd4833f0effc3ab3fb40ba519d0404150ea10
 
     public function createInternship(Request $request)
     {
         $request->flash();
         
         $internship = new \App\Models\Internship();
+        $internship->title = $request->input('title');
         $internship->bio = $request->input('bio');
         $internship->type = $request->input('type');
         $internship->expectations = $request->input('expectations');
@@ -70,6 +42,6 @@ public function createInternship(Request $request)
         $internship->company_id = $request->input('company_id');
         $internship->save();
 
-        return redirect('/companies');
+        return redirect('/internships');
     }
 }
