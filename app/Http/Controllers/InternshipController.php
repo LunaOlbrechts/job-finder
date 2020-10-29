@@ -40,6 +40,7 @@ public function createInternship(Request $request)
     $internship->offers = $request->input('offers');
     $internship->location =$request->input('location');
     $internship->company_id = $request->input('company_id');
+
     $internship->save();
 
     return redirect('/companies');
