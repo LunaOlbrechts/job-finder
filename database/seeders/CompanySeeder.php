@@ -21,7 +21,9 @@ class CompanySeeder extends Seeder
                 'bio'=> "Je werkt binnen een gemoedelijke sfeer waar je als nieuwe collega wordt verwelkomd met humor en een open geest. Je collega's staan klaar om te helpen en je ontvangt persoonlijke begeleiding bij al je ambities. Heb je vragen? Zowel je management als je directe collega's zijn meteen aanspreekbaar. Geen barrières, geen regeltjes. Gewoon gezond verstand, een flinke dosis humor en af en toe wat zelfrelativering ;-)",
                 'projects'=> "Drupal platform voor Q8, multisite website platform voor een grote stad, Digitaal erfgoed platform met 3 websites in 1",
                 'employees'=> "",
-                'location'=> "56",
+                'location'=> "Kontich",
+                'longitude' => '51.144074',
+                'latitude' => '4.447773',
                 'email'=> "jobs@calibrate.be",
                 'phone'=> "042101632",
                 'password'=> "test",
@@ -34,6 +36,8 @@ class CompanySeeder extends Seeder
                 'location'=> "Antwerpen (HQ)
                 Minderhoutsestraat 1
                 2320 Hoogstraten",
+                'longitude' => '51.144074',
+                'latitude' => '4.447773',
                 'email'=> "hallo@multimedium.be",
                 'phone'=> "+3232977154",
                 'password'=> "test",
@@ -56,6 +60,8 @@ class CompanySeeder extends Seeder
                 'email'=> "hello@digitag.co",
                 'phone'=> "3232977154",
                 'password'=> "test",
+                'longitude' => '51.144074',
+                'latitude' => '4.447773',
 
             ],
             [
@@ -75,6 +81,8 @@ class CompanySeeder extends Seeder
                 'email'=> "",
                 'phone'=> "3232977154",
                 'password'=> "test",
+                'longitude' => '51.144074',
+                'latitude' => '4.447773',
             ],
             [
                 'name' => "World of digits",
@@ -85,6 +93,8 @@ class CompanySeeder extends Seeder
                 'location'=> "Sluisweg 1/bus 15
                 Blue Tower 1
                 9000 Gent",
+                'longitude' => '51.144074',
+                'latitude' => '4.447773',
                 'email'=> "",
                 'phone'=> "+3228992020",
                 'password'=> "test"
@@ -103,6 +113,8 @@ class CompanySeeder extends Seeder
                 RUE DU MAIL, 50
                 1050 BRUSSELS
                 VAT BE0537.939.729",
+                  'longitude' => '51.144074',
+                'latitude' => '4.447773',
                 'email'=> "hello@8trust.com",
                 'phone'=> "+32492738878",
                 'password'=> "test"

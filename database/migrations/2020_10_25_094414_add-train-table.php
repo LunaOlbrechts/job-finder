@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameTableUsersIntoStudents extends Migration
+class AddTrainTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,13 @@ class RenameTableUsersIntoStudents extends Migration
      */
     public function up()
     {
-        Schema::rename('users', 'students');
+        Schema::create('trains', function (Blueprint $table) {
+            $table->id();
+            $table->string('uri');
+            $table->string('name');
+            $table->double('longitude');
+            $table->double('latitude');
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class RenameTableUsersIntoStudents extends Migration
      */
     public function down()
     {
-        Schema::rename('students', 'users');
+        Schema::drop('trains');
     }
 }

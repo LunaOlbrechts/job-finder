@@ -15,7 +15,8 @@ class CreateInternshipsTable extends Migration
     {
         Schema::create('internships', function (Blueprint $table) {
             $table->id();
-            $table->integer('company_id');
+            $table->bigInteger('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies');
             $table->text('bio');
             $table->string('type');
             $table->text('expectations');
@@ -23,6 +24,7 @@ class CreateInternshipsTable extends Migration
             $table->string('location');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -32,6 +34,9 @@ class CreateInternshipsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('internships');
+        Schema::dropIfExists('reviews');
+        Schema::enableForeignKeyConstraints();
     }
 }

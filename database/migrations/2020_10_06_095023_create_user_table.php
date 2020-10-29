@@ -14,7 +14,7 @@ class CreateUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->integer('internship_id')->nullable();
             $table->string('name');
@@ -27,7 +27,7 @@ class CreateUserTable extends Migration
             $table->text('tools')->nullable(); // =skills
             $table->string('location')->nullable();
             $table->text('bio')->nullable();
-            $table->binary('cv')->nullable();
+            $table->binary('behance')->nullable();
             $table->string('linkedin')->nullable();
             $table->timestamps();
             $table->rememberToken();

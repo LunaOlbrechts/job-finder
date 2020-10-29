@@ -56,6 +56,18 @@
                             </div>
                         </div>
 
+                        <!--<div class="form-group row">
+                            <label for="behance" class="col-md-4 col-form-label text-md-right">{{ __('Dribbble username for portfolio projects') }}</label>
+                            <div class="col-md-6">
+                                <input id="behance" value="{{ $student['behance'] }}" type="text" class="form-control @error('behance') is-invalid @enderror" name="behance" value="{{ old('behance') }}"  autocomplete="behance">
+                                @error('behance')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>-->
+
                         <div class="form-group row">
                             <label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('Bio') }}</label>
                             <div class="col-md-6">

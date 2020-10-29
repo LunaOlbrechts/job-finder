@@ -23,7 +23,7 @@ class ReviewSeeder extends Seeder
                 'stars'=> "3"
             ],
             [
-                'internship_id' => "1",
+                'internship_id' => "5",
                 'students_id'=> "2",
                 'content'=> "Ik zou deze internship echt aanraden, ik heb mij goed geamusseerd met het team en heb tegelijkertijd heel veel bijgeleerd.",
                 'stars'=> "4"

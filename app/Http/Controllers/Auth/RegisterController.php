@@ -6,11 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Company;
 use Illuminate\Http\Request;
-use App\Providers\RouteServiceProvider;
-use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -66,6 +62,8 @@ class RegisterController extends Controller
         $company->name = $request->input('name');
         $company->email = $request->input('email');
         $company->location = $request->input('location');
+        $company->longitude = $request->input('longitude');
+        $company->latitude = $request->input('latitude');
         $company->bio = $request->input('bio');
         $company->phone = $request->input('phone');
         $company->password = Hash::make($request->input('password'));
