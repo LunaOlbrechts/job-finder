@@ -47,7 +47,7 @@ class LoginController extends Controller
         return view('auth/login', ['url' => 'student']);
     }
 
-    public function StudentLogin(Request $request)
+    public function studentLogin(Request $request)
     {
         $this->validate($request, [
             'email'   => 'required|email',

@@ -39,11 +39,15 @@ class StudentController extends Controller
         return view('students/update', $data);
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request, $studentId){
         $user = DB::table('students')
-            ->where('id', $id)
+            ->where('id', $studentId)
             ->first();
       // $user = Student::find(Auth::user()->id);
+        if(!$user){
+            return redirect()->back();
+        }
+        
         if ($user){
             /*if($cv = $request->file('cv')){
                 $name = $cv->getClientOriginalName();
@@ -97,12 +101,10 @@ class StudentController extends Controller
                 //dd($behanceResponse);
             
             //toevoegen aan db
-                DB::table('students')->where('id', $id)->update($request->except('_token', 'location'));
-                DB::table('students')->where('id', $id)->update(['location' => $myresponse]);
+                DB::table('students')->where('id', $studentId)->update($request->except('_token', 'location'));
+                DB::table('students')->where('id', $studentId)->update(['location' => $myresponse]);
                 $request->session()->flash('success', 'Your details have now been updated.');
                 return redirect()->back();
-        } else {
-            return redirect()->back();
         }
     //}};
     }

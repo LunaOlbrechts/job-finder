@@ -46,7 +46,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        return redirect()->intended('students');
+        return redirect()->intended('students', $student);
     }
 
     protected function createCompany(Request $request)
