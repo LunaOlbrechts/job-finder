@@ -40,6 +40,8 @@ Route::get('/internships', [InternshipController::class, 'index']);
 Route::post('/internships', [InternshipController::class, 'index']);
 
 Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail']);
+Route::post('/internships/{internship}/detail', [InternshipController::class, 'apply']);
+
 
 Route::get('/internships/create/{company_id}', [InternshipController::class, 'create']);
 Route::post('/internships', [InternshipController::class, 'createInternship']);
