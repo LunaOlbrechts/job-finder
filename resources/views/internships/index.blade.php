@@ -1,5 +1,10 @@
-<h1>Internships</h1>
+@extends('layouts.app')
 
-@foreach ($internships as $internship)
-    <a href="/internships/{{ $internship->id }}/detail"><p>{{ $internship->company_id}}</p></a>
-@endforeach
+@section('content')
+    <div class="container">
+        <h1>Internships</h1>
+        @foreach ($internships as $internship)
+            <a href="/internships/{{ $internship->id }}/detail"><p>{{ $internship->title}}</p></a>
+        @endforeach
+    </div>
+@endsection
