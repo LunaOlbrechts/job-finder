@@ -45,14 +45,6 @@ class StudentController extends Controller
             ->first();
       // $user = Student::find(Auth::user()->id);
         if ($user){
-            /*if($cv = $request->file('cv')){
-                $name = $cv->getClientOriginalName();
-                if($cv->move('cv', $name)){
-                    $request['cv'] = $name;
-
-                    dd($request->all());*/
-   
-            
             $data = $request->validate([
                 'name' => 'required|min:2',
                 'age' => 'required|min:2',
@@ -104,6 +96,5 @@ class StudentController extends Controller
         } else {
             return redirect()->back();
         }
-    //}};
     }
 }
