@@ -21,7 +21,6 @@
             <p>{{ $company->phone }}</p>
         </div>
 
-<<<<<<< HEAD
         <h1>Nearest train station</h1>
         @if(count($getNearestTrainStation))
             <p>{{ $getNearestTrainStation[0]->name}}</p>
@@ -38,7 +37,6 @@
             <a href="/internships/{{$internship->id}}"><h1>{{$internship->id}}</h1></a>
             <p>{{$internship->bio}}</p>
         @endforeach
-=======
         <div>
             <h3>Dichtstbijzijnde treinstation</h3>
             <p>{{ $getNearestTrainStation[0]->name}}</p>
