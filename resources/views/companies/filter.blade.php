@@ -79,20 +79,15 @@
 
 @section('javascript')
     <script type="text/javascript">
-
         var dropDownValue = document.getElementById("label_filter");
         var applicationData = document.querySelectorAll(".application_data");
-
         var keywordValue = '';
         var applicationName = '';
         var applicationBio = '';
-
         document.getElementById("search_button").addEventListener("click", function(){
             keywordValue = document.getElementById("keyword").value;
             var dropDownResult = dropDownValue.options[dropDownValue.selectedIndex].value;
-
             for(var i = 0; i<applicationData.length; i++){
-
                 var applicationDataLabel = applicationData[i].getAttribute('data-label');
                 if(dropDownResult == 'none'){
                     applicationData[i].style.display = "table-row";
@@ -101,10 +96,8 @@
                 } else {
                     applicationData[i].style.display = "table-row";
                 }
-
                 applicationName = applicationData[i].childNodes[2].nextSibling.childNodes[0].innerHTML.toLowerCase();
                 applicationBio = applicationData[i].childNodes[5].innerText.toLowerCase();
-
                 if(applicationName.includes(keywordValue.toLowerCase()) || applicationBio.includes(keywordValue.toLowerCase())){
                     applicationData[i].style.display = "table-row";
                 } else {
@@ -112,6 +105,5 @@
                 }
             }
         });
-
     </script>
 @endsection

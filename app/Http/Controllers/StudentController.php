@@ -49,14 +49,6 @@ class StudentController extends Controller
         }
         
         if ($user){
-            /*if($cv = $request->file('cv')){
-                $name = $cv->getClientOriginalName();
-                if($cv->move('cv', $name)){
-                    $request['cv'] = $name;
-
-                    dd($request->all());*/
-   
-            
             $data = $request->validate([
                 'name' => 'required|min:2',
                 'age' => 'required|min:2',
@@ -106,6 +98,5 @@ class StudentController extends Controller
                 $request->session()->flash('success', 'Your details have now been updated.');
                 return redirect()->back();
         }
-    //}};
     }
 }
