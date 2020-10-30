@@ -24,7 +24,9 @@ class ApplicationFactory extends Factory
         return [
             'user_id' => $this->faker->numberBetween($min = 1, $max = 4),
             'internship_id' => $this->faker->numberBetween($min = 1, $max = 5),
-            'label' => $this->faker->randomElement(['new', 'starred', 'approved', 'declined'])
+            'label' => $this->faker->randomElement(['new', 'starred', 'approved', 'declined']),
+            'motivation' => $this->faker->text
+
         ];
     }
 }

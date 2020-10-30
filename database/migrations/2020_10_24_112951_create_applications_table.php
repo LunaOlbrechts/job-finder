@@ -20,6 +20,8 @@ class CreateApplicationsTable extends Migration
             $table->bigInteger('internship_id')->unsigned();
             $table->foreign('internship_id')->references('id')->on('internships');
             $table->string('label');
+            $table->string('motivation');
+
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

@@ -46,7 +46,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        return redirect()->intended('students');
+        return redirect()->intended('internships');
     }
 
     protected function createCompany(Request $request)
@@ -69,6 +69,6 @@ class RegisterController extends Controller
         $company->password = Hash::make($request->input('password'));
         $company->save();
         
-        return redirect('register/company');
+        return redirect('companies');
     }
 }

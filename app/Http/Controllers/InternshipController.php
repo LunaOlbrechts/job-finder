@@ -33,6 +33,7 @@ class InternshipController extends Controller
         $request->flash();
         
         $internship = new \App\Models\Internship();
+        $internship->title = $request->input('title');
         $internship->bio = $request->input('bio');
         $internship->type = $request->input('type');
         $internship->expectations = $request->input('expectations');
@@ -41,6 +42,21 @@ class InternshipController extends Controller
         $internship->company_id = $request->input('company_id');
         $internship->save();
 
-        return redirect('/companies');
+        return redirect('/internships');
+    }
+
+
+
+    public function apply(Request $request){
+        $request->flash();
+        
+        $application = new \App\Models\Application();
+        $application->motivation = $request->input('motivation');
+        $application->label = "new";
+        $application->user_id = "1";
+        $application->internship_id = $request->input('internship');
+        $application->save();
+
+        return redirect('/internships');
     }
 }
