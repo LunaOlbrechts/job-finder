@@ -27,7 +27,7 @@
         </div>
         <div>
             <h3>Aangebode stages</h3>
-                <p><a href="/companies/{{$company->id}}/filter"><p>{{  __('Applications') }}</p></a></p>
+                <p><a href="cfilter"><p>{{  __('Applications') }}</p></a></p>
             <br>
             @foreach ($company->internships as $internship )
                 <a href="/internships/{{$internship->id}}"><p>{{$internship->id}}</p></a>
