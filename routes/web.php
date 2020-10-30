@@ -78,8 +78,8 @@ Route::get('/students', [StudentController::class, 'index']);
 Route::get('/students/{student}', [StudentController::class, 'profile']);
 
 // Route for update student profile
-Route::get('/students/{student}/update', [StudentController::class, 'edit'])->name('students/edit');
-Route::post('/students/{student}/update', [StudentController::class, 'update'])->name('students/update');
+Route::get('/students/{student}/update', [StudentController::class, 'editUserProfile'])->name('students/edit');
+Route::post('/students/{student}/update', [StudentController::class, 'updateUserProfile'])->name('students/update');
 
 Auth::routes();
 

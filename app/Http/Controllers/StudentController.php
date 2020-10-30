@@ -21,7 +21,7 @@ class StudentController extends Controller
         return view('students/profile', $data);
     }
 
-    public function edit(Student $student){
+    public function editUserProfile(Student $student){
         //$user['students'] = DB::table('students')->get();
         /*if(Auth::user()) {
             $user = Student::find(Auth::user()->id);
@@ -39,7 +39,7 @@ class StudentController extends Controller
         return view('students/update', $data);
     }
 
-    public function update(Request $request, $studentId){
+    public function updateUserProfile(Request $request, $studentId){
         $user = DB::table('students')
             ->where('id', $studentId)
             ->first();
