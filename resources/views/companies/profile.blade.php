@@ -10,8 +10,12 @@
         <p>{{ $company->phone }}</p>
 
         <h1>Nearest train station</h1>
-        <p>{{ $getNearestTrainStation[0]->name}}</p>
-
+        @if(count($getNearestTrainStation))
+            <p>{{ $getNearestTrainStation[0]->name}}</p>
+        @else
+            <p>No stations found</p>
+        @endif
+    
 
         <h1>Internships</h1>
         <p><a href="/companies/{{$company->id}}/filter"><h1>{{  __('Applications') }}</h1></a></p>
