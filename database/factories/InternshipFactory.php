@@ -23,7 +23,7 @@ class InternshipFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->sentence($nbWords = 12, $variableNbWords = true),
+            'title' => $this->faker->sentence($nbWords = 5, $variableNbWords = true),
             'company_id' => $this->faker->numberBetween($min = 1, $max = 6),
             'bio' => $this->faker->text,
             'type' => $this->faker->sentence($nbWords = 12, $variableNbWords = true),
