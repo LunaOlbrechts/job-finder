@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Application;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\Auth\Create_internship;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
@@ -67,8 +69,8 @@ Route::get('/companies', [CompanyController::class, 'index']);
 Route::get('/companies/{company}', [CompanyController::class, 'profile']);
 
 // Route for application filtering
-Route::get('/companies/{company}/filter', [CompanyController::class, 'edit'])->name('company/edit');
 Route::patch('/companies/{company}/filter', [CompanyController::class, 'file_update'])->name('file_update');
+Route::get('/companies/{company}/filter', [ApplicationController::class, 'showListOfAllApplications'])->name('company/filter');
 Route::post('/companies/{company}/filter', [StudentController::class, 'filter'])->name('company/filter');
 
 // Route for students

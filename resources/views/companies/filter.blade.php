@@ -46,8 +46,8 @@
                                     @foreach($applications as $application)
                                         <tr class="application_data" data-label="{{$application->label}}">
                                             <td>{{ $application->id }}</td>
-                                            <td><a href="/students/{{ $application->user_id }}">{{$application->name}}</a></td>
-                                            <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->bio }}</a></td>
+                                            <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
+                                            <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->internship->title }}</a></td>
                                             <td>{{$application->label}}</td>
                                             <td style="width: 250px;">
 

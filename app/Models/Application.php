@@ -9,17 +9,17 @@ class Application extends Model
 {
     use HasFactory;
 
-    public function user(){
+    public function student(){
         /* Many to many relationship between application and student 
-        *   An application has many students 
+        *   An application has a student
         */
-        return $this->hasMany('App\Models\Student');
+        return $this->belongsTo('App\Models\Student');
     }
 
     public function internship(){
         /* Many to many relationship between application and internship 
-        *   An application has many internships 
+        *   An application belongs to an internship
         */
-        return $this->hasMany('App\Models\Internship');
+        return $this->belongsTo('App\Models\Internship');
     }
 }
