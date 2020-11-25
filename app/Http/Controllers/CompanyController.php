@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,13 +41,11 @@ class CompanyController extends Controller
     public function edit(Request $request, $company){
         $post = DB::table('applications')->where('id', auth()->id());
 
-        $data = DB::table('applications')
-            ->select('applications.id', 'applications.label', 'applications.created_at', 'applications.user_id', 'applications.internship_id', 'students.name', 'internships.company_id', 'internships.bio')
-            ->orderBy('applications.id', 'desc')
-            ->join('internships', 'applications.internship_id', '=', 'internships.id')
-            ->join('students', 'applications.user_id', '=', 'students.id')
-            ->where('internships.company_id', $company)
-            ->get();
+        $data = Application::select('applications.*')
+        ->join('internships','internships.id', '=', 'applications.internship_id')
+        ->with(['internship', 'student'])
+        ->where('internships.company_id', 4)
+        ->get();
         
 
         if($request->label){
