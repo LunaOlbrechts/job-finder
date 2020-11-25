@@ -29,6 +29,9 @@ class Company extends Authenticatable
     
     public function internships()
     {
+        /* On to many relationship between company and internship  
+        *   A company has many internships
+        */
         return $this->hasMany('App\Models\Internship');
     }
 }

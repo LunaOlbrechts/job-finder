@@ -47,6 +47,9 @@ class Student extends Authenticatable
     ];
 
     public function application(){
+        /* Many to many relationship between student and application 
+        *   An students has many applications
+        */
         return $this->hasMany('App\Models\Application');
     }
 }

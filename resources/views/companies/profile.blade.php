@@ -37,6 +37,5 @@
             <a href="/internships/{{$internship->id}}"><h1>{{$internship->id}}</h1></a>
             <p>{{$internship->bio}}</p>
         @endforeach
-
     </div>
 @endsection
