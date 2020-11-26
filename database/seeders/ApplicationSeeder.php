@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Application;
 use Database\Factories\ApplicationFactory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class ApplicationSeeder extends Seeder
 {
@@ -15,8 +16,11 @@ class ApplicationSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
         Application::factory()
             ->times(50)
             ->create();
+        Schema::enableForeignKeyConstraints();
+
     }
 }

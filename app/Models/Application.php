@@ -22,4 +22,11 @@ class Application extends Model
         */
         return $this->belongsTo('App\Models\Internship');
     }
+
+    public function applicationFase(){
+        /* Many to many relationship between application and internship 
+        *   An application belongs to an internship
+        */
+        return $this->belongsTo('App\Models\ApplicationFase');
+    }
 }

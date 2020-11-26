@@ -13,7 +13,7 @@
 
                 <div class="card-body">
                     <div class="mb-2">
-                        <form action="" class="form-inline">
+                        <form method="POST" action="" class="form-inline">
                             <label for="label_filter">Filter by label &nbsp;</label>
                             <select name="label" id="label_filter" class="form-control">
                                 <option value="none">Select label</option>
@@ -38,7 +38,7 @@
                                     <th>Student</th>
                                     <th>Internship</th>
                                     <th>Label</th>
-                                    <th>Actions</th>
+                                    <th>Fase</th>
                                 </tr>
                             </thead>
                             <tbody>

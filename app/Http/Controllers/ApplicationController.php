@@ -22,7 +22,7 @@ class ApplicationController extends Controller
         return view('companies/filter')->withApplications($applications);
     }
 
-    public function EditStatusOfApplication(Request $request, $companyId)
+    public function filterApplications(Request $request, $companyId)
     {
         $application = Application::get()->where('id', auth()->id());
         
@@ -41,7 +41,7 @@ class ApplicationController extends Controller
         //return view('companies/filter')->withApplications($data);
     }
 
-    public function file_update(Request $request, $application){
+    public function editApplicationFase(Request $request, $application){
         if(isset($_POST['decline'])){
             DB::table('applications')
                 ->where('id', $application)
