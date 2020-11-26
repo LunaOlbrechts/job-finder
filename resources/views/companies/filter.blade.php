@@ -51,7 +51,7 @@
                                             <td>{{$application->label}}</td>
                                             <td style="width: 250px;">
 
-                                            <form action="{{ route('file_update', $application->id) }}" method="POST">
+                                            <form action="{{ route('editApplicationFase', $application->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('PATCH') }}
                                                 <button name="decline" value="decline" type="submit" class="btn btn-danger" style="margin-top: 10px;">Decline</button>

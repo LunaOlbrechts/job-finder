@@ -69,9 +69,9 @@ Route::get('/companies', [CompanyController::class, 'index']);
 Route::get('/companies/{company}', [CompanyController::class, 'profile']);
 
 // Route for application filtering
-Route::patch('/companies/{company}/filter', [CompanyController::class, 'file_update'])->name('file_update');
-Route::get('/companies/{company}/filter', [ApplicationController::class, 'showListOfAllApplications'])->name('company/filter');
-Route::post('/companies/{company}/filter', [StudentController::class, 'filter'])->name('company/filter');
+Route::patch('/companies/{companyId}/applications', [ApplicationController::class, 'file_update'])->name('editApplicationFase');
+Route::get('/companies/{companyId}/applications', [ApplicationController::class, 'showListOfAllApplications'])->name('company/applications');
+Route::post('/companies/{companyId}/applications', [ApplicationController::class, 'EditStatusOfApplication'])->name('company/applications');
 
 // Route for students
 Route::get('/students', [StudentController::class, 'index']);
