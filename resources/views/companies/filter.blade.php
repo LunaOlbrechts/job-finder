@@ -7,10 +7,9 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <div>Applications</div>
+                        <div>Approved applications</div>
                     </div>
                 </div>
-
                 <div class="card-body">
                     <div class="mb-2">
                         <form method="POST" action="" class="form-inline">
@@ -45,6 +44,7 @@
                             <tbody>
                                 @if(count($applications))
                                     @foreach($applications as $application)
+                                        @if($application->label == "approved")
                                         <tr class="application_data" data-label="{{$application->label}}">
                                             <td>{{ $application->id }}</td>
                                             <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
@@ -61,6 +61,7 @@
                                             </form>
                                             </td>
                                         </tr>
+                                        @endif
                                     @endforeach
                                 @else
                                     <tr>
@@ -71,6 +72,43 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <div>Declined applications</div>
+                    </div>
+                </div>
+                <table style="width: 100%;" class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student</th>
+                            <th>Internship</th>
+                            <th>Label</th>
+                            <th>Last phase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(count($applications))
+                            @foreach($applications as $application)
+                                @if($application->label == "declined")
+                                <tr class="application_data" data-label="{{$application->label}}">
+                                    <td>{{ $application->id }}</td>
+                                    <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
+                                    <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->internship->title }}</a></td>
+                                    <td>{{$application->label}}</td>
+                                    <td>{{$application->applicationFase->title}}</td>
+                                </tr>
+                                @endif
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="6">No applications found</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
