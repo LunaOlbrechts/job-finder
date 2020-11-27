@@ -46,7 +46,7 @@ class Student extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function application(){
+    public function applications(){
         /* Many to many relationship between student and application 
         *   An students has many applications
         */

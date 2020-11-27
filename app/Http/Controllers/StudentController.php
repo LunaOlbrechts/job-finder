@@ -17,9 +17,8 @@ class StudentController extends Controller
 
     public function profile($studentId)
     {
-        $student = Student::where('student_id', $studentId)->first();
-        $applicationFase = Application::with(['student'])->where('student_id', $studentId)->get();
-
+        $student = Student::where('id', $studentId)->first();
+        $applicationFase = Application::where('student_id', $studentId)->with(['student', 'applicationFase'])->get();
         dd($applicationFase);
         
         //return view('students/profile', $data);

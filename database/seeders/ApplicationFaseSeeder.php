@@ -18,15 +18,12 @@ class ApplicationFaseSeeder extends Seeder
     {
         DB::table('application_fases')->insert([
             [
-                'id' => "1",
                 'title' => "first interview",
             ],
             [
-                'id' => "2",
                 'title' => "asignment",
             ],
             [
-                'id' => "3",
                 'title' => "second interview",
             ],
         ]);

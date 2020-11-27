@@ -9,24 +9,27 @@ class Application extends Model
 {
     use HasFactory;
 
-    public function student(){
+    public function student()
+    {
         /* Many to many relationship between application and student 
         *   An application has a student
         */
         return $this->belongsTo('App\Models\Student');
     }
 
-    public function internship(){
+    public function internship()
+    {
         /* Many to many relationship between application and internship 
         *   An application belongs to an internship
         */
         return $this->belongsTo('App\Models\Internship');
     }
 
-    public function applicationFase(){
+    public function applicationFase()
+    {
         /* Many to many relationship between application and internship 
         *   An application belongs to an internship
         */
-        return $this->belongsTo('App\Models\ApplicationFase');
+        return $this->belongsTo('App\Models\ApplicationFase', 'fase_id');
     }
 }

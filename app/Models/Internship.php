@@ -17,7 +17,7 @@ class Internship extends Model
         return $this->belongsTo('\App\Models\Company');
     }
 
-    public function application(){
+    public function applications(){
         /* Many to many relationship between internship and application 
         *   An internship has many applications 
         */
