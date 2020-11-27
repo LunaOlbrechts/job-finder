@@ -18,7 +18,7 @@ class ApplicationSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
         Application::factory()
-            ->times(50)
+            ->times(10)
             ->create();
         Schema::enableForeignKeyConstraints();
 

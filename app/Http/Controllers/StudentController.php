@@ -17,11 +17,10 @@ class StudentController extends Controller
 
     public function profile($studentId)
     {
-        $student = Student::where('id', $studentId)->first();
-        $applicationFase = Application::where('student_id', $studentId)->with(['student', 'applicationFase'])->get();
-        dd($applicationFase);
+        $student= Student::where('id', $studentId)->first();
+        $application = Application::where('student_id', $studentId)->with(['student', 'applicationFase'])->get();        
         
-        //return view('students/profile', $data);
+        return view('students/profile')->withApplications($application)->withStudent($student);
     }
 
     public function editUserProfile(Student $student){
@@ -101,14 +100,5 @@ class StudentController extends Controller
                 $request->session()->flash('success', 'Your details have now been updated.');
                 return redirect()->back();
         }
-    }
-
-    public function viewApplicationFaseOfStudent ($studentId){
-        
-        $applicationFase = Application::get()->with(['student', 'applicationFases'])->where('student_id', $studentId);
-
-        dd($applicationFase);
-        
-        //return view('students/profile')->withApplications($applicationFase);
     }
 }

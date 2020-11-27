@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use App\Models\ApplicationFase;
 use Illuminate\Http\Request;
 use App\Models\Internship;
 use App\Models\Student;
@@ -19,7 +20,6 @@ class ApplicationController extends Controller
         ->where('internships.company_id', $companyId)
         ->get();
         
-        dd($applications);
         return view('companies/filter')->withApplications($applications);
     }
 
@@ -42,17 +42,37 @@ class ApplicationController extends Controller
         //return view('companies/filter')->withApplications($data);
     }
 
-    public function editApplicationFase(Request $request, $application){
+    public function editApplicationFase(Request $request, $applicationId){
+        
         if(isset($_POST['decline'])){
             DB::table('applications')
-                ->where('id', $application)
+                ->where('id', $applicationId)
                 ->update(['label' => 'declined']);
 
             return redirect()->back();
+
         }elseif(isset($_POST['approve'])){
-            DB::table('applications')
-                ->where('id', $application)
-                ->update(['label' => 'approved']);
+
+            $applicationFases = Application::with('applicationFase')->where('id', $applicationId)->first();
+
+            if($applicationFases->applicationFase->title == "second interview"){
+                Application::where('id', $applicationId)
+                ->update(['label' => 'approved']);   
+
+                return redirect()->back();
+            }
+
+            if($applicationFases->applicationFase->title == "asignment"){
+                Application::where('id', $applicationId)->update(['fase_id' => '3', 'label' => 'approved']);
+
+                return redirect()->back();
+            }
+
+            if($applicationFases->applicationFase->title == "first interview"){
+                Application::where('id', $applicationId)->update(['fase_id' => '2', 'label' => 'approved']);
+                
+                return redirect()->back();
+            }
 
             return redirect()->back();
         }

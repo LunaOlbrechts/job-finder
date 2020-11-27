@@ -9,5 +9,11 @@
     <p>{{ $student->bio}}</p>
     <p>{{ $student->cv}}</p>
 
+    <h3>Application phases</h3>
+    @foreach($applications as $application)
+    <h4>{{ $application->internship->title}}</h4>
+    <p>{{ $application->applicationFase->title}}</p>
+    @endforeach
+
     <h3><a href="/students/{{ $student->id}}/update">Update profile</a></h3>
 @endsection

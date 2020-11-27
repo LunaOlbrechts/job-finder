@@ -38,7 +38,8 @@
                                     <th>Student</th>
                                     <th>Internship</th>
                                     <th>Label</th>
-                                    <th>Fase</th>
+                                    <th>Phase</th>
+                                    <th>To the next phase?</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,6 +50,7 @@
                                             <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
                                             <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->internship->title }}</a></td>
                                             <td>{{$application->label}}</td>
+                                            <td>{{$application->applicationFase->title}}</td>
                                             <td style="width: 250px;">
 
                                             <form action="{{ route('editApplicationFase', $application->id) }}" method="POST">
