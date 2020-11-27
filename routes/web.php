@@ -31,12 +31,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route for profile (edit) page of company or student
-// TODO: work with id's or make a different route for each
-Route::get('/profile', function () {
-    return view('profile');
-});
-
 // Route for internships
 Route::get('/internships', [InternshipController::class, 'index']);
 Route::post('/internships', [InternshipController::class, 'index']);

@@ -9,10 +9,10 @@ class ApplicationFase extends Model
 {
     use HasFactory;
 
-    public function application()
+    public function applications()
     {
         return $this->hasMany('App\Models\Application');
     }
 
-    protected $table = 'applications_fases';
+    protected $table = 'application_fases';
 }

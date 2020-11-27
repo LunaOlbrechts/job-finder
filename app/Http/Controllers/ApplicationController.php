@@ -15,10 +15,11 @@ class ApplicationController extends Controller
     {
         $applications = Application::select('applications.*')
         ->join('internships','internships.id', '=', 'applications.internship_id')
-        ->with(['internship', 'student'])
+        ->with(['internship', 'student', 'applicationFase'])
         ->where('internships.company_id', $companyId)
         ->get();
         
+        dd($applications);
         return view('companies/filter')->withApplications($applications);
     }
 

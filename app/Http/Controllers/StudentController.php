@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Application;
 use Illuminate\Support\Facades\Http;
 
 class StudentController extends Controller
@@ -14,11 +15,14 @@ class StudentController extends Controller
         return view('students/index', $data);
     }
 
-    public function profile(Student $student)
+    public function profile($studentId)
     {
-        $data['student'] = $student;
+        $student = Student::where('student_id', $studentId)->first();
+        $applicationFase = Application::with(['student'])->where('student_id', $studentId)->get();
+
+        dd($applicationFase);
         
-        return view('students/profile', $data);
+        //return view('students/profile', $data);
     }
 
     public function editUserProfile(Student $student){
@@ -98,5 +102,14 @@ class StudentController extends Controller
                 $request->session()->flash('success', 'Your details have now been updated.');
                 return redirect()->back();
         }
+    }
+
+    public function viewApplicationFaseOfStudent ($studentId){
+        
+        $applicationFase = Application::get()->with(['student', 'applicationFases'])->where('student_id', $studentId);
+
+        dd($applicationFase);
+        
+        //return view('students/profile')->withApplications($applicationFase);
     }
 }

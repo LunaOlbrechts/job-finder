@@ -16,7 +16,6 @@ class AddFaseIdApplications extends Migration
         Schema::table('applications', function (Blueprint $table) {
             $table->foreignId('fase_id')->nullable()->constrained('application_fases');
         });
-
     }
 
     /**
