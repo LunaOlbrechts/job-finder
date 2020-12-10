@@ -5,11 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Update profile') }}<a style="position: absolute; right: 3%;" href="/students">Back</a></div>
+               
+                    
+               
                 
 
                 <div class="card-body">
                     <form method="POST" action='{{ route("students/update", $student->id) }}' enctype="multipart/form-data">
+                    <div class="card-header">{{ __('Update profile') }}
+                        <button style="position: absolute; right: 3%;" type="submit" name="submit" value="back" class="btn btn-primary">
+                            {{ __('Back') }}
+                        </button>
+                       
+                    </div>
                         @csrf
 
                         @if(session('success'))
@@ -56,17 +64,19 @@
                             </div>
                         </div>
 
-                        <!--<div class="form-group row">
-                            <label for="behance" class="col-md-4 col-form-label text-md-right">{{ __('Dribbble username for portfolio projects') }}</label>
+                        <div class="form-group row">
+                            <label for="dribbble" class="col-md-4 col-form-label text-md-right">{{ __('Dribbble username?') }}</label>
                             <div class="col-md-6">
-                                <input id="behance" value="{{ $student['behance'] }}" type="text" class="form-control @error('behance') is-invalid @enderror" name="behance" value="{{ old('behance') }}"  autocomplete="behance">
-                                @error('behance')
+                                <!--<input id="dribbble_yes" type="radio" value="yes" name="dribbble" checked>Yes</input>
+                                <input id="dribbble_no" type="radio" value="no" name="dribbble">No</input>-->
+                                <input id="dribbble" value="{{ $student['dribbble'] }}" type="text" class="form-control @error('dribbble') is-invalid @enderror" name="dribbble" value="{{ old('dribbble') }}"  autocomplete="dribbble">
+                                @error('dribbble')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>-->
+                        </div>
 
                         <div class="form-group row">
                             <label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('Bio') }}</label>
@@ -152,7 +162,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" name="submit" value="submit" class="btn btn-primary">
                                     {{ __('Update profile') }}
                                 </button>
 

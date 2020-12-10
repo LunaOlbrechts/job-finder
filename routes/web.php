@@ -80,6 +80,7 @@ Route::get('/students/{student}', [StudentController::class, 'profile']);
 // Route for update student profile
 Route::get('/students/{student}/update', [StudentController::class, 'editUserProfile'])->name('students/edit');
 Route::post('/students/{student}/update', [StudentController::class, 'updateUserProfile'])->name('students/update');
+//Route::post('/students/{student}/update', [StudentController::class, 'getDribbble'])->name('students/dribbble');
 
 Auth::routes();
 

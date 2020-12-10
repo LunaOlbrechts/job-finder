@@ -89,20 +89,33 @@
             var dropDownResult = dropDownValue.options[dropDownValue.selectedIndex].value;
             for(var i = 0; i<applicationData.length; i++){
                 var applicationDataLabel = applicationData[i].getAttribute('data-label');
-                if(dropDownResult == 'none'){
-                    applicationData[i].style.display = "table-row";
-                } else if(applicationDataLabel != dropDownResult){
-                    applicationData[i].style.display = "none";
-                } else {
-                    applicationData[i].style.display = "table-row";
-                }
                 applicationName = applicationData[i].childNodes[2].nextSibling.childNodes[0].innerHTML.toLowerCase();
                 applicationBio = applicationData[i].childNodes[5].innerText.toLowerCase();
-                if(applicationName.includes(keywordValue.toLowerCase()) || applicationBio.includes(keywordValue.toLowerCase())){
-                    applicationData[i].style.display = "table-row";
+
+                if(dropDownResult != 'none' && keywordValue != ''){
+                    if(applicationDataLabel == dropDownResult && applicationName.includes(keywordValue.toLowerCase()) || applicationBio.includes(keywordValue.toLowerCase()) && applicationDataLabel == dropDownResult){
+                        applicationData[i].style.display = "table-row";
+                    } else {
+                        applicationData[i].style.display = "none";
+                    }
                 } else {
-                    applicationData[i].style.display = "none";
+                    if(dropDownResult != 'none'){
+                        if(applicationDataLabel == dropDownResult){
+                            applicationData[i].style.display = "table-row"; 
+                        } else {
+                            applicationData[i].style.display = "none";
+                        }
+                    } else {
+                        if(applicationName.includes(keywordValue.toLowerCase()) || applicationBio.includes(keywordValue.toLowerCase())){
+                            applicationData[i].style.display = "table-row";
+                        } else {
+                            applicationData[i].style.display = "none";
+                        }
+                    }
                 }
+
+
+
             }
         });
     </script>
