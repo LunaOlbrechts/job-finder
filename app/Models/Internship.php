@@ -11,10 +11,16 @@ class Internship extends Model
 
     public function company()
     {
+        /* On to many relationship between internship and company 
+        *   An internship has one company
+        */
         return $this->belongsTo('\App\Models\Company');
     }
 
-    public function application(){
+    public function applications(){
+        /* Many to many relationship between internship and application 
+        *   An internship has many applications 
+        */
         return $this->hasMany('App\Models\Application');
     }
 }

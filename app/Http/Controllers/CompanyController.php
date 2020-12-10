@@ -36,49 +36,4 @@ class CompanyController extends Controller
         $nearestStation['getNearestTrainStation'] = $getNearestTrainStation;
         return view('companies/profile', $data, $nearestStation);
     }
-
-    public function edit(Request $request, $company){
-        $post = DB::table('applications')->where('id', auth()->id());
-
-
-        $data = DB::table('applications')
-            ->select('applications.id', 'applications.label', 'applications.created_at', 'applications.user_id', 'applications.internship_id', 'students.name', 'internships.company_id', 'internships.bio')
-            ->orderBy('applications.id', 'desc')
-            ->join('internships', 'applications.internship_id', '=', 'internships.id')
-            ->join('students', 'applications.user_id', '=', 'students.id')
-            ->where('internships.company_id', $company)
-            ->get();
-        
-
-        if($request->label){
-            $post->whereHas('label',function($q) use ($request){
-                $q->where('label',$request->label);
-            });
-        }
-
-        if($request->keyword){
-            $post->whereHas('internship', 'LIKE','%' . $request->keyword . '%');
-        }
-
-        return view('companies/filter')->withApplications($data);
-    }
-
-
-    public function file_update(Request $request, $application){
-        if(isset($_POST['decline'])){
-            DB::table('applications')
-                ->where('id', $application)
-                ->update(['label' => 'declined']);
-
-            return redirect()->back();
-        }elseif(isset($_POST['approve'])){
-            DB::table('applications')
-                ->where('id', $application)
-                ->update(['label' => 'approved']);
-
-            return redirect()->back();
-        }
-        
-        return redirect()->back();
-    }
 }

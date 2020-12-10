@@ -7,15 +7,12 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <div>Applications</div>
+                        <div>Approved applications</div>
                     </div>
                 </div>
-
-
-
                 <div class="card-body">
                     <div class="mb-2">
-                        <form action="" class="form-inline">
+                        <form method="POST" action="" class="form-inline">
                             <label for="label_filter">Filter by label &nbsp;</label>
                             <select name="label" id="label_filter" class="form-control">
                                 <option value="none">Select label</option>
@@ -40,20 +37,23 @@
                                     <th>Student</th>
                                     <th>Internship</th>
                                     <th>Label</th>
-                                    <th>Actions</th>
+                                    <th>Phase</th>
+                                    <th>To the next phase?</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if(count($applications))
                                     @foreach($applications as $application)
+                                        @if($application->label == "approved")
                                         <tr class="application_data" data-label="{{$application->label}}">
                                             <td>{{ $application->id }}</td>
-                                            <td><a href="/students/{{ $application->user_id }}">{{$application->name}}</a></td>
-                                            <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->bio }}</a></td>
+                                            <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
+                                            <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->internship->title }}</a></td>
                                             <td>{{$application->label}}</td>
+                                            <td>{{$application->applicationFase->title}}</td>
                                             <td style="width: 250px;">
 
-                                            <form action="{{ route('file_update', $application->id) }}" method="POST">
+                                            <form action="{{ route('editApplicationFase', $application->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('PATCH') }}
                                                 <button name="decline" value="decline" type="submit" class="btn btn-danger" style="margin-top: 10px;">Decline</button>
@@ -61,6 +61,7 @@
                                             </form>
                                             </td>
                                         </tr>
+                                        @endif
                                     @endforeach
                                 @else
                                     <tr>
@@ -71,6 +72,43 @@
                         </table>
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <div>Declined applications</div>
+                    </div>
+                </div>
+                <table style="width: 100%;" class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student</th>
+                            <th>Internship</th>
+                            <th>Label</th>
+                            <th>Last phase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(count($applications))
+                            @foreach($applications as $application)
+                                @if($application->label == "declined")
+                                <tr class="application_data" data-label="{{$application->label}}">
+                                    <td>{{ $application->id }}</td>
+                                    <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
+                                    <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->internship->title }}</a></td>
+                                    <td>{{$application->label}}</td>
+                                    <td>{{$application->applicationFase->title}}</td>
+                                </tr>
+                                @endif
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="6">No applications found</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

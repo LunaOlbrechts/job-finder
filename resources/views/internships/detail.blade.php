@@ -2,17 +2,35 @@
 
 @section('content')
   <div class="container">
-    <h1>{{ $internship[0]->title}}</h1>
-
+    <h1>{{ $internship->title}}</h1>
     <div>
-      <p>Bio: {{ $internship[0]->bio}}</p>
-      <p>Expectations: {{ $internship[0]->expectations}}</p>
-      <p>Offers: {{ $internship[0]->offers}}</p>
-      <p>Location: {{ $internship[0]->location}}</p>
-      <p>Type: {{ $internship[0]->type}}</p>
+      <div>
+        <h3>Company</h3>
+        <a href="/companies/{{ $internship->company->id }}"><p>{{$internship->company->name}}</p><a>
+      </div>
+      <div>
+        <h3>Biography</h3>
+        <p>{{ $internship->bio}}</p>
+      </div>
+      <div>
+        <h3>Expectations</h3>
+        <p>{{ $internship->expectations}}</p>
+      </div>
+      <div>
+        <h3>Offers</h3>
+        <p>{{ $internship->offers}}</p>
+      </div>
+      <div>
+        <h3>Location</h3>
+        <p>{{ $internship->location}}</p>
+      </div>
+      <div>
+        <h3>Type</h3>
+        <p>{{ $internship->type}}</p>
+      </div>
     </div>
 
-    <h1>Apply</h1> 
+    <h2>Apply</h2> 
 
     <div class="card">
       <form method="post" action="">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Application;
 use Illuminate\Support\Facades\Http;
 use Goutte\Client;
 
@@ -16,11 +17,12 @@ class StudentController extends Controller
         return view('students/index', $data);
     }
 
-    public function profile(Student $student)
+    public function profile($studentId)
     {
-        $data['student'] = $student;
+        $student= Student::where('id', $studentId)->first();
+        $application = Application::where('student_id', $studentId)->with(['student', 'applicationFase'])->get();        
         
-        return view('students/profile', $data);
+        return view('students/profile')->withApplications($application)->withStudent($student);
     }
 
     public function editUserProfile(Student $student){
