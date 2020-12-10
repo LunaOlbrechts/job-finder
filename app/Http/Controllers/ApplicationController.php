@@ -19,7 +19,7 @@ class ApplicationController extends Controller
         ->with(['internship', 'student', 'applicationFase'])
         ->where('internships.company_id', $companyId)
         ->get();
-        
+
         return view('companies/filter')->withApplications($applications);
     }
 
