@@ -15,7 +15,7 @@ class CompanyController extends Controller
     }
 
     public function companyApi(){
-        $data = Company::all();
+        $data = Company::get();
         $companies = $data->toJson();
         return $companies;
     }
