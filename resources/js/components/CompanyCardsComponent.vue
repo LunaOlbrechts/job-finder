@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="company--card">
         <div
             v-for="company in companies"
             v-bind:company="company"
@@ -13,7 +13,7 @@
             </a>
             <p class="company--card-text">{{ company.bio }}</p>
             <div class="company--card-button">
-                <a v-bind:href="company.id">></a>
+                <a v-bind:href="'/companies/' + company.id">></a>
             </div>
         </div>
     </div>

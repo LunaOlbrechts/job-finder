@@ -10972,9 +10972,66 @@ a.text-dark:focus {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 700px;
+    width: 600px;
     margin-top: 100px;
+    flex-direction: row;
   }
+
+  .company--card {
+    width: 600px;
+  }
+
+  .company--card-preview {
+    width: 100%;
+  }
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.company > div {
+  padding: 20px;
+  width: 700px;
+}
+
+.company > div > h4 {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.company > h4 {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.company--name {
+  text-align: center;
+}
+
+.company--background {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #5268d3;
+  color: white;
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.company--background > div {
+  margin-right: 40px;
+  margin-left: 80px;
+}
+
+.company--loc > div > p {
+  text-align: center;
 }
 
 .navbar {

@@ -37544,6 +37544,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "company--card" },
     _vm._l(_vm.companies, function(company) {
       return _c(
         "div",
@@ -37574,7 +37575,9 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "company--card-button" }, [
-            _c("a", { attrs: { href: company.id } }, [_vm._v(">")])
+            _c("a", { attrs: { href: "/companies/" + company.id } }, [
+              _vm._v(">")
+            ])
           ])
         ]
       )
