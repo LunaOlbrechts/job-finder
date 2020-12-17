@@ -33,7 +33,7 @@ class CompanyController extends Controller
             $companyLong
         ]);
         
-        $nearestStation['getNearestTrainStation'] = $getNearestTrainStation;
-        return view('companies/profile', $data, $nearestStation);
+        $nearestTrainStation['getNearestTrainStation'] = $getNearestTrainStation;
+        return view('companies/profile', $data, $nearestTrainStation);
     }
 }

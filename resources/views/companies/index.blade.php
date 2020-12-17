@@ -7,4 +7,9 @@
             <a href="/companies/{{ $company->id }}"><p>{{ $company->name}}</p></a>
         @endforeach
     </div>
+
+    <div id="app">
+        <h1>{{ title }}</h1>
+
+    </div>
 @endsection
