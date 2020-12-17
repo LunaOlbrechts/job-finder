@@ -10903,3 +10903,61 @@ a.text-dark:focus {
   }
 }
 
+.page--title {
+  text-align: center;
+}
+
+.card--list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 250px;
+  margin-top: 100px;
+}
+
+.company--card-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+  box-shadow: 6px 7px 16px -7px #ababab;
+  border-radius: 10px;
+  padding: 20px 0px 0 0px;
+}
+
+.company--card-name {
+  margin-left: 20px;
+  color: black;
+}
+
+.company--card-text {
+  margin-left: 20px;
+  width: 250px;
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.company--card-imgContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.company--card-logo {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100px;
+}
+
+.company--card-button {
+  background-color: #5268d38f;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  border-radius: 6px;
+}
+
