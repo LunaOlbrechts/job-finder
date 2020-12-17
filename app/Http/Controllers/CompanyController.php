@@ -10,9 +10,14 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        $data['companies'] = DB::table('companies')->get();
-        
-        return view('companies/index', $data);
+        $data = Company::all();
+        return view('companies/index');
+    }
+
+    public function companyApi(){
+        $data = Company::all();
+        $companies = $data->toJson();
+        return $companies;
     }
 
     public function profile($company)

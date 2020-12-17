@@ -62,6 +62,7 @@ Route::post('/register/company', [RegisterController::class, 'createCompany']);
 
 // Route for companies
 Route::get('/companies', [CompanyController::class, 'index'])->middleware(['auth:web'], ['auth:company']);
+Route::get('/api/companies', [CompanyController::class, 'companyApi'])->middleware(['auth:web'], ['auth:company']);
 
 // Route for company profile
 Route::get('/companies/{company}', [CompanyController::class, 'profile'])->middleware(['auth:web'], ['auth:company']);
