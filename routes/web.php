@@ -14,7 +14,6 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\TrainStationController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +35,7 @@ Route::get('/', function () {
 
 // });
 // Route for internships
-Route::get('/internships', [InternshipController::class, 'index'])->middleware(['auth:web'],['auth:company']);
+Route::get('/internships', [InternshipController::class, 'index'])->middleware(['auth:web'],['auth:company'])->name('internships');
 Route::post('/internships', [InternshipController::class, 'index'])->middleware(['auth:web'],['auth:company']);
 
 Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail'])->middleware(['auth:web'],['auth:company']);
@@ -61,11 +60,11 @@ Route::post('/login/company', [LoginController::class, 'companyLogin']);
 Route::post('/register/company', [RegisterController::class, 'createCompany']);
 
 // Route for companies
-Route::get('/companies', [CompanyController::class, 'index'])->middleware(['auth:web'], ['auth:company']);
-Route::get('/api/companies', [CompanyController::class, 'companyApi'])->middleware(['auth:web'], ['auth:company']);
+Route::get('/companies', [CompanyController::class, 'getAllCompanies'])->middleware(['auth:web'], ['auth:company'])->name('companies');
+Route::get('/api/companies', [CompanyController::class, 'apiGetAllCompanies'])->middleware(['auth:web'], ['auth:company']);
 
 // Route for company profile
-Route::get('/companies/{company}', [CompanyController::class, 'profile'])->middleware(['auth:web'], ['auth:company']);
+Route::get('/companies/{company}', [CompanyController::class, 'getCompanyWithNearestTrainStation'])->middleware(['auth:web'], ['auth:company']);
 
 // Route for application filtering
 Route::patch('/companies/{companyId}/applications', [ApplicationController::class, 'editApplicationFase'])->name('editApplicationFase')->middleware(["auth:company"]);

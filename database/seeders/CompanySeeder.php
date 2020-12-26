@@ -22,8 +22,8 @@ class CompanySeeder extends Seeder
                 'projects' => "Drupal platform voor Q8, multisite website platform voor een grote stad, Digitaal erfgoed platform met 3 websites in 1",
                 'employees' => "",
                 'location' => "Kontich",
-                'longitude' => '3.73521',
-                'latitude' => '51.03650', 
+                'longitude' => '3.7939230481502286', 
+                'latitude' => '51.0547531599894', 
                 'email' => "jobs@calibrate.be",
                 'phone' => "042101632",
                 'password' => "test",
@@ -37,8 +37,8 @@ class CompanySeeder extends Seeder
                 'location' => "Antwerpen (HQ)
                 Minderhoutsestraat 1
                 2320 Hoogstraten",
-                'longitude' => '4.447773',
-                'latitude' => '51.144074',
+                'longitude' => '4.763335509062153',
+                'latitude' => '51.40814224136356',
                 'email' => "hallo@multimedium.be",
                 'phone' => "+3232977154",
                 'password' => "test",
@@ -63,8 +63,8 @@ class CompanySeeder extends Seeder
                 'email' => "hello@digitag.co",
                 'phone' => "3232977154",
                 'password' => "test",
-                'longitude' => '4.447773',
-                'latitude' => '51.144074',
+                'longitude' => '4.406332266183368', 
+                'latitude' => '50.795362267067105',
                 'logo' => 'https://media.licdn.com/dms/image/C560BAQFoFkIKhe8IOw/company-logo_200_200/0?e=2159024400&v=beta&t=dAsSKZRLwMA-E4IXpbqcEOOoqyJt9ulo0vKtKnx42No',
 
             ],
