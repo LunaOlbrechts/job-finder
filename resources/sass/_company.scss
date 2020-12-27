@@ -84,3 +84,15 @@
     display: flex;
     justify-content: space-around;
 }
+
+@media (min-width: 768px){
+    .container{
+        max-width: 760px !important;
+    }
+}
+
+@media (min-width: 992px){
+    .container{
+        max-width: 960px !important;
+    }
+ }

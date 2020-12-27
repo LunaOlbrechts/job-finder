@@ -21,7 +21,7 @@ class CompanySeeder extends Seeder
                 'bio' => "Je werkt binnen een gemoedelijke sfeer waar je als nieuwe collega wordt verwelkomd met humor en een open geest. Je collega's staan klaar om te helpen en je ontvangt persoonlijke begeleiding bij al je ambities. Heb je vragen? Zowel je management als je directe collega's zijn meteen aanspreekbaar. Geen barrières, geen regeltjes. Gewoon gezond verstand, een flinke dosis humor en af en toe wat zelfrelativering ;-)",
                 'projects' => "Drupal platform voor Q8, multisite website platform voor een grote stad, Digitaal erfgoed platform met 3 websites in 1",
                 'employees' => "",
-                'location' => "Kontich",
+                'location' => "Gaston Crommenlaan 8/bus 1, 9050 Gent",
                 'longitude' => '3.7939230481502286', 
                 'latitude' => '51.0547531599894', 
                 'email' => "jobs@calibrate.be",
@@ -34,7 +34,7 @@ class CompanySeeder extends Seeder
                 'bio' => "Je bent op zoek naar dé ultieme stageplek. Met andere woorden: je vraagt je af van waaruit je de wereld zal beginnen veroveren. Al eens aan de Noorderkempen gedacht? Daar vind je Multimedium, een enthousiaste bende digitale experts die elke dag sterke websites en apps maken. Hier leer je volle bak nieuwe dingen en maak je al snel deel uit van het team. Je zal merken dat dit het coolste webbedrijf ter wereld is. Of toch al zeker van de Noorderkempen.",
                 'projects' => "Studio 100, njam, orange, IKOOK gent",
                 'employees' => "13",
-                'location' => "Antwerpen (HQ)
+                'location' => "
                 Minderhoutsestraat 1
                 2320 Hoogstraten",
                 'longitude' => '4.763335509062153',

@@ -1,14 +1,14 @@
 <template>
-    <div class="company--card">
-        <div v-for="company in companies" v-bind:key="company" class="company--card-preview" >
-            <div class="company--card-imgContainer">
-                <img class="company--card-logo" v-bind:src='company.logo' />
+    <div class="cards">
+        <div v-for="company in companies" v-bind:key="company" class="card--preview" >
+            <div class="card--imgContainer">
+                <img class="card--logo" v-bind:src='company.logo' />
             </div>
-            <a class="company--card-title" href="/companies">
-                <h3 class="company--card-name">{{ company.name }}</h3>
+            <a class="card--title" href="/companies">
+                <h3 class="card--name">{{ company.name }}</h3>
             </a>
-            <p class="company--card-text">{{ company.bio }}</p>
-            <div class="company--card-button">
+            <p class="card--text">{{ company.bio }}</p>
+            <div class="card--button">
                 <a v-bind:href="'/companies/' + company.id">></a>
             </div>
         </div>

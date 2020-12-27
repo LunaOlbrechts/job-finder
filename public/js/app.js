@@ -1925,10 +1925,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37544,43 +37540,27 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "company--card" },
+    { staticClass: "cards" },
     _vm._l(_vm.companies, function(company) {
-      return _c(
-        "div",
-        { staticClass: "company--card-preview", attrs: { company: company } },
-        [
-          _c("div", { staticClass: "company--card-imgContainer" }, [
-            _c("img", {
-              staticClass: "company--card-logo",
-              attrs: { src: company.logo }
-            })
-          ]),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "company--card-title",
-              attrs: { href: "/companies" }
-            },
-            [
-              _c("h3", { staticClass: "company--card-name" }, [
-                _vm._v(_vm._s(company.name))
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("p", { staticClass: "company--card-text" }, [
-            _vm._v(_vm._s(company.bio))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "company--card-button" }, [
-            _c("a", { attrs: { href: "/companies/" + company.id } }, [
-              _vm._v(">")
-            ])
+      return _c("div", { key: company, staticClass: "card--preview" }, [
+        _c("div", { staticClass: "card--imgContainer" }, [
+          _c("img", { staticClass: "card--logo", attrs: { src: company.logo } })
+        ]),
+        _vm._v(" "),
+        _c("a", { staticClass: "card--title", attrs: { href: "/companies" } }, [
+          _c("h3", { staticClass: "card--name" }, [
+            _vm._v(_vm._s(company.name))
           ])
-        ]
-      )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "card--text" }, [_vm._v(_vm._s(company.bio))]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card--button" }, [
+          _c("a", { attrs: { href: "/companies/" + company.id } }, [
+            _vm._v(">")
+          ])
+        ])
+      ])
     }),
     0
   )

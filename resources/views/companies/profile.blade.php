@@ -22,7 +22,7 @@
             <div class="company--internschips-container">
                 @forelse ($company->internships as $internship )
                     <div class="company--profile-internschips">
-                        <a href="/internships/{{$internship->id}}"><h4>{{$internship->title}}</h4></a>
+                        <a href="/internships/{{$internship->id}}/detail"><h4>{{$internship->title}}</h4></a>
                         <p>{{$internship->bio}}</p>
                     </div>
                 @empty

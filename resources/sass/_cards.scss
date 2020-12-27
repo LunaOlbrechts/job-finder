@@ -9,7 +9,7 @@
     margin-top: 100px;
 }
 
-.company--card-preview{
+.card--preview{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,13 +22,13 @@
     margin: 30px;
 }
 
-.company--card-name{
+.card--name{
     margin-left: 20px;
     color: black;
     font-size: 1.3em;
 }
 
-.company--card-text{
+.card--text{
     margin-left: 20px;
     width: 250px;
     color: black;
@@ -37,18 +37,18 @@
     text-overflow: ellipsis;
 }
 
-.company--card-imgContainer{
+.card--imgContainer{
     display: flex;
     justify-content: center;
     height: 50px;
 }
 
-.company--card-logo{
+.card--logo{
     object-fit: contain;
     width: 100px;
 }
 
-.company--card-button{
+.card--button{
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -58,7 +58,7 @@
     border-radius: 6px;
 }
 
-.company--card-button > a{
+.card--button > a{
     color: $blue;
 }
 
@@ -72,7 +72,7 @@
         flex-direction: row;
     }
 
-    .company--card{
+    .cards{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
