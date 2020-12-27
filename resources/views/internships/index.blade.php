@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Internships</h1>
+        <h1 class="page--title">Internships</h1>
         <div class="cards">
             @foreach ($internships as $internship)
                 <div class="card--preview">
@@ -10,6 +10,7 @@
                         <img src="{{ $internship->company->logo}}" class="card--logo">
                     </div>
                     <a href="/internships/{{ $internship->id }}/detail"><p>{{ $internship->title}}</p></a>
+                    <p>{{ $internship->type }}</p>
                     <div class="card--button">
                         <a href="/internships/$internship->id/details">></a>
                     </div>
