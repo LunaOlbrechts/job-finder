@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);#nav {
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+#nav {
   background-color: #5268d3 !important;
   position: fixed;
   right: 0;
@@ -27,8 +28,16 @@
   margin-bottom: 20px;
   box-shadow: 6px 7px 16px -7px #ababab;
   border-radius: 10px;
-  padding: 20px 0px 0 0px;
   margin: 30px;
+}
+
+.card--badge {
+  border-radius: 10px 10px 0 0;
+  background-color: #5268d3;
+  color: whitesmoke;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10px;
 }
 
 .card--name {
@@ -50,11 +59,11 @@
   display: flex;
   justify-content: center;
   height: 50px;
+  margin-top: 20px;
 }
 
 .card--logo {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   width: 100px;
 }
 
@@ -65,11 +74,11 @@
   background-color: whitesmoke;
   height: 50px;
   padding-right: 10px;
-  border-radius: 6px;
+  border-radius: 0 0 6px 6px;
 }
 
 .card--button > a {
-  color: #5268d3;
+  color: black;
 }
 
 @media (min-width: 700px) {
@@ -88,7 +97,6 @@
     justify-content: center;
   }
 }
-
 .company {
   display: flex;
   flex-direction: column;
@@ -107,8 +115,7 @@
 }
 
 .company--logo > img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   height: inherit;
 }
 
@@ -182,13 +189,11 @@
     max-width: 760px !important;
   }
 }
-
 @media (min-width: 992px) {
   .container {
     max-width: 960px !important;
   }
 }
-
 footer {
   background-color: #5268d3;
   margin: 0;
@@ -201,3 +206,4 @@ footer {
   padding-top: 100px;
 }
 
+/*# sourceMappingURL=app.css.map */

@@ -6,11 +6,14 @@
         <div class="cards">
             @foreach ($internships as $internship)
                 <div class="card--preview">
+                    @if($internship->created_at > $lastWeek )
+                    <div class="card--badge">Nieuw</div>                    
+                    @endif
                     <div class="card--imgContainer">
                         <img src="{{ $internship->company->logo}}" class="card--logo">
                     </div>
-                    <a href="/internships/{{ $internship->id }}/detail"><p>{{ $internship->title}}</p></a>
-                    <p>{{ $internship->type }}</p>
+                    <a href="/internships/{{ $internship->id }}/detail" class="card--name"><p>{{ $internship->title}}</p></a>
+                    <p class="card--text">{{ $internship->type }}</p>
                     <div class="card--button">
                         <a href="/internships/$internship->id/details">></a>
                     </div>
