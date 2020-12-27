@@ -99,6 +99,9 @@
             </main>
         </div>
 
+        <footer>
+            <p> Next step </p>
+        </footer>
         @yield('javascript')
         <script src="{{asset('js/app.js')}}"></script>
     </body>

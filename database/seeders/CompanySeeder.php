@@ -42,7 +42,7 @@ class CompanySeeder extends Seeder
                 'email' => "hallo@multimedium.be",
                 'phone' => "+3232977154",
                 'password' => "test",
-                'logo' => 'https://media.licdn.com/dms/image/C560BAQFoFkIKhe8IOw/company-logo_200_200/0?e=2159024400&v=beta&t=dAsSKZRLwMA-E4IXpbqcEOOoqyJt9ulo0vKtKnx42No',
+                'logo' => 'https://multimedium.be/public/img/multimedium-dark.png',
 
             ],
             [
@@ -124,7 +124,7 @@ class CompanySeeder extends Seeder
                 'email' => "hello@8trust.com",
                 'phone' => "+32492738878",
                 'password' => "test",
-                'logo' => 'https://media.licdn.com/dms/image/C560BAQFoFkIKhe8IOw/company-logo_200_200/0?e=2159024400&v=beta&t=dAsSKZRLwMA-E4IXpbqcEOOoqyJt9ulo0vKtKnx42No',
+                'logo' => 'https://www.8trust.com/assets/images/logo-navbar.png',
 
             ],
 

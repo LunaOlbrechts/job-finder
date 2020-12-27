@@ -2,7 +2,9 @@
 
 @section('content')
     <div class="company">
-        <img src=" {{$company->logo }}"> 
+        <div class="company--logo">
+            <img src=" {{$company->logo }}">
+        </div>
         <h1 class="company--name">{{ $company->name}}</h1>
         <div>
             <h4>Biografie</h4>
@@ -17,11 +19,18 @@
         <div>
             <h4>Internships</h4>
             <!-- <p><a href="/companies/{{$company->id}}/applications"><h5>{{  __('Applications') }}</h5></a></p> -->
-            <br>
-            @foreach ($company->internships as $internship )
-                <a href="/internships/{{$internship->id}}"><h4>{{$internship->id}}</h4></a>
-                <p>{{$internship->bio}}</p>
-            @endforeach
+            <div class="company--internschips-container">
+                @forelse ($company->internships as $internship )
+                    <div class="company--profile-internschips">
+                        <a href="/internships/{{$internship->id}}"><h4>{{$internship->title}}</h4></a>
+                        <p>{{$internship->bio}}</p>
+                    </div>
+                @empty
+                    <div>
+                        <p>Er is nog geen stage vrijgegeven</p>
+                    </div>
+                @endforelse
+            </div>
         </div>
 
         <div class="company--background">
@@ -39,7 +48,7 @@
             </div>
         </div>
         
-        <div>
+        <div class="company--profile-contact">
             <h4>Contact</h4>
             <p>{{ $company->email }}</p>
             <p>{{ $company->phone }}</p>

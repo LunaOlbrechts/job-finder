@@ -4,14 +4,13 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
 @import 'nav';
 
 @import 'cards';
 
 @import 'company';
+
+@import 'footer';
 
 .navbar{
     background-color: #5268d3 !important;
