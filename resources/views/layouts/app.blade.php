@@ -24,16 +24,17 @@
                     display: none !important;
                 }
             </style>
+            
             <link href="{{ asset('css/app.css') }}" rel="stylesheet">
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
         </head>
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="navbar navbar-expand-md navbar-dark shadow-sm" id="nav">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ 'Next Step' }}
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
@@ -48,6 +49,15 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('student', ['student' => Auth::user()->id]) }}">{{ __('Profile') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('internships') }}">{{ __('Internships') }}</a>
+                            </li>
                             @guest
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login/student') }}">{{ __('Login student') }}</a>
@@ -91,6 +101,12 @@
                 @yield('content')
             </main>
         </div>
+
+        <footer>
+            <p> Next step </p>
+        </footer>
         @yield('javascript')
+        <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
+

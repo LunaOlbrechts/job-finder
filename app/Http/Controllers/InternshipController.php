@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Internship;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,13 @@ class InternshipController extends Controller
 {
     public function index()
     {
-        $data['internships'] = DB::table('internships')->get();
+        $data['internships'] = Internship::with('company')->get();
         
+        $badgeNewThisWeek = [];
+
+        $now = Carbon::now();
+        $data['lastWeek'] = $now->subtract(7, 'days');
+
         return view('/internships/index', $data);
     }
 

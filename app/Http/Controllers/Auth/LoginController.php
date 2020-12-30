@@ -55,7 +55,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('students');
+            return redirect('students');
         }
         
         return back()->withInput($request->only('email'));

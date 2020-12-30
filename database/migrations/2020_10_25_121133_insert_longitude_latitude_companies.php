@@ -16,6 +16,7 @@ class InsertLongitudeLatitudeCompanies extends Migration
         Schema::table('companies', function (Blueprint $table) {
             $table->double('longitude');
             $table->double('latitude');
+            $table->text('logo');
         });
     }
 
@@ -29,6 +30,7 @@ class InsertLongitudeLatitudeCompanies extends Migration
         Schema::table('companies', function (Blueprint $table) {
             $table->dropColumn('longitude');
             $table->dropColumn('latitude');
+            $table->dropColumn('logo');
         });
     }
 }

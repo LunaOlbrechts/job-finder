@@ -4,5 +4,14 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'nav';
+
+@import 'cards';
+
+@import 'company';
+
+@import 'footer';
+
+#app{
+    padding-top: 100px;
+}

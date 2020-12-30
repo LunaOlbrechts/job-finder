@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Company extends Authenticatable 
-{    
+class Company extends Authenticatable
+{
     use HasFactory, Notifiable;
 
     protected $guard = 'company';
@@ -26,7 +26,7 @@ class Company extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
+
     public function internships()
     {
         /* On to many relationship between company and internship  
