@@ -75,7 +75,7 @@ Route::post('/companies/{companyId}/applications', [ApplicationController::class
 Route::get('/students', [StudentController::class, 'index'])->middleware(['auth:web'], ['auth:company'])->name('students');
 
 // Route for student profile
-Route::get('/students/{student}', [StudentController::class, 'profile'])->middleware(['auth:web'], ['auth:company'])->name('student');
+Route::get('/students/{student}', [StudentController::class, 'showStudentProfile'])->middleware(['auth:web'], ['auth:company'])->name('student');
 
 // Route for update student profile
 Route::get('/students/{student}/update', [StudentController::class, 'editUserProfile'])->name('students/edit')->middleware(["auth:web"]);
