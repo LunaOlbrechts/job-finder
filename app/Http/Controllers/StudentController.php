@@ -1,87 +1,107 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Application;
 use Illuminate\Support\Facades\Http;
 use Goutte\Client;
-use Goutte;
-
 
 class StudentController extends Controller
 {
-    public function index(){
-        $data['students'] = DB::table('students')->get();
-        
+    public function getAllStudents()
+    {
+        $data['student'] = Student::all();
         return view('students/index', $data);
     }
 
-    public function profile($studentId)
-    {
-        
-        
-
-
+    public function apiGetAllDribbbleShots($studentId){
         $student= Student::where('id', $studentId)->first();
-        $application = Application::where('student_id', $studentId)->with(['student', 'applicationFase'])->get();        
-        
-        
-        
-        $client = new Client();
-        $dribbbleUser = $student->dribbble;
-        //dd($dribbbleUser);
-        $dribbbleUrl = "https://dribbble.com/" . $dribbbleUser;
-        $crawler = $client->request('GET', $dribbbleUrl);
-        $allImages = $crawler->filter('.shot-thumbnail-placeholder > noscript > img')->each(function($node) {
-            $dribbbleImage = $node->getNode(0)->getAttribute('src');
+                //nieuwe Goutte crawler starten
+                $client = new Client();
+                //Ingevulde dribbble username ophalen uit DB
+                $dribbbleUser = $student->dribbble;
+                $dribbbleUrl = "https://dribbble.com/" . $dribbbleUser;
+                $crawler = $client->request('GET', $dribbbleUrl);
+                //Images ophalen
+                $getAllShotImages = $crawler->filter('.shot-thumbnail-placeholder > noscript > img')->each(function ($node) {
+                    $dribbbleImage = $node->getNode(0)->getAttribute('src');
+                    return $dribbbleImage;
+                });
+                //Titles ophalen
+                $getAllShotTitles = $crawler->filter('.shot-title')->each(function ($node) {
+                    $dribbbleTitle = $node->text();
+                    return $dribbbleTitle;
+                });
+                 //Links ophalen
+                 $getAllShotLinks = $crawler->filter('.shot-thumbnail-link')->each(function ($node) {
+                    $dribbbleLink = $node->getNode(0)->getAttribute('href');
+                    return $dribbbleLink;
+                });
 
-            return $dribbbleImage;
-            //dd($node->getNode(0)->getAttribute('src'));
-            //dd('src="'. $node->getNode(0)->getAttribute('src') . '"');
-            //echo 'img => src="'.$node->getNode(0)->getAttribute('src')."\" <br/>\n";
-            //dd('img => src="'.$node->getNode(0)->getAttribute('src')."\" <br/>\n");
-        });
-        $images = array_slice($allImages, 0, 6);
+                
+                //Van al deze arrays de eerste 8 nemen
+                $images = array_slice($getAllShotImages, 0, 8);
+                $titles = array_slice($getAllShotTitles, 0, 8);
+                $links = array_slice($getAllShotLinks, 0, 8);
+                //Deze arrays allemaal in een omringende array zetten voor makkelijk gebruik in de view
+               
 
-        //dd($images);
-        return view('students/profile')->withApplications($application)->withStudent($student)->withImage($images);
+                for($i=0; $i < 8; $i++){
+                    
+                    $dribbbleShots[$i] = array(
+                        "image" => $images[$i],
+                        "title" => $titles[$i],
+                        "link" => $links[$i]
+                    );
+                    
+                }
+                //dd($dribbbleShots, $getAllShotImages);
+                
+                
+        
+                //foreach($dribbble as $key => $value){
+                //    $dribbble[$key] = json_decode(json_encode($value), FALSE);}
+                //$dribbbleImages = json_encode($dribbble['images']);
+
+        return $dribbbleShots;
     }
 
-    public function editUserProfile(Student $student){
-        //$user['students'] = DB::table('students')->get();
-        /*if(Auth::user()) {
-            $user = Student::find(Auth::user()->id);
-            if($user){ 
-                return view('students/update')->withStudent($user);
-            } else {
-                return redirect()->back();
-            }
-        } else {
-            return redirect()->back();
-        }*/
-       
-                
+    public function showStudentProfile($studentId)
+    {
+        //phpinfo();
+        //alle data van studenten en internships ophalen
+        $student= Student::where('id', $studentId)->first();
+        $application = Application::where('student_id', $studentId)->with(['student', 'applicationFase'])->get();
+        
 
+
+        return view('students/profile')->withApplications($application)->withStudent($student);
+    }
+
+    public function editUserProfile(Student $student)
+    {
         $data['student'] = $student;
-        
-        
         return view('students/update', $data);
     }
 
-    public function updateUserProfile(Request $request, $studentId){
+    public function updateUserProfile(Request $request, $studentId)
+    {
+        //Alle huidige informatie van de huidige student ophalen
         $user = DB::table('students')
             ->where('id', $studentId)
             ->first();
-      // $user = Student::find(Auth::user()->id);
-        if(!$user){
+        //Als er geen user gevonden wordt met de id terugsturen
+        if (!$user) {
             return redirect()->back();
         }
-        
-        if ($user){
-            $data = $request->validate([
+        //Alle data van de huidige user valideren
+        if ($user) {
+            $request->validate([
                 'name' => 'required|min:2',
+                'email' => 'required|email',
                 'age' => 'required|min:2',
                 'bio' => 'nullable',
                 'preference' => 'nullable',
@@ -92,47 +112,30 @@ class StudentController extends Controller
                 'linkedin' => 'nullable|url'
             ]);
 
-            if ($user->email === $request['email']){
-                $data;
-                $request->validate([
-                    'email' => 'required|email'
-                ]);
-            } else {
-                $data;
-                $request->validate([
-                    'email' => 'required|email|unique:students'
-                ]);
-            }
-
             //location optimizer
             $request->flash();
             $adress = $request['location'];
-            $url = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=aIPQX3C8hUC98kgWUAdekaOUrrCI9Q1BtuCXIhJw1_k&query=$adress";
+            $url = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=luU8UTYMpklXDLiQjJLL6bABVPbs8dEJGnRfevERRxg&query=$adress";
             $response = Http::get($url)->json();
-            if($response['error'] == 'Unauthorized'){
+            //locatie niet gevonden
+            //dd($response);
+            if ($response == 'Unauthorized') {
                 $myresponse = $request['location'];
-            } else if($response['suggestions'] == NULL){
+            //locatie suggestie
+            } elseif ($response == null) {
+                $myresponse = "";
+            
+            } elseif ($response['suggestions'] == null) {
                 $myresponse = $request['location'];
             } else {
                 $myresponse = $response['suggestions'][0]['label'];
-            } 
+            }
 
-
-            //dribbble projecten vinden
-                //$dribbble = $request['dribbble'];
-                //$dribbbleUrl = "https://dribbble.com/oauth/authorize?client_id=959aa3996fcb9f13fd9565186b223482106125362514dfabc8153daed8efac1c";
-                //$dribbbleResponse = Http::get($dribbbleUrl)->json();
-                //dd($dribbbleResponse);
-
-            
-            //toevoegen aan db
-                DB::table('students')->where('id', $studentId)->update($request->except('_token', 'location', 'submit'));
-                DB::table('students')->where('id', $studentId)->update(['location' => $myresponse]);
-                $request->session()->flash('success', 'Your details have now been updated.');
-                return redirect()->back();
-
-            
-            
+            //Alles toevoegen aan db
+            DB::table('students')->where('id', $studentId)->update($request->except('_token', 'location', 'submit'));
+            DB::table('students')->where('id', $studentId)->update(['location' => $myresponse]);
+            $request->session()->flash('success', 'Your details have now been updated.');
+            return redirect()->back();
         }
     }
 }

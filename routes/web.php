@@ -72,10 +72,11 @@ Route::get('/companies/{companyId}/applications', [ApplicationController::class,
 Route::post('/companies/{companyId}/applications', [ApplicationController::class, 'filterApplications'])->name('filterApplications')->middleware(["auth:company"]);
 
 // Route for students
-Route::get('/students', [StudentController::class, 'index'])->middleware(['auth:web'], ['auth:company'])->name('students');
+Route::get('/students', [StudentController::class, 'getAllStudents'])->middleware(['auth:web'], ['auth:company'])->name('students');
 
 // Route for student profile
 Route::get('/students/{student}', [StudentController::class, 'showStudentProfile'])->middleware(['auth:web'], ['auth:company'])->name('student');
+Route::get('/api/students/{student}', [StudentController::class, 'apiGetAllDribbbleShots'])->middleware(['auth:web'], ['auth:company']);
 
 // Route for update student profile
 Route::get('/students/{student}/update', [StudentController::class, 'editUserProfile'])->name('students/edit')->middleware(["auth:web"]);

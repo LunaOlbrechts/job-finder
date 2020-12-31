@@ -5,16 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-               
-                    
-               
-                
 
                 <div class="card-body">
                     <form method="POST" action='{{ route("students/update", $student->id) }}' enctype="multipart/form-data">
                     <div class="card-header">{{ __('Update profile') }}
-                        <button style="position: absolute; right: 3%;" type="submit" name="submit" value="back" class="btn btn-primary">
-                            {{ __('Back') }}
+                        <button style="position: absolute; right: 5%; top: 4%;" type="submit" name="submit" value="back" class="btn btn-secondary">
+                            <a href="{{ route('student', ['student' => Auth::user()->id]) }}">{{ __('Back') }}</a>
                         </button>
                        
                     </div>
