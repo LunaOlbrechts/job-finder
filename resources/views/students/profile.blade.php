@@ -26,7 +26,6 @@
 
     <div id="app">
         <h3>Dribbble portfolio</h3>
-        
             <dribbble-shot-component></dribbble-shot-component>
     </div>
 </div>

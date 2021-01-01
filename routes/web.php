@@ -79,8 +79,8 @@ Route::get('/students/{student}', [StudentController::class, 'showStudentProfile
 Route::get('/api/students/{student}', [StudentController::class, 'apiGetAllDribbbleShots'])->middleware(['auth:web'], ['auth:company']);
 
 // Route for update student profile
-Route::get('/students/{student}/update', [StudentController::class, 'editUserProfile'])->name('students/edit')->middleware(["auth:web"]);
-Route::post('/students/{student}/update', [StudentController::class, 'updateUserProfile'])->name('students/update')->middleware(["auth:web"]);
+Route::get('/students/{student}/update', [StudentController::class, 'showAllInfoForUpdateProfile'])->name('students/edit')->middleware(["auth:web"]);
+Route::post('/students/{student}/update', [StudentController::class, 'updateStudentProfile'])->name('students/update')->middleware(["auth:web"]);
 
 Auth::routes();
 
