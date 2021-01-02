@@ -12,8 +12,6 @@
             </div>
         </div>
     </div>
-
-    
 </template>
 
 <script>
@@ -30,12 +28,16 @@
             loadShots: function() {
             var that = this;
 
-            fetch("http://homestead.test/api/students/5")
+            var url = window.location.href;
+            var urlid = url.substr(url.lastIndexOf('/')+1);
+
+            fetch("http://homestead.test/api/students/" + urlid)
                 .then(res => {
                     return res.json();
                 })
                 .then(json => {
                     that.shots = json;
+                    
                 });
             }
         }

@@ -1987,6 +1987,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     loadShots: function loadShots() {
       var that = this;
+      var url = window.location.href;
+      var urlid = url.substr(url.lastIndexOf('/') + 1);
+      console.log(urlid);
       fetch("http://homestead.test/api/students/5").then(function (res) {
         return res.json();
       }).then(function (json) {
