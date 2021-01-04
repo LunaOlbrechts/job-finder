@@ -87,8 +87,68 @@
                     <img src="{{ asset('images/internshipIllustration.jpg') }}" alt="hero image">
                 </div>
             </div>
+
+            <div class="about--description">
+                <h3>Hoe wij werken</h3>
+                <div class="row about--description-row">
+                    <div class="col-sm-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <div class="card-body--image">
+                                <img src="{{ asset('images/student.png') }}">
+                            </div>
+                            <h5 class="card-title">Studenten</h5>
+                            <p class="card-text">
+                                Studenten krijgen een groot aanbod van bedrijven die stageplaatsen 
+                                aanbieden binnen de IT sector. Met Next-step kan je soliciteren voor 
+                                jouw favoriete stage. 
+                            </p>
+                            <a href="#" class="btn--primary">Account aanmaken</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow">
+                        <img src="{{ asset('images/arrow.png') }}">   
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="card">
+                        <div class="card-body">
+                            <div class="card-body--image">
+                                <img src="{{ asset('images/student_company.png') }}">
+                            </div>                            <h5 class="card-title">Match</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="arrow">
+                        <img src="{{ asset('images/arrow_turn.png') }}">   
+                    </div>
+
+                    <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-body--image">
+                                <img src="{{ asset('images/company.png') }}">
+                            </div>
+                            <h5 class="card-title">Bedrijven</h5>
+                            <p class="card-text">
+                                Bedrijven kunnen stageplaatsen aanmaken en hun bedrijf in de spotlights zetten.
+                                Next-step voorziet bedrijven van een gemakkelijk admin paneel om 
+                                alle stage aanvragen te verwerken en op te volgen. 
+                            </p>
+                            <a href="#" class="btn--primary">Account aanmaken</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+              
         </div>
 
+       
         <footer>
             <p> Next step </p>
         </footer>
