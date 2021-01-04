@@ -27,7 +27,7 @@ class CreateUserTable extends Migration
             $table->text('tools')->nullable(); // =skills
             $table->string('location')->nullable();
             $table->text('bio')->nullable();
-            $table->binary('behance')->nullable();
+            $table->binary('dribbble')->nullable();
             $table->string('linkedin')->nullable();
             $table->timestamps();
             $table->rememberToken();

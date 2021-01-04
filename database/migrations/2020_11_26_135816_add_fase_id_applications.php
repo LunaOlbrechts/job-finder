@@ -25,7 +25,8 @@ class AddFaseIdApplications extends Migration
      */
     public function down()
     {
-        Schema::table('applications', function (Blueprint $table) {
+
+        Schema::dropIfExists('applications', function (Blueprint $table) {
             $table->dropForeign('fase_id');
         });
     }

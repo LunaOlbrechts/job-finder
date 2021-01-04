@@ -12,6 +12,8 @@ class Student extends Authenticatable
     use HasFactory, Notifiable;
     
     protected $guard = 'web';
+    protected $table = 'students';
+    protected $primaryKey = "id";
 
     /**
      * The attributes that are mass assignable.

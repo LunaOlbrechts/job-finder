@@ -33,9 +33,13 @@
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-dark shadow-sm" id="nav">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                   
+                    @if (!in_array(Route::currentRouteName(), ['register/student', 'login/student', 'register/company', 'login/company']))
+                    <a class="navbar-brand" href="{{ route('student', ['student' => Auth::user()->id]) }}">
                         {{ 'Next Step' }}
                     </a>
+                    @endif
+
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -49,7 +53,8 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
-                            <li class="nav-item">
+                                
+                                <li class="nav-item">
                                     <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
                                 </li>
                                 <li class="nav-item">
