@@ -15,7 +15,7 @@
                     <a href="/internships/{{ $internship->id }}/detail" class="card--name"><p>{{ $internship->title}}</p></a>
                     <p class="card--text">{{ $internship->type }}</p>
                     <div class="card--button">
-                        <a href="/internships/$internship->id/details">></a>
+                        <a href="/internships/{{ $internship->id }}/detail">></a>
                     </div>
                 </div>
             @endforeach
