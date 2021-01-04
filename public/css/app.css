@@ -18,6 +18,15 @@
   width: 500px;
 }
 
+.card {
+  border: none !important;
+  height: 400px;
+}
+
+.col-sm-3 {
+  border: none !important;
+}
+
 .about--description {
   display: flex;
   flex-direction: column;
@@ -34,6 +43,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .higher {
@@ -59,8 +69,18 @@
   margin-bottom: 20px;
 }
 
+.bigger {
+  width: 61% !important;
+}
+
 .card-body > p {
   font-size: 0.9em;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .btn--primary {
@@ -72,6 +92,88 @@
   max-width: 174px;
   display: flex;
   justify-content: center;
+}
+
+.btn--primary-white {
+  color: #5268d3;
+  background-color: white;
+  border-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn--primary-orange {
+  color: white;
+  background-color: #f48258;
+  border-color: #f48258;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 174px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #5268d3;
+  border-color: #5268d3;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  color: white !important;
+  background-color: #5268d3;
+  border-color: #5268d3;
+  border-radius: 20px !important;
+}
+
+.login {
+  background-color: white;
+  min-height: 100vh;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  padding-top: 100px;
+  max-width: 100vw !important;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.login > h1 {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.col-md-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-self: center;
+  align-items: center;
+}
+
+.login--img {
+  object-fit: contain;
+  width: 100%;
+}
+
+.login--card {
+  border: none;
+}
+
+.card-header {
+  background-color: #5268d3 !important;
+  border: none !important;
+  color: white !important;
 }
 
 #nav {
@@ -286,10 +388,6 @@ footer {
   padding: 20px;
   height: 60px;
   color: white;
-}
-
-#app {
-  padding-top: 100px;
 }
 
 /*# sourceMappingURL=app.css.map */

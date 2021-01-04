@@ -12,8 +12,14 @@
     width: 500px;
 }
 
-.hero--text{
+.card{
+//     background-color: #5268d3 !important;
+    border: none !important;
+    height: 400px;
+}
 
+.col-sm-3{
+    border: none !important;
 }
 
 .about--description{
@@ -32,6 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .higher{
@@ -57,6 +64,16 @@
     margin-bottom: 20px;
 }
 
+.bigger{
+    width: 61% !important;
+}
+
 .card-body > p{
     font-size: 0.9em;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
