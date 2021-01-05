@@ -119,18 +119,6 @@
                             </div>
                         </div>
 
-                        <!--<div class="form-group row">
-                            <label for="cv" class="col-md-4 col-form-label text-md-right">{{ __('CV') }}</label>
-                            <div class="col-md-6">
-                                <input id="cv" value="{{ $student['cv'] }}" type="file" class="form-control" name="cv" value="{{ old('cv') }}"  autocomplete="cv">
-                                @error('cv')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>-->
-
                         <div class="form-group row">
                             <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Adress') }}</label>
                             <div class="col-md-6">

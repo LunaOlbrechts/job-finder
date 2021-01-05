@@ -105,10 +105,10 @@ class StudentController extends Controller
                 $myresponse = $request['location'];
             } elseif ($response == null) {
                 $myresponse = "";
-
-            //locatie wel gevonden -> verder aanvullen
             } elseif ($response['suggestions'] == null) {
                 $myresponse = $request['location'];
+
+            //locatie wel gevonden -> verder aanvullen
             } else {
                 $myresponse = $response['suggestions'][0]['label'];
             }
