@@ -100,6 +100,7 @@ class StudentController extends Controller
             $adress = $request['location'];
             $url = "https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=luU8UTYMpklXDLiQjJLL6bABVPbs8dEJGnRfevERRxg&query=$adress";
             $response = Http::get($url)->json();
+            
             //locatie niet gevonden
             if ($response == 'Unauthorized') {
                 $myresponse = $request['location'];

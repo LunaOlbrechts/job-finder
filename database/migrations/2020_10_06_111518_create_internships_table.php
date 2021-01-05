@@ -23,6 +23,7 @@ class CreateInternshipsTable extends Migration
             $table->text('expectations');
             $table->text('offers');
             $table->string('location');
+            $table->string('regio');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
