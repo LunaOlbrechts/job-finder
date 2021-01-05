@@ -1,0 +1,51 @@
+.btn--primary{
+    color: #fff;
+    background-color: $blue;
+    border-color: $blue;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 174px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn--primary-white{
+    color:$blue;
+    background-color: white;
+    border-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn--primary-orange{
+    color: white;
+    background-color: #f48258;
+    border-color: #f48258;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 174px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-primary{
+    color: white;
+    background-color: $blue;
+    border-color: $blue;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    color: white !important;
+    background-color: $blue;
+    border-color: $blue;
+    border-radius: 20px !important;
+}
+
+

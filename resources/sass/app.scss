@@ -4,6 +4,17 @@
 // Variables
 @import 'variables';
 
+@import 'images';
+
+@import 'forms';
+
+
+@import 'home';
+
+@import 'buttons';
+
+@import 'login';
+
 @import 'nav';
 
 @import 'cards';
@@ -14,6 +25,3 @@
 
 @import 'footer';
 
-#app{
-    padding-top: 100px;
-}

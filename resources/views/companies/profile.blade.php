@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="company">
-        <div class="company--logo">
+    <div class="list">
+        <div class="list--logo">
             <img src=" {{$company->logo }}">
         </div>
-        <h1 class="company--name">{{ $company->name}}</h1>
+        <h1 class="list--name">{{ $company->name}}</h1>
         <div>
             <h4>Biografie</h4>
             <p>{{ $company->bio }}</p>
         </div>
-        <div class="company--background">
+        <div class="list--background">
             <div>
                 <h4>Projecten</h4>
                 <p>{{ $company->projects }}</p>
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="company--background">
+        <div class="list--background">
             <div>
                 <h4>Locatie</h4>
                 <p>{{ $company->location }}</p>
@@ -53,6 +53,5 @@
             <p>{{ $company->email }}</p>
             <p>{{ $company->phone }}</p>
         </div>
-
     </div>
 @endsection

@@ -1,0 +1,22 @@
+.form--searchInternships{
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+}
+.form--searchInternships-select{
+    width: 240px !important;
+    box-shadow: 6px 7px 16px -7px rgb(209, 209, 209);
+    border-radius: 10px;
+    border: none;
+}
+.form--searchInternships-btn{
+    margin: 40px 0 40px 0;
+    background-color: $blue !important;
+    width: 100px;
+    box-shadow: 6px 7px 16px -7px rgb(209, 209, 209);
+}
+
+.form--searchInternships-selectholder{
+    border: none !important;
+
+}

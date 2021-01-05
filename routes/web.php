@@ -30,17 +30,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::middleware(['web'],[ 'company'])->group(function(){
-//     Route::get('/internships', [InternshipController::class, 'index']);
 
-// });
 // Route for internships
 Route::get('/internships', [InternshipController::class, 'index'])->middleware(['auth:web'],['auth:company'])->name('internships');
-Route::post('/internships', [InternshipController::class, 'index'])->middleware(['auth:web'],['auth:company']);
+Route::post('/internships/search', [InternshipController::class, 'searchResultsList'])->name('searchInternships')->middleware(['auth:web'],['auth:company']);
+Route::get('/internships/search', [InternshipController::class, 'searchResultsList'])->name('searchInternships')->middleware(['auth:web'],['auth:company']);
 
 Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail'])->middleware(['auth:web'],['auth:company']);
 Route::post('/internships/{internship}/detail', [InternshipController::class, 'apply'])->middleware(["auth:web"]);
-
 
 Route::get('/internships/create/{company_id}', [InternshipController::class, 'create'])->middleware(["auth:company"]);
 Route::post('/internships', [InternshipController::class, 'createInternship'])->middleware(["auth:company"]);

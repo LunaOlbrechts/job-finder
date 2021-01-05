@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Internship;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -51,17 +52,37 @@ class InternshipController extends Controller
     }
 
 
-
     public function apply(Request $request){
         $request->flash();
         
         $application = new \App\Models\Application();
         $application->motivation = $request->input('motivation');
         $application->label = "new";
-        $application->user_id = "1";
+        $application->student_id = auth()->id() ;
+        $application->fase_id = 1 ;
+        $application->cv = $request->input('cv');
+        $application->website = $request->input('website');
         $application->internship_id = $request->input('internship');
         $application->save();
 
         return redirect('/internships');
+    }
+
+    public function searchResultsList(Request $request){
+        
+        $badgeNewThisWeek = [];
+        $now = Carbon::now();
+        $data['lastWeek'] = $now->subtract(7, 'days');
+
+        if($request->type){ 
+            $data["internships"] = Internship::
+                                    where('type', $request->type)
+                                    ->get();              
+        }
+        else{
+            dd('Er zijn geen internships gevonden');
+        }
+
+        return view('/internships/index', $data);
     }
 }

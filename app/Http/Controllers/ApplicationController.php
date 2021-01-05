@@ -27,8 +27,6 @@ class ApplicationController extends Controller
     {
         $application = Application::get()->where('id', auth()->id());
 
-        dd($application);
-
         if ($request->label) {
             $application->whereHas('label', function ($q) use ($request) {
                 $q->where('label', $request->label);

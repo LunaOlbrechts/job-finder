@@ -21,7 +21,8 @@ class CreateApplicationsTable extends Migration
             $table->foreign('internship_id')->references('id')->on('internships');
             $table->string('label');
             $table->string('motivation');
-
+            $table->string('cv')->nullable();
+            $table->string('website')->nullable();
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

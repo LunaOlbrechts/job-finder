@@ -2,9 +2,28 @@
 
 @section('content')
     <div class="container">
-        <h1 class="page--title">Internships</h1>
+        <h1 class="page--title-companies">Stages</h1>
+
+        <form method="POST" action="{{ route('searchInternships') }}" class="form--searchInternships">
+            {{ csrf_field() }}
+            <div class="form-row align-items-center">
+              <div class="col-auto my-1 form--searchInternships-select">
+                <select class="custom-select mr-sm-2 form--searchInternships-selectholder" name="type" id="inlineFormCustomSelect">
+                  <option selected>Type stage...</option>
+                  <option value="front-end">front-end</option>
+                  <option value="back-end">back-end</option>
+                  <option value="design">design</option>
+                </select>
+              </div>
+
+              <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary form--searchInternships-btn">Zoek</button>
+              </div>
+            </div>
+          </form>
+
         <div class="cards">
-            @foreach ($internships as $internship)
+            @forelse ($internships as $internship)
                 <div class="card--preview">
                     @if($internship->created_at > $lastWeek )
                     <div class="card--badge">Nieuw</div>                    
@@ -15,11 +34,19 @@
                     <a href="/internships/{{ $internship->id }}/detail" class="card--name"><p>{{ $internship->title}}</p></a>
                     <p class="card--text">{{ $internship->type }}</p>
                     <div class="card--button">
-                        <a href="/internships/$internship->id/details">></a>
+                        <a href="/internships/{{ $internship->id }}/detail">></a>
                     </div>
                 </div>
-            @endforeach
+
+            @empty
+                <div>
+                    <p>Er zijn geen stages gevonden met jouw zoekopdracht</p>
+                </div>
+            @endforelse
         </div>
-       <a href="/internships/create/{{ $internship->company_id }}"><p>create</p></a>
+
+        @auth('company')
+        <a href="/internships/create/{{ Auth::company()->id }}"><p>create</p></a>
+        @endauth
     </div>
 @endsection

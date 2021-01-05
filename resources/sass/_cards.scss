@@ -2,6 +2,13 @@
 .page--title{
     text-align: center;
 }
+
+.card{
+    box-shadow: 6px 7px 16px -7px rgba(171,171,171,1);
+    border-radius: 10px;
+    border: none;
+}
+
 .card--list{
     display: flex; 
     justify-content: center;
@@ -29,6 +36,7 @@
     display: flex;
     justify-content: flex-end;
     padding-right: 10px;
+    font-size: 0.8em;
 }
 
 .card--name{

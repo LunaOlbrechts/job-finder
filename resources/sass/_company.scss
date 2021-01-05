@@ -1,11 +1,11 @@
-.company{
+.list{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.company--logo{
+.list--logo{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -15,35 +15,40 @@
     border-bottom: 1px solid rgb(218, 214, 214);
 }
 
-.company--logo > img{
+.list--logo > img{
     object-fit: contain;
     height: inherit;
 }
 
-.company > h1{
-    margin-top: 50px;
+.list > h1{
+    margin-top: 150px;
 }
 
-.company > div {
+.list > div {
     padding: 20px;
     width: 700px;
 }
 
-.company > div > h4 {
+.list > div > h4 {
     text-align: center;
     margin-top: 100px;
 }
 
-.company > h4 {
+.list > h4 {
     margin-top: 100px;
     text-align: center;
 }
 
-.company--name{
+.list--name{
     text-align: center;
 }
 
-.company--background{
+.list--name-internship{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.list--background{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -56,7 +61,7 @@
     border-radius: 10px;
 }
 
-.company--background > div{
+.list--background > div{
     margin-right: 40px;
     margin-left: 80px;
 }
@@ -83,6 +88,18 @@
 .company--internschips-container{
     display: flex;
     justify-content: space-around;
+}
+
+.card--internshipApplication{
+    height: 100% !important;
+    margin-bottom: 100px;
+    background-color: $blue !important;
+    color: white;
+}
+
+.page--title-companies{
+    margin-top: 140px;
+    text-align: center;
 }
 
 @media (min-width: 768px){
