@@ -15,7 +15,6 @@
             <div class="card">
                 <div class="card-body">
                     @isset($url)
-                    
                         <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
                     @endisset
                         @csrf

@@ -21,6 +21,15 @@ class Company extends Authenticatable
     protected $fillable = [
         'email',
         'password',
+        'name',
+        'location', 
+        'bio', 
+        'projects', 
+        'employees', 
+        'phone', 
+        'longitude', 
+        'latitude', 
+        'logo'
     ];
 
     protected $hidden = [

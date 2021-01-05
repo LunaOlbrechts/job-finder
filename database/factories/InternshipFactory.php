@@ -30,6 +30,7 @@ class InternshipFactory extends Factory
             'expectations' => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
             'offers' => $this->faker->sentence($nbWords = 12, $variableNbWords = true),
             'location' => $this->faker->address,
+            'regio' => $this->faker->randomElement($array = array ('Gent', 'Antwerpen', 'Waasland', 'Brugge', 'Hasselt', 'Leuven', 'Mechelen', 'Brussel', 'Aalst')),
         ];
     }
 }

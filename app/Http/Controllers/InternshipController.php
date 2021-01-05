@@ -3,17 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Internship;
+use App\Models\StudentPreferences;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class InternshipController extends Controller
 {
     public function index()
     {
+        $student = StudentPreferences::where('student_id', Auth::guard('web')->user()->id)->first();
+
+        $studentPref = [
+            "regio" => $student->regio,
+            "type" => $student->type,
+        ];
+
         $data['internships'] = Internship::with('company')->get();
         
+        $data['suggestion'] = Internship::where('regio', $studentPref["regio"])->get();
+
         $badgeNewThisWeek = [];
 
         $now = Carbon::now();
@@ -27,7 +36,6 @@ class InternshipController extends Controller
         $data['internship'] = Internship::where('id', $internship)->with('company')->first();
         return view('/internships/detail', $data);
     }
-
 
     public function create()
     {
@@ -45,6 +53,7 @@ class InternshipController extends Controller
         $internship->expectations = $request->input('expectations');
         $internship->offers = $request->input('offers');
         $internship->location =$request->input('location');
+        $internship->regio =$request->input('regio');
         $internship->company_id = $request->input('company_id');
         $internship->save();
 
@@ -69,10 +78,12 @@ class InternshipController extends Controller
     }
 
     public function searchResultsList(Request $request){
-        
+    
         $badgeNewThisWeek = [];
         $now = Carbon::now();
         $data['lastWeek'] = $now->subtract(7, 'days');
+
+        $data = ["suggestion"];
 
         if($request->type){ 
             $data["internships"] = Internship::
