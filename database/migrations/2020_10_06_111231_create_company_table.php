@@ -17,8 +17,8 @@ class CreateCompanyTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('bio');
-            $table->text('projects');
-            $table->string('employees');
+            $table->text('projects')->nullable();;
+            $table->string('employees')->nullable();;
             $table->string('location');
             $table->string('email')->nullable();
             $table->string('phone')->nullable();

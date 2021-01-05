@@ -14,9 +14,9 @@ class InsertLongitudeLatitudeCompanies extends Migration
     public function up()
     {
         Schema::table('companies', function (Blueprint $table) {
-            $table->double('longitude');
-            $table->double('latitude');
-            $table->text('logo');
+            $table->double('longitude')->nullable();;
+            $table->double('latitude')->nullable();;
+            $table->text('logo')->nullable();;
         });
     }
 

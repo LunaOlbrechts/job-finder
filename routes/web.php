@@ -43,17 +43,19 @@ Route::get('/internships/create/{company_id}', [InternshipController::class, 'cr
 Route::post('/internships', [InternshipController::class, 'createInternship'])->middleware(["auth:company"]);
 
 // Route for register and login student
-Route::get('/register/student', [RegisterController::class, 'showStudentRegisterForm'])->name('register/student');
-Route::get('/login/student', [LoginController::class, 'showStudentLoginForm'])->name('login/student');
 
+Route::get('/login/student', [LoginController::class, 'showStudentLoginForm'])->name('login/student');
 Route::post('/login/student', [LoginController::class, 'studentLogin']);
+
+Route::get('/register/student', [RegisterController::class, 'showStudentRegisterForm'])->name('register/student');
 Route::post('/register/student', [RegisterController::class, 'createStudent']);
 
 // Route for register and login company
-Route::get('/register/company', [RegisterController::class, 'showCompanyRegisterForm'])->name('register/company');
-Route::get('/login/company', [LoginController::class, 'showCompanyLoginForm'])->name('login/company');
 
+Route::get('/login/company', [LoginController::class, 'showCompanyLoginForm'])->name('login/company');
 Route::post('/login/company', [LoginController::class, 'companyLogin']);
+
+Route::get('/register/company', [RegisterController::class, 'showCompanyRegisterForm'])->name('register/company');
 Route::post('/register/company', [RegisterController::class, 'createCompany']);
 
 // Route for companies

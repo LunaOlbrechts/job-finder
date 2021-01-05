@@ -1,14 +1,194 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+.hero--image > img {
+  object-fit: contain;
+  width: 100%; }
+
+.form--searchInternships {
+  display: flex;
+  justify-content: center;
+  z-index: 0; }
+
+.form--searchInternships-select {
+  width: 240px !important;
+  box-shadow: 6px 7px 16px -7px #d1d1d1;
+  border-radius: 10px;
+  border: none; }
+
+.form--searchInternships-btn {
+  margin: 40px 0 40px 0;
+  background-color: #5268d3 !important;
+  width: 100px;
+  box-shadow: 6px 7px 16px -7px #d1d1d1; }
+
+.form--searchInternships-selectholder {
+  border: none !important; }
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100vh;
+  align-content: center;
+  margin-left: 30px; }
+
+.hero > div {
+  align-self: center;
+  width: 500px; }
+
+.card {
+  border: none !important;
+  height: 400px; }
+
+.col-sm-3 {
+  border: none !important; }
+
+.about--description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px; }
+
+.about--description > h3 {
+  margin-bottom: 40px; }
+
+.about--description-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+
+.higher {
+  margin-bottom: 100px; }
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.card-body--image > img {
+  width: 40%;
+  object-fit: contain; }
+
+.card-body--image {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 20px; }
+
+.bigger {
+  width: 61% !important; }
+
+.card-body > p {
+  font-size: 0.9em; }
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; }
+
+.btn--primary {
+  color: #fff;
+  background-color: #5268d3;
+  border-color: #5268d3;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 174px;
+  display: flex;
+  justify-content: center; }
+
+.btn--primary-white {
+  color: #5268d3;
+  background-color: white;
+  border-color: white;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: center; }
+
+.btn--primary-orange {
+  color: white;
+  background-color: #f48258;
+  border-color: #f48258;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 174px;
+  display: flex;
+  justify-content: center; }
+
+.btn-primary {
+  color: white;
+  background-color: #5268d3;
+  border-color: #5268d3;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 200px;
+  display: flex;
+  justify-content: center; }
+
+.btn {
+  color: white !important;
+  background-color: #5268d3;
+  border-color: #5268d3;
+  border-radius: 20px !important; }
+
+.login {
+  background-color: white;
+  min-height: 100vh;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  margin-bottom: 100px;
+  padding-top: 100px;
+  max-width: 100vw !important;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center; }
+
+.login > h1 {
+  text-align: center;
+  margin-bottom: 70px; }
+
+.col-md-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-self: center;
+  align-items: center; }
+
+.card--registration {
+  min-height: 500px !important; }
+
+.login--img {
+  object-fit: contain;
+  width: 100%; }
+
+.login--card {
+  border: none; }
+
+.card-header {
+  background-color: #5268d3 !important;
+  border: none !important;
+  color: white !important; }
+
 #nav {
   background-color: #5268d3 !important;
   position: fixed;
   right: 0;
   left: 0;
-  top: 0; }
+  top: 0;
+  z-index: 100; }
 
 .page--title {
-  text-align: center; 
-}
+  text-align: center; }
+
+.card {
+  box-shadow: 6px 7px 16px -7px #ababab;
+  border-radius: 10px;
+  border: none; }
 
 .card--list {
   display: flex;
@@ -34,7 +214,8 @@
   color: whitesmoke;
   display: flex;
   justify-content: flex-end;
-  padding-right: 10px; }
+  padding-right: 10px;
+  font-size: 0.8em; }
 
 .card--name {
   margin-left: 20px;
@@ -84,13 +265,13 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; } }
-.company {
+.list {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; }
 
-.company--logo {
+.list--logo {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -99,29 +280,33 @@
   margin-top: 70px;
   border-bottom: 1px solid #dad6d6; }
 
-.company--logo > img {
+.list--logo > img {
   object-fit: contain;
   height: inherit; }
 
-.company > h1 {
-  margin-top: 50px; }
+.list > h1 {
+  margin-top: 150px; }
 
-.company > div {
+.list > div {
   padding: 20px;
   width: 700px; }
 
-.company > div > h4 {
+.list > div > h4 {
   text-align: center;
   margin-top: 100px; }
 
-.company > h4 {
+.list > h4 {
   margin-top: 100px;
   text-align: center; }
 
-.company--name {
+.list--name {
   text-align: center; }
 
-.company--background {
+.list--name-internship {
+  text-align: center;
+  margin-top: 50px; }
+
+.list--background {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -133,7 +318,7 @@
   height: 300px;
   border-radius: 10px; }
 
-.company--background > div {
+.list--background > div {
   margin-right: 40px;
   margin-left: 80px; }
 
@@ -157,6 +342,16 @@
   display: flex;
   justify-content: space-around; }
 
+.card--internshipApplication {
+  height: 100% !important;
+  margin-bottom: 100px;
+  background-color: #5268d3 !important;
+  color: white; }
+
+.page--title-companies {
+  margin-top: 140px;
+  text-align: center; }
+
 @media (min-width: 768px) {
   .container {
     max-width: 760px !important; } }
@@ -172,6 +367,3 @@ footer {
   padding: 20px;
   height: 60px;
   color: white; }
-
-#app {
-  padding-top: 100px; }

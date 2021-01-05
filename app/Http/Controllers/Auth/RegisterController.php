@@ -55,20 +55,20 @@ class RegisterController extends Controller
             'email' => 'required',
             'password' => 'required'
         ]);
-        
+
         $request->flash();
         
         $company = new Company();
         $company->name = $request->input('name');
         $company->email = $request->input('email');
         $company->location = $request->input('location');
-        $company->longitude = $request->input('longitude');
-        $company->latitude = $request->input('latitude');
+
         $company->bio = $request->input('bio');
         $company->phone = $request->input('phone');
         $company->password = Hash::make($request->input('password'));
         $company->save();
-        
-        return redirect('companies');
+ 
+        return redirect()->intended('companies');
+
     }
 }
