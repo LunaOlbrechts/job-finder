@@ -49,7 +49,7 @@
 
         <div class="form-group">
           <label for="motivation">Portfolio website</label>
-          <textarea class="form-control" id="motivation" name="website" rows="1" placeholder="motivation"></textarea>
+          <textarea class="form-control" id="motivation" name="website" rows="1" placeholder="website url"></textarea>
         </div>
 
         <div class="form-group">
@@ -60,5 +60,6 @@
         <button type="submit" class="btn btn--primary-white" name="internship" value="{{request()->route('internship')}}">Create application</button>
       </form>
     </div>
+
   </div>
 @endsection

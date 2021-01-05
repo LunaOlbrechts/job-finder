@@ -7,16 +7,25 @@
 .form--searchInternships {
   display: flex;
   justify-content: center;
+  z-index: 0;
 }
 
 .form--searchInternships-select {
   width: 240px !important;
+  box-shadow: 6px 7px 16px -7px #d1d1d1;
+  border-radius: 10px;
+  border: none;
 }
 
 .form--searchInternships-btn {
   margin: 40px 0 40px 0;
   background-color: #5268d3 !important;
   width: 100px;
+  box-shadow: 6px 7px 16px -7px #d1d1d1;
+}
+
+.form--searchInternships-selectholder {
+  border: none !important;
 }
 
 .hero {
@@ -202,6 +211,7 @@
   right: 0;
   left: 0;
   top: 0;
+  z-index: 100;
 }
 
 .page--title {

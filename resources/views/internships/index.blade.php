@@ -8,7 +8,7 @@
             {{ csrf_field() }}
             <div class="form-row align-items-center">
               <div class="col-auto my-1 form--searchInternships-select">
-                <select class="custom-select mr-sm-2" name="type" id="inlineFormCustomSelect">
+                <select class="custom-select mr-sm-2 form--searchInternships-selectholder" name="type" id="inlineFormCustomSelect">
                   <option selected>Type stage...</option>
                   <option value="front-end">front-end</option>
                   <option value="back-end">back-end</option>
