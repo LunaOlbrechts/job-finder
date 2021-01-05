@@ -1,46 +1,63 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
-    <h1>{{ $internship->title}}</h1>
+  <div class="list">
+    <h1 class="list--name-internship">{{ $internship->title}}</h1>
+    <div class="list--logo">
+      <img src=" {{$internship->company->logo }}">
+    </div>
+    <div class="list--name">
+      <a href="/companies/{{ $internship->company->id }}"><h3>{{$internship->company->name}}</h3></a>
+    </div>
+
     <div>
-      <div>
-        <h3>Company</h3>
-        <a href="/companies/{{ $internship->company->id }}"><p>{{$internship->company->name}}</p><a>
-      </div>
-      <div>
-        <h3>Biography</h3>
-        <p>{{ $internship->bio}}</p>
-      </div>
+      <h3>Type</h3>
+      <p>{{ $internship->type}}</p>
+    </div>
+
+    <div>
+      <h3>Biography</h3>
+      <p>{{ $internship->bio}}</p>
+    </div>
+
+    <div class="list--background">
       <div>
         <h3>Expectations</h3>
         <p>{{ $internship->expectations}}</p>
       </div>
-      <div>
-        <h3>Offers</h3>
-        <p>{{ $internship->offers}}</p>
-      </div>
-      <div>
-        <h3>Location</h3>
-        <p>{{ $internship->location}}</p>
-      </div>
-      <div>
-        <h3>Type</h3>
-        <p>{{ $internship->type}}</p>
-      </div>
     </div>
 
-    <h2>Apply</h2> 
+    <div>
+      <h3>Offers</h3>
+      <p>{{ $internship->offers}}</p>
+    </div>
 
-    <div class="card">
+    <div class="company--profile-contact">
+      <h4>Location</h4>
+      <p>{{ $internship->location}}</p>
+    </div>
+
+    <div class="card--internshipApplication list--background">
+      <h3>Apply</h3> 
       <form method="post" action="">
         {{ csrf_field() }}
+
         <div class="form-group">
-          <label for="motivation">Motivation</label>
+          <label for="exampleFormControlFile1">CV*</label>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="cv">
+        </div>
+
+        <div class="form-group">
+          <label for="motivation">Portfolio website</label>
+          <textarea class="form-control" id="motivation" name="website" rows="1" placeholder="motivation"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="motivation">Motivatie*</label>
           <textarea class="form-control" id="motivation" name="motivation" rows="3" placeholder="motivation"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" name="internship" value="{{request()->route('internship')}}">Create application</button>
+        <button type="submit" class="btn btn--primary-white" name="internship" value="{{request()->route('internship')}}">Create application</button>
       </form>
     </div>
   </div>

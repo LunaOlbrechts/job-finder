@@ -51,17 +51,34 @@ class InternshipController extends Controller
     }
 
 
-
     public function apply(Request $request){
         $request->flash();
         
         $application = new \App\Models\Application();
         $application->motivation = $request->input('motivation');
         $application->label = "new";
-        $application->user_id = "1";
+        $application->user_id = 1;
         $application->internship_id = $request->input('internship');
         $application->save();
 
         return redirect('/internships');
+    }
+
+    public function searchResultsList(Request $request){
+        
+        $badgeNewThisWeek = [];
+        $now = Carbon::now();
+        $data['lastWeek'] = $now->subtract(7, 'days');
+
+        if($request->type){ 
+            $data["internships"] = Internship::
+                                    where('type', $request->type)
+                                    ->get();              
+        }
+        else{
+            dd('Er zijn geen internships gevonden');
+        }
+
+        return view('internships/index', $data);
     }
 }
