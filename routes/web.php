@@ -12,7 +12,9 @@ use App\Http\Controllers\InternshipController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\StudentPreferencesController;
 use App\Http\Controllers\TrainStationController;
+use App\Models\StudentPreferences;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +72,8 @@ Route::post('/companies/{companyId}/applications', [ApplicationController::class
 
 // Route for students
 Route::get('/students', [StudentController::class, 'getAllStudents'])->middleware(['auth:web'], ['auth:company'])->name('students');
-
+Route::get('/students/{student}/preferences', [StudentPreferencesController::class, 'showPreferencesForm'])->middleware(['auth:web'])->name('showPreferencesForm');
+Route::post('/students/{student}/preferences', [StudentPreferencesController::class, 'createStudentPreferences'])->middleware(['auth:web'])->name('createPreferencesForm');
 // Route for student profile
 Route::get('/students/{student}', [StudentController::class, 'showStudentProfile'])->middleware(['auth:web'], ['auth:company'])->name('student');
 Route::get('/api/students/{student}', [StudentController::class, 'apiGetAllDribbbleShots'])->middleware(['auth:web'], ['auth:company']);

@@ -47,6 +47,24 @@ Create internship
           <textarea class="form-control" id="offers" name="offers" rows="3" placeholder="offers"></textarea>
           </div>
 
+          <div class="form-group row">
+            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Regio') }}</label>
+
+            <div class="col-md-6">
+                <select class="form-control" name="regio">
+                    <option value="kies">kies</option>
+                    <option value="Antwerpen">Antwerpen</option>
+                    <option value="Gent">Gent</option>
+                    <option value="Leuven">Leuven</option>
+                    <option value="Brussel">Brussel</option>
+                    <option value="Hasselt">Hasselt</option>
+                    <option value="Brugge">Brugge</option>
+                    <option value="Waasland">Waasland</option>
+                    <option value="Mechelen">Mechelen</option>
+                    <option value="Aalst">Aalst</option>
+                </select>  
+            </div>
+        </div>
           
           <div class="form-group">
           <label for="location">location</label>

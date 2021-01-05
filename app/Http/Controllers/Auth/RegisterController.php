@@ -7,6 +7,8 @@ use App\Models\Student;
 use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class RegisterController extends Controller
 {
@@ -46,7 +48,11 @@ class RegisterController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        return redirect()->intended('internships');
+        Auth::login($student);
+
+        $id = Auth::id();
+
+        return  redirect()->route('showPreferencesForm',['student' => $id]);
     }
 
     protected function createCompany(Request $request)
