@@ -30,13 +30,13 @@ use App\Models\StudentPreferences;
 // Route for homepage
 Route::get('/', function () {
     return view('welcome');
-});
-
+})->name('welcome');
 
 // Route for internships
 Route::get('/internships', [InternshipController::class, 'index'])->middleware(['auth:web'],['auth:company'])->name('internships');
 Route::post('/internships/search', [InternshipController::class, 'searchResultsList'])->name('searchInternships')->middleware(['auth:web'],['auth:company']);
 Route::get('/internships/search', [InternshipController::class, 'searchResultsList'])->name('searchInternships')->middleware(['auth:web'],['auth:company']);
+
 
 Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail'])->middleware(['auth:web'],['auth:company']);
 Route::post('/internships/{internship}/detail', [InternshipController::class, 'apply'])->middleware(["auth:web"]);
@@ -59,7 +59,7 @@ Route::post('/login/company', [LoginController::class, 'companyLogin']);
 Route::post('/register/company', [RegisterController::class, 'createCompany']);
 
 // Route for companies
-Route::get('/companies', [CompanyController::class, 'getAllCompanies'])->middleware(['auth:web'], ['auth:company'])->name('companies');
+Route::get('/companies', [CompanyController::class, 'getAllCompanies'])->middleware(['auth'])->name('companies');
 Route::get('/api/companies', [CompanyController::class, 'apiGetAllCompanies'])->middleware(['auth:web'], ['auth:company']);
 
 // Route for company profile
@@ -72,8 +72,10 @@ Route::post('/companies/{companyId}/applications', [ApplicationController::class
 
 // Route for students
 Route::get('/students', [StudentController::class, 'getAllStudents'])->middleware(['auth:web'], ['auth:company'])->name('students');
+
 Route::get('/students/{student}/preferences', [StudentPreferencesController::class, 'showPreferencesForm'])->middleware(['auth:web'])->name('showPreferencesForm');
 Route::post('/students/{student}/preferences', [StudentPreferencesController::class, 'createStudentPreferences'])->middleware(['auth:web'])->name('createPreferencesForm');
+
 // Route for student profile
 Route::get('/students/{student}', [StudentController::class, 'showStudentProfile'])->middleware(['auth:web'], ['auth:company'])->name('student');
 Route::get('/api/students/{student}', [StudentController::class, 'apiGetAllDribbbleShots'])->middleware(['auth:web'], ['auth:company']);
@@ -85,3 +87,5 @@ Route::post('/students/{student}/update', [StudentController::class, 'updateStud
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

@@ -20,8 +20,30 @@
                 <button type="submit" class="btn btn-primary form--searchInternships-btn">Zoek</button>
               </div>
             </div>
-          </form>
+        </form>
 
+        <h2 class="center">Suggesties</h2>
+        <div class="cards">
+          @forelse ($suggestion as $suggestion)
+            <div class="card--preview">
+                  @if($suggestion->created_at > $lastWeek )
+                  <div class="card--badge">Nieuw</div>                    
+                  @endif
+                  <div class="card--imgContainer">
+                      <img src="{{ $suggestion->company->logo}}" class="card--logo">
+                  </div>
+                  <a href="/internships/{{ $suggestion->id }}/detail" class="card--name"><p>{{ $suggestion->title}}</p></a>
+                  <p class="card--text">{{ $suggestion->type }}</p>
+                  <div class="card--button">
+                      <a href="/internships/{{ $suggestion->id }}/detail">></a>
+                  </div>
+            </div>
+          @empty
+              <p>Er zijn momenteel nog geen suggesties</p>
+          @endforelse
+        </div>
+        
+        <h2 class="center">Alle stages</h2>
         <div class="cards">
             @forelse ($internships as $internship)
                 <div class="card--preview">
@@ -46,7 +68,7 @@
         </div>
 
         @auth('company')
-        <a href="/internships/create/{{ Auth::company()->id }}"><p>create</p></a>
+          <a href="/internships/create/{{ Auth::guard('company')->user()->id }}"><p>create</p></a>
         @endauth
     </div>
 @endsection

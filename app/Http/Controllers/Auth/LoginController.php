@@ -30,18 +30,6 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-        $this->middleware('guest:web')->except('logout');
-        $this->middleware('guest:company')->except('logout');
-    }
-
     public function showStudentLoginForm()
     {
         return view('auth/login', ['url' => 'student']);
@@ -77,6 +65,6 @@ class LoginController extends Controller
             return redirect('companies');
         }
         
-        return redirect('login/student');
+        return back()->withInput($request->only('email'));
     }
 }

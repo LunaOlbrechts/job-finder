@@ -22,17 +22,9 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
-    public function __construct()
-    {
-        $this->middleware('guest');
-        $this->middleware('guest:web');
-        $this->middleware('guest:company');
-    }
-
     public function showStudentRegisterForm()
     {
-        return view('auth.register', ['url' => 'student']);
+        return view('auth/register', ['url' => 'student']);
     }
 
     public function showCompanyRegisterForm()
@@ -48,8 +40,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request['password']),
         ]);
 
-        Auth::login($student);
-
+        Auth::guard('web')->login($student);
         $id = Auth::id();
 
         return  redirect()->route('showPreferencesForm',['student' => $id]);
@@ -64,17 +55,20 @@ class RegisterController extends Controller
         
         $request->flash();
         
-        $company = new Company();
-        $company->name = $request->input('name');
-        $company->email = $request->input('email');
-        $company->location = $request->input('location');
-        $company->longitude = $request->input('longitude');
-        $company->latitude = $request->input('latitude');
-        $company->bio = $request->input('bio');
-        $company->phone = $request->input('phone');
-        $company->password = Hash::make($request->input('password'));
-        $company->save();
-        
-        return redirect('companies');
+        $company = Company::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'location' => $request->input('location'),
+            'longitude' => $request->input('longitude'),
+            'latitude' => $request->input('latitude'),
+            'bio' => $request->input('bio'),
+            'logo' => "logo",
+            'phone' => $request->input('phone'),
+            'password' => Hash::make($request->input('password')),
+        ]);      
+
+        Auth::guard('company')->login($company);
+
+        return redirect()->route('companies');
     }
 }

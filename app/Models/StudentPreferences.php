@@ -12,6 +12,7 @@ class StudentPreferences extends Model
     protected $fillable = [
         'type',
         'regio',
+        'student_id'
     ];
     
     public function student()
