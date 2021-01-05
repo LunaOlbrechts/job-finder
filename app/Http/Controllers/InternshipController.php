@@ -79,6 +79,6 @@ class InternshipController extends Controller
             dd('Er zijn geen internships gevonden');
         }
 
-        return view('internships/index', $data);
+        return view('/internships/index', $data);
     }
 }
