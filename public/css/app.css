@@ -173,6 +173,17 @@
   border-radius: 20px !important;
 }
 
+.btn--create {
+  color: white !important;
+  background-color: #5268d3;
+  border-color: #5268d3;
+  border-radius: 20px !important;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  margin: none !important;
+}
+
 .login {
   background-color: white;
   min-height: 100vh;
@@ -429,6 +440,13 @@
 .page--title-companies {
   margin-top: 140px;
   text-align: center;
+}
+
+.create--internship-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0 50px 0;
 }
 
 @media (min-width: 768px) {

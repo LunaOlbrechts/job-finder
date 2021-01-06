@@ -4,6 +4,12 @@
     <div class="container">
         <h1 class="page--title-companies">Stages</h1>
 
+        @auth('company')
+          <div class="create--internship-container">
+            <a href="/internships/create/{{ Auth::guard('company')->user()->id }}" class="btn--create">Nieuwe stage aanmaken</a>
+          </div>
+        @endauth
+
         <form method="POST" action="{{ route('searchInternships') }}" class="form--searchInternships">
             {{ csrf_field() }}
             <div class="form-row align-items-center">
@@ -22,28 +28,34 @@
             </div>
         </form>
 
+        @if(Auth::guard('web')->user())
         <h2 class="center">Suggesties</h2>
-        <div class="cards">
-          @forelse ($suggestion as $suggestion)
-            <div class="card--preview">
-                  @if($suggestion->created_at > $lastWeek )
-                  <div class="card--badge">Nieuw</div>                    
-                  @endif
-                  <div class="card--imgContainer">
-                      <img src="{{ $suggestion->company->logo}}" class="card--logo">
-                  </div>
-                  <a href="/internships/{{ $suggestion->id }}/detail" class="card--name"><p>{{ $suggestion->title}}</p></a>
-                  <p class="card--text">{{ $suggestion->type }}</p>
-                  <div class="card--button">
-                      <a href="/internships/{{ $suggestion->id }}/detail">></a>
-                  </div>
-            </div>
-          @empty
+          <div class="cards">
+            @if(isset($suggestion))
+              @foreach ($suggestion as $suggestion)
+                <div class="card--preview">
+                      @if($suggestion->created_at > $lastWeek )
+                      <div class="card--badge">Nieuw</div>                    
+                      @endif
+                      <div class="card--imgContainer">
+                          <img src="{{ $suggestion->company->logo}}" class="card--logo">
+                      </div>
+                      <a href="/internships/{{ $suggestion->id }}/detail" class="card--name"><p>{{ $suggestion->title}}</p></a>
+                      <p class="card--text">{{ $suggestion->type }}</p>
+                      <div class="card--button">
+                          <a href="/internships/{{ $suggestion->id }}/detail">></a>
+                      </div>
+                </div>
+              @endforeach
+            @else
               <p>Er zijn momenteel nog geen suggesties</p>
-          @endforelse
-        </div>
+            @endif
+          </div>
+        @endif
         
-        <h2 class="center">Alle stages</h2>
+        @if(Auth::guard('web')->user())
+          <h2 class="center">Alle stages</h2>
+        @endif
         <div class="cards">
             @forelse ($internships as $internship)
                 <div class="card--preview">
@@ -66,9 +78,5 @@
                 </div>
             @endforelse
         </div>
-
-        @auth('company')
-          <a href="/internships/create/{{ Auth::guard('company')->user()->id }}"><p>create</p></a>
-        @endauth
     </div>
 @endsection

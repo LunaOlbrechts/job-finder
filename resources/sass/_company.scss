@@ -102,6 +102,13 @@
     text-align: center;
 }
 
+.create--internship-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px 0 50px 0;
+}
+
 @media (min-width: 768px){
     .container{
         max-width: 760px !important;
