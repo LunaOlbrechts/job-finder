@@ -65,7 +65,7 @@ Route::get('/companies', [CompanyController::class, 'getAllCompanies'])->middlew
 Route::get('/api/companies', [CompanyController::class, 'apiGetAllCompanies'])->middleware(['auth:web'], ['auth:company']);
 
 // Route for company profile
-Route::get('/companies/{company}', [CompanyController::class, 'getCompanyWithNearestTrainStation'])->middleware(['auth:web'], ['auth:company']);
+Route::get('/companies/{company}', [CompanyController::class, 'getCompanyWithNearestTrainStation'])->middleware(['auth:web'], ['auth:company'])->name('company');
 
 // Route for application filtering
 Route::patch('/companies/{companyId}/applications', [ApplicationController::class, 'editApplicationFase'])->name('editApplicationFase')->middleware(["auth:company"]);

@@ -1,32 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center"> 
+<div class="container-applications">
+    <div class=""> 
+        <h1 class="page--title">Overzicht solicitaties</h1>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <div>Approved applications</div>
+                        <div>Goedgekeurde solicitaties</div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="mb-2">
                         <form method="POST" action="" class="form-inline">
-                            <label for="label_filter">Filter by label &nbsp;</label>
+                            <label for="label_filter">Filter op label &nbsp;</label>
                             <select name="label" id="label_filter" class="form-control">
                                 <option value="none">Select label</option>
-                                <option value="approved">Approved</option>
-                                <option value="declined">Declined</option>
-                                <option value="starred">Starred</option>
+                                <option value="approved">Goedgekeurd</option>
+                                <option value="declined">Geweiger</option>
+                                <option value="starred">Gestart</option>
                                 <option value="new">New</option>
                             </select>
                             <label for="keyword">&nbsp;&nbsp;</label>
                             <input type="text" class="form-control" name="keyword" placeholder="Enter keyword" id="keyword">
                             <span>&nbsp;</span>
 
-                            <button id="search_button" type="button" class="btn btn-primary">Search</button>
-                            <a href="" class="btn btn-success">Clear</a>
+                            <button id="search_button" type="button" class="btn btn-primary btn--primary-gold">Zoeken</button>
+                            <a href="" class="btn btn-success btn--primary-purple">Clear</a>
                         </form>
                     </div>
                     <div class="table-responsive">
@@ -35,16 +36,16 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Student</th>
-                                    <th>Internship</th>
+                                    <th>Stage</th>
                                     <th>Label</th>
-                                    <th>Phase</th>
-                                    <th>To the next phase?</th>
+                                    <th>Fase</th>
+                                    <th>Naar de volgende fase?</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if(count($applications))
                                     @foreach($applications as $application)
-                                        @if($application->label == "approved")
+                                        @if($application->label == "approved" or $application->label == "new" )
                                         <tr class="application_data" data-label="{{$application->label}}">
                                             <td>{{ $application->id }}</td>
                                             <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
@@ -56,8 +57,8 @@
                                             <form action="{{ route('editApplicationFase', $application->id) }}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('PATCH') }}
-                                                <button name="decline" value="decline" type="submit" class="btn btn-danger" style="margin-top: 10px;">Decline</button>
-                                                <button name="approve" value="approve" type="submit" class="btn btn-success" style="margin-top: 10px;">Approve</button>
+                                                <button name="decline" value="decline" type="submit" class="btn btn-primary btn--primary-purple" style="margin-top: 10px;">Afkeuren</button>
+                                                <button name="approve" value="approve" type="submit" class="btn btn-primary btn--primary-gold" style="margin-top: 10px;">Goedkeuren</button>
                                             </form>
                                             </td>
                                         </tr>
@@ -65,7 +66,7 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="6">No applications found</td>
+                                        <td colspan="6">Er zijn geen solicitaties gevonden</td>
                                     </tr>
                                 @endif
                             </tbody>
@@ -73,10 +74,12 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <div>Declined applications</div>
+                        <div>Afgekeurde solicitanten</div>
                     </div>
                 </div>
                 <table style="width: 100%;" class="table table-stripped">
@@ -84,9 +87,9 @@
                         <tr>
                             <th>ID</th>
                             <th>Student</th>
-                            <th>Internship</th>
+                            <th>Stage</th>
                             <th>Label</th>
-                            <th>Last phase</th>
+                            <th>Laatste fase</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -104,7 +107,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td colspan="6">No applications found</td>
+                                <td colspan="6">Er zijn geen solicitaties gevonden</td>
                             </tr>
                         @endif
                     </tbody>

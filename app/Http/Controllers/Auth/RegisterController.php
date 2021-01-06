@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'password' => 'required'
         ]);
 
-        $request->flash();
+        $request->flash($request->input('longitude'));
         
         $company = Company::create([
             'name' => $request->input('name'),

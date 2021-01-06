@@ -29,9 +29,13 @@
     margin: 30px;
 }
 
+.card--preview-padd{
+    padding-bottom: 20px;
+}
+
 .card--badge{
     border-radius: 10px 10px 0 0;
-    background-color: $blue;
+    background-color: $darkgold;
     color: whitesmoke;
     display: flex;
     justify-content: flex-end;
@@ -45,6 +49,10 @@
     font-size: 1.3em;
 }
 
+.card--name >  a{
+    color: black;
+}
+
 .card--text{
     margin-left: 20px;
     width: 250px;
@@ -52,6 +60,21 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 0.8em;
+}
+
+.card--text-sm{
+    font-size: 0.7em;
+    color: rgb(61, 61, 61);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 20px;
+    width: 250px;
+}
+
+a > h4{
+    color: $darkgold;
 }
 
 .card--imgContainer{
@@ -94,6 +117,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        margin-top: 50px;
     }
 }
 

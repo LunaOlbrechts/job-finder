@@ -8,6 +8,7 @@
                 <h3 class="card--name">{{ company.name }}</h3>
             </a>
             <p class="card--text">{{ company.bio }}</p>
+            <p class="card--text-sm">{{ company.location }}</p>
             <div class="card--button">
                 <a v-bind:href="'/companies/' + company.id">></a>
             </div>

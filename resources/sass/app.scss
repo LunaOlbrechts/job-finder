@@ -8,6 +8,7 @@
 
 @import 'forms';
 
+@import 'containers';
 
 @import 'home';
 
@@ -28,4 +29,14 @@
 
 .center{
     text-align: center;
+}
+
+.btn--primary-gold:hover{
+    color: white !important;
+    text-decoration: none !important;
+}
+
+a:hover{
+    color: black !important;
+    text-decoration: none !important;
 }
