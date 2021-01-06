@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+.img--profile {
+  width: 100px;
+  margin-bottom: 30px;
+  border-radius: 100%;
+}
+
 .form--container {
   background-color: white;
   min-height: 100vh;
@@ -50,6 +56,31 @@
 
 .form-group {
   margin-bottom: 20px !important;
+}
+
+.container-page {
+  margin-bottom: 100px;
+}
+
+.container-profile {
+  margin-top: 50px;
+}
+
+.container-profile > h3 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.container-applications {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.col-md-12 {
+  margin-top: 100px !important;
 }
 
 .hero {
@@ -155,6 +186,10 @@
   align-self: center;
 }
 
+.btn--primary-gold:hover {
+  transform: scale(1.1);
+}
+
 .btn--primary-sm {
   font-size: 0.9em;
 }
@@ -173,6 +208,17 @@
   color: white;
   background-color: #f48258;
   border-color: #f48258;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 174px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn--primary-purple {
+  color: white;
+  background-color: #7246ab !important;
+  border-color: #7246ab !important;
   border-radius: 20px;
   padding: 10px;
   max-width: 174px;
@@ -207,6 +253,11 @@
   padding: 20px;
   text-align: center;
   margin: none !important;
+}
+
+.btn-secondary {
+  background-color: #dfab1f !important;
+  border-color: none !important;
 }
 
 .login {
@@ -264,6 +315,10 @@
   left: 0;
   top: 0;
   z-index: 100;
+}
+
+.navbar-nav li > a:hover {
+  color: white !important;
 }
 
 .page--title {
@@ -384,6 +439,7 @@ a > h4 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 50px;
   }
 }
 .list {
@@ -429,6 +485,10 @@ a > h4 {
 
 .list--name {
   text-align: center;
+}
+
+.list--name > a > h3 {
+  color: black;
 }
 
 .list--name-internship {
@@ -544,6 +604,16 @@ footer > p {
 
 .center {
   text-align: center;
+}
+
+.btn--primary-gold:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: black !important;
+  text-decoration: none !important;
 }
 
 /*# sourceMappingURL=app.css.map */
