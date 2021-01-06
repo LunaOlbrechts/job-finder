@@ -25,6 +25,9 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('student:update')->everyMinute();
+        $schedule->command('trainStation:get')->everyMinute();
+        
+        //weeklyOn(1, '8:00');
     }
 
     /**
