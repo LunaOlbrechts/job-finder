@@ -37,7 +37,12 @@
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-dark shadow-sm" id="nav">
                 <div class="container">
-                   
+
+                    @auth('company')
+                        <a class="navbar-brand" href="{{ route('company', ['company' => Auth::guard('company')->user()->id]) }}">
+                            {{ 'Next Step' }}
+                        </a>
+                    @endauth
                     @auth('web')
                         @if (!in_array(Route::currentRouteName(), ['register/student', 'login/student', 'register/company', 'login/company']))
                         <a class="navbar-brand" href="{{ route('student', ['student' => Auth::guard('web')->user()->id]) }}">
@@ -61,12 +66,14 @@
                             <!-- Authentication Links -->
                             @if(Auth::guard('web')->user() or Auth::guard('company')->user())
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
+                                    <a class="nav-link" href="{{ route('students') }}">{{ __('Studenten') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('internships') }}">{{ __('Internships') }}</a>
+                                    <a class="nav-link" href="{{ route('companies') }}">{{ __('Bedrijven') }}</a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('internships') }}">{{ __('Stages') }}</a>
+                                </li>
                                 
                                 <li class="nav-item">
                                     <div class="dropdown">
