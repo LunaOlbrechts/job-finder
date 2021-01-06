@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<br><br><br>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-9">
+            <div class="card" style="height: 100%;">
 
                 <div class="card-body">
                     <form method="POST" action='{{ route("students/update", $student->id) }}' enctype="multipart/form-data">
                     <div class="card-header">{{ __('Update profile') }}
-                        <button style="position: absolute; right: 5%; top: 4%;" type="submit" name="submit" value="back" class="btn btn-secondary">
+                        <button style="position: absolute; right: 5%;" type="submit" name="submit" value="back" class="btn btn-secondary">
                             <a href="{{ route('student', ['student' => Auth::user()->id]) }}">{{ __('Back') }}</a>
                         </button>
                        
@@ -21,7 +22,7 @@
                                 {{session('success')}}
                             </div>
                         @endif
-
+                        <br>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -149,7 +150,6 @@
                                 <button type="submit" name="submit" value="submit" class="btn btn-primary">
                                     {{ __('Update profile') }}
                                 </button>
-
                             </div>
                         </div>
                     </form>
@@ -158,4 +158,5 @@
         </div>
     </div>
 </div>
+<br><br><br>
 @endsection

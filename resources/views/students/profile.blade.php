@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<br>
+<br>
+<br>
 <div class="container-fluid">
     <button type="button" class="btn btn-outline-info btn-lg"><a class="card-link"href="/students/{{ $student->id}}/update">Update profile</a></button>
 
