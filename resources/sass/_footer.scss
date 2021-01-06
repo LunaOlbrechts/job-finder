@@ -1,7 +1,27 @@
 footer{
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-end;
     background-color: $blue;
     margin: 0;
     padding: 20px;
-    height: 60px;
     color: white;
+}
+
+footer > div > h4 {
+    font-size: 1em;
+}
+
+footer > div > ul > li{
+    font-size: 0.8em;
+}
+
+footer > div > ul {
+    list-style: none;
+    margin: 0 !important;
+}
+
+footer > p{
+    margin: 0 !important;
 }

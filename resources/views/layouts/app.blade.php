@@ -59,7 +59,7 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
-                            @auth('web')
+                            @if(Auth::guard('web')->user() or Auth::guard('company')->user())
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
                                 </li>
@@ -71,7 +71,11 @@
                                 <li class="nav-item">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            {{ Auth::guard('web')->user()->name }}
+                                            @if(Auth::guard('web')->user())
+                                                {{ Auth::guard('web')->user()->name }}
+                                            @elseif(Auth::guard('company')->user())
+                                                {{ Auth::guard('company')->user()->name }}
+                                            @endif
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -99,51 +103,7 @@
                                         </form>
                                     </div>
                                 </li>
-                            @endauth
-
-                            @auth('company')
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('internships') }}">{{ __('Internships') }}</a>
-                                </li>
-
-                                
-                                <li class="nav-item">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            {{ Auth::guard('company')->user()->name }}
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                             </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-                                      </div>
-                            
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                            document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endauth
-
-                            @guest('company')
+                            @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login/student') }}">{{ __('Login student') }}</a>
                                 </li>
@@ -159,20 +119,25 @@
                                     </li>
                                     
                                 @endif
-                            @endguest
-                            
+                            @endif
                         </ul>
                     </div>
                 </div>
             </nav>
-
             <main>
                 @yield('content')
             </main>
         </div>
 
         <footer>
-            <p> Next step </p>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>hello@nextstep.be</li>
+                    <li>Gelaagstraat 30, 9140 Steendorp</li>
+                </ul>
+            </div>
+            <p> © Next Step </p>
         </footer>
         @yield('javascript')
         <script src="{{asset('js/app.js')}}"></script>
