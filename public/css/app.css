@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-.hero--image > img {
-  object-fit: contain;
+@import url(https://fonts.googleapis.com/css?family=Nunito);.hero--image > img {
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
 }
 
@@ -98,7 +98,8 @@
 
 .card-body--image > img {
   width: 40%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .card-body--image {
@@ -132,6 +133,11 @@
   max-width: 174px;
   display: flex;
   justify-content: center;
+  align-self: center;
+}
+
+.btn--primary-sm {
+  font-size: 0.9em;
 }
 
 .btn--primary-white {
@@ -218,7 +224,8 @@
 }
 
 .login--img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
 }
 
@@ -271,6 +278,10 @@
   margin: 30px;
 }
 
+.card--preview-padd {
+  padding-bottom: 20px;
+}
+
 .card--badge {
   border-radius: 10px 10px 0 0;
   background-color: #5268d3;
@@ -287,6 +298,10 @@
   font-size: 1.3em;
 }
 
+.card--name > a {
+  color: black;
+}
+
 .card--text {
   margin-left: 20px;
   width: 250px;
@@ -294,6 +309,17 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 0.8em;
+}
+
+.card--text-sm {
+  font-size: 0.7em;
+  color: #3d3d3d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 20px;
+  width: 250px;
 }
 
 .card--imgContainer {
@@ -304,7 +330,8 @@
 }
 
 .card--logo {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100px;
 }
 
@@ -338,6 +365,7 @@
     justify-content: center;
   }
 }
+
 .list {
   display: flex;
   flex-direction: column;
@@ -356,7 +384,8 @@
 }
 
 .list--logo > img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   height: inherit;
 }
 
@@ -454,11 +483,13 @@
     max-width: 760px !important;
   }
 }
+
 @media (min-width: 992px) {
   .container {
     max-width: 960px !important;
   }
 }
+
 .dribbble--card {
   margin-bottom: 3em;
 }
@@ -495,4 +526,3 @@ footer > p {
   text-align: center;
 }
 
-/*# sourceMappingURL=app.css.map */

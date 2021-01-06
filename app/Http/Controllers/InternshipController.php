@@ -32,17 +32,6 @@ class InternshipController extends Controller
         return view('/internships/index', $data);
     }
 
-    public function arrayDateLastWeek()
-    {
-        // Get current date and subtract 7 days  
-        // Front-end checks if created date from internship is 
-        // less then 7 days from current date
-        $now = Carbon::now();
-        $lastWeek = $now->subtract(7, 'days');
-
-        return $lastWeek;
-    }
-
     public function detail($internship)
     {
         $data['internship'] = Internship::where('id', $internship)->with('company')->first();
@@ -101,11 +90,9 @@ class InternshipController extends Controller
 
     public function searchResultsList(Request $request){
     
-        $badgeNewThisWeek = [];
-        $now = Carbon::now();
-        $data['lastWeek'] = $now->subtract(7, 'days');
+        $data['lastWeek']= $this->arrayDateLastWeek();
 
-        $data = ["suggestion"];
+        $data["suggestion"] = NULL;
 
         if($request->type){ 
             $data["internships"] = Internship::
@@ -117,5 +104,16 @@ class InternshipController extends Controller
         }
 
         return view('/internships/index', $data);
+    }
+
+    public function arrayDateLastWeek()
+    {
+        // Get current date and subtract 7 days  
+        // Front-end checks if created date from internship is 
+        // less then 7 days from current date
+        $now = Carbon::now();
+        $lastWeek = $now->subtract(7, 'days');
+
+        return $lastWeek;
     }
 }

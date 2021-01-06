@@ -7,6 +7,11 @@
     max-width: 174px;
     display: flex;
     justify-content: center;
+    align-self: center;
+}
+
+.btn--primary-sm {
+    font-size: 0.9em;
 }
 
 .btn--primary-white{
