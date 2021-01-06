@@ -31,7 +31,7 @@
             var url = window.location.href;
             var urlid = url.substr(url.lastIndexOf('/')+1);
 
-            fetch("http://homestead.test/api/students/" + urlid)
+            fetch("/api/students/" + urlid)
                 .then(res => {
                     return res.json();
                 })
