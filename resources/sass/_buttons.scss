@@ -1,7 +1,19 @@
 .btn--primary{
     color: #fff;
-    background-color: $blue;
-    border-color: $blue;
+    background-color: $blue !important;
+    border-color: $blue !important;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 174px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.btn--primary-gold{
+    color: #fff;
+    background-color: $darkgold !important;
+    border-color: $darkgold !important;
     border-radius: 20px;
     padding: 10px;
     max-width: 174px;

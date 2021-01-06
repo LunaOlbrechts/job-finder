@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
         <h1 class="page--title-companies">Stages</h1>
 
         @auth('company')
@@ -78,5 +77,4 @@
                 </div>
             @endforelse
         </div>
-    </div>
 @endsection
