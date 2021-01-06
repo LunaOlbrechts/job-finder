@@ -16,29 +16,29 @@
     </div>
 
     <div>
-      <h3>Biography</h3>
+      <h3>Biografie</h3>
       <p>{{ $internship->bio}}</p>
     </div>
 
     <div class="list--background">
       <div>
-        <h3>Expectations</h3>
+        <h3>Verwachtingen</h3>
         <p>{{ $internship->expectations}}</p>
       </div>
     </div>
 
     <div>
-      <h3>Offers</h3>
+      <h3>Aanbiedingen</h3>
       <p>{{ $internship->offers}}</p>
     </div>
 
     <div class="company--profile-contact">
-      <h4>Location</h4>
+      <h4>Locatie</h4>
       <p>{{ $internship->location}}</p>
     </div>
 
     <div class="card--internshipApplication list--background">
-      <h3>Apply</h3> 
+      <h3>Soliciteer</h3> 
       <form method="post" action="">
         {{ csrf_field() }}
 
@@ -49,15 +49,15 @@
 
         <div class="form-group">
           <label for="motivation">Portfolio website</label>
-          <textarea class="form-control" id="motivation" name="website" rows="1" placeholder="website url"></textarea>
+          <textarea class="form-control" id="motivation" name="website" rows="1" placeholder=" url"></textarea>
         </div>
 
         <div class="form-group">
           <label for="motivation">Motivatie*</label>
-          <textarea class="form-control" id="motivation" name="motivation" rows="3" placeholder="motivation"></textarea>
+          <textarea class="form-control" id="motivation" name="motivation" rows="3" placeholder=""></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary-white" name="internship" value="{{request()->route('internship')}}">Create application</button>
+        <button type="submit" class="btn btn--primary-gold" name="internship" value="{{request()->route('internship')}}">Inzenden</button>
       </form>
     </div>
 

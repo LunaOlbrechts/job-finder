@@ -43,6 +43,10 @@
     text-align: center;
 }
 
+.list--name > a > h3{
+    color: black;
+}
+
 .list--name-internship{
     text-align: center;
     margin-top: 50px;
@@ -98,8 +102,18 @@
 }
 
 .page--title-companies{
-    margin-top: 140px;
+    padding-top: 140px;
+    padding-bottom: 40px;
     text-align: center;
+    background-color: $purple;
+    color: white;
+}
+
+.create--internship-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px 0 50px 0;
 }
 
 @media (min-width: 768px){

@@ -1,12 +1,33 @@
 .btn--primary{
     color: #fff;
-    background-color: $blue;
-    border-color: $blue;
+    background-color: $blue !important;
+    border-color: $blue !important;
     border-radius: 20px;
     padding: 10px;
     max-width: 174px;
     display: flex;
     justify-content: center;
+    align-self: center;
+}
+
+.btn--primary-gold{
+    color: #fff;
+    background-color: $darkgold !important;
+    border-color: $darkgold !important;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 174px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.btn--primary-gold:hover{
+    transform: scale(1.1);
+}
+
+.btn--primary-sm {
+    font-size: 0.9em;
 }
 
 .btn--primary-white{
@@ -30,6 +51,18 @@
     justify-content: center;
 }
 
+.btn--primary-purple{
+    color: white;
+    background-color: $purple !important;
+    border-color: $purple !important ;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 174px;
+    display: flex;
+    justify-content: center;
+}
+
+
 .btn-primary{
     color: white;
     background-color: $blue;
@@ -48,4 +81,18 @@
     border-radius: 20px !important;
 }
 
+.btn--create{
+    color: white !important;
+    background-color: $blue;
+    border-color: $blue;
+    border-radius: 20px !important;
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    margin: none !important;
+}
 
+.btn-secondary{
+    background-color: $darkgold !important;
+    border-color: none !important;
+}

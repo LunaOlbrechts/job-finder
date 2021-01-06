@@ -7,10 +7,15 @@
             <!-- CSRF Token -->
             <meta name="csrf-token" content="{{ csrf_token() }}">
 
-            <title>{{ config('app.name', 'Laravel') }}</title>
+            <title>Next step </title>
             
             <!-- Scripts -->
-         
+            <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
             <script src="{{ asset('/js/ajax.js') }}"></script>
 
             <!-- Fonts -->
@@ -32,12 +37,19 @@
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-dark shadow-sm" id="nav">
                 <div class="container">
-                   
-                    @if (!in_array(Route::currentRouteName(), ['register/student', 'login/student', 'register/company', 'login/company']))
-                    <a class="navbar-brand" href="{{ route('student', ['student' => Auth::user()->id]) }}">
-                        {{ 'Next Step' }}
-                    </a>
-                    @endif
+
+                    @auth('company')
+                        <a class="navbar-brand" href="{{ route('company', ['company' => Auth::guard('company')->user()->id]) }}">
+                            {{ 'Next Step' }}
+                        </a>
+                    @endauth
+                    @auth('web')
+                        @if (!in_array(Route::currentRouteName(), ['register/student', 'login/student', 'register/company', 'login/company']))
+                        <a class="navbar-brand" href="{{ route('student', ['student' => Auth::guard('web')->user()->id]) }}">
+                            {{ 'Next Step' }}
+                        </a>
+                        @endif
+                    @endauth
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
@@ -52,26 +64,31 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
-                            @auth
-   
+                            @if(Auth::guard('web')->user() or Auth::guard('company')->user())
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
+                                    <a class="nav-link" href="{{ route('students') }}">{{ __('Studenten') }}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('internships') }}">{{ __('Internships') }}</a>
+                                    <a class="nav-link" href="{{ route('companies') }}">{{ __('Bedrijven') }}</a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('internships') }}">{{ __('Stages') }}</a>
+                                </li>
                                 
                                 <li class="nav-item">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            {{ Auth::user()->name }}
+                                            @if(Auth::guard('web')->user())
+                                                {{ Auth::guard('web')->user()->name }}
+                                            @elseif(Auth::guard('company')->user())
+                                                {{ Auth::guard('company')->user()->name }}
+                                            @endif
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
+                                            {{ __('Uitloggen') }}
                                              </a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -93,8 +110,7 @@
                                         </form>
                                     </div>
                                 </li>
-                            @endauth
-                            @guest
+                            @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login/student') }}">{{ __('Login student') }}</a>
                                 </li>
@@ -110,25 +126,30 @@
                                     </li>
                                     
                                 @endif
-                            @endguest
+                            @endif
                         </ul>
                     </div>
                 </div>
             </nav>
-
             <main>
                 @yield('content')
             </main>
         </div>
 
         <footer>
-            <p> Next step </p>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>hello@nextstep.be</li>
+                    <li>Gelaagstraat 30, 9140 Steendorp</li>
+                </ul>
+            </div>
+            <p> © Next Step </p>
         </footer>
         @yield('javascript')
         <script src="{{asset('js/app.js')}}"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
     </body>
 </html>
 

@@ -3,6 +3,26 @@
   object-fit: contain;
   width: 100%; }
 
+.img--profile {
+  width: 100px;
+  margin-bottom: 30px;
+  border-radius: 100%; }
+
+.form--container {
+  background-color: white;
+  min-height: 100vh;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
+  margin-bottom: 100px;
+  padding-top: 100px;
+  max-width: 100vw !important;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center; }
+
 .form--searchInternships {
   display: flex;
   justify-content: center;
@@ -16,12 +36,38 @@
 
 .form--searchInternships-btn {
   margin: 40px 0 40px 0;
-  background-color: #5268d3 !important;
+  background-color: #431c78 !important;
   width: 100px;
   box-shadow: 6px 7px 16px -7px #d1d1d1; }
 
 .form--searchInternships-selectholder {
   border: none !important; }
+
+.form-row {
+  margin-bottom: 20px !important; }
+
+.form-group {
+  margin-bottom: 20px !important; }
+
+.container-page {
+  margin-bottom: 100px; }
+
+.container-profile {
+  margin-top: 50px; }
+
+.container-profile > h3 {
+  margin-top: 30px;
+  margin-bottom: 20px; }
+
+.container-applications {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column; }
+
+.col-md-12 {
+  margin-top: 100px !important; }
 
 .hero {
   display: flex;
@@ -90,16 +136,34 @@
 
 .btn--primary {
   color: #fff;
-  background-color: #5268d3;
-  border-color: #5268d3;
+  background-color: #431c78 !important;
+  border-color: #431c78 !important;
   border-radius: 20px;
   padding: 10px;
   max-width: 174px;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  align-self: center; }
+
+.btn--primary-gold {
+  color: #fff;
+  background-color: #dfab1f !important;
+  border-color: #dfab1f !important;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 174px;
+  display: flex;
+  justify-content: center;
+  align-self: center; }
+
+.btn--primary-gold:hover {
+  transform: scale(1.1); }
+
+.btn--primary-sm {
+  font-size: 0.9em; }
 
 .btn--primary-white {
-  color: #5268d3;
+  color: #431c78;
   background-color: white;
   border-color: white;
   border-radius: 20px;
@@ -117,10 +181,20 @@
   display: flex;
   justify-content: center; }
 
+.btn--primary-purple {
+  color: white;
+  background-color: #7246ab !important;
+  border-color: #7246ab !important;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 174px;
+  display: flex;
+  justify-content: center; }
+
 .btn-primary {
   color: white;
-  background-color: #5268d3;
-  border-color: #5268d3;
+  background-color: #431c78;
+  border-color: #431c78;
   border-radius: 20px;
   padding: 10px;
   max-width: 200px;
@@ -129,9 +203,23 @@
 
 .btn {
   color: white !important;
-  background-color: #5268d3;
-  border-color: #5268d3;
+  background-color: #431c78;
+  border-color: #431c78;
   border-radius: 20px !important; }
+
+.btn--create {
+  color: white !important;
+  background-color: #431c78;
+  border-color: #431c78;
+  border-radius: 20px !important;
+  width: 200px;
+  padding: 20px;
+  text-align: center;
+  margin: none !important; }
+
+.btn-secondary {
+  background-color: #dfab1f !important;
+  border-color: none !important; }
 
 .login {
   background-color: white;
@@ -170,17 +258,20 @@
   border: none; }
 
 .card-header {
-  background-color: #5268d3 !important;
+  background-color: #431c78 !important;
   border: none !important;
   color: white !important; }
 
 #nav {
-  background-color: #5268d3 !important;
+  background-color: #431c78 !important;
   position: fixed;
   right: 0;
   left: 0;
   top: 0;
   z-index: 100; }
+
+.navbar-nav li > a:hover {
+  color: white !important; }
 
 .page--title {
   text-align: center; }
@@ -208,9 +299,12 @@
   border-radius: 10px;
   margin: 30px; }
 
+.card--preview-padd {
+  padding-bottom: 20px; }
+
 .card--badge {
   border-radius: 10px 10px 0 0;
-  background-color: #5268d3;
+  background-color: #dfab1f;
   color: whitesmoke;
   display: flex;
   justify-content: flex-end;
@@ -222,13 +316,29 @@
   color: black;
   font-size: 1.3em; }
 
+.card--name > a {
+  color: black; }
+
 .card--text {
   margin-left: 20px;
   width: 250px;
   color: black;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  font-size: 0.8em; }
+
+.card--text-sm {
+  font-size: 0.7em;
+  color: #3d3d3d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 20px;
+  width: 250px; }
+
+a > h4 {
+  color: #dfab1f; }
 
 .card--imgContainer {
   display: flex;
@@ -264,7 +374,8 @@
   .cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; } }
+    justify-content: center;
+    margin-top: 50px; } }
 .list {
   display: flex;
   flex-direction: column;
@@ -302,6 +413,9 @@
 .list--name {
   text-align: center; }
 
+.list--name > a > h3 {
+  color: black; }
+
 .list--name-internship {
   text-align: center;
   margin-top: 50px; }
@@ -310,7 +424,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: #5268d3;
+  background: #431c78;
   color: white;
   margin-top: 50px;
   margin-right: 100px;
@@ -345,12 +459,21 @@
 .card--internshipApplication {
   height: 100% !important;
   margin-bottom: 100px;
-  background-color: #5268d3 !important;
+  background-color: #431c78 !important;
   color: white; }
 
 .page--title-companies {
-  margin-top: 140px;
-  text-align: center; }
+  padding-top: 140px;
+  padding-bottom: 40px;
+  text-align: center;
+  background-color: #7246ab;
+  color: white; }
+
+.create--internship-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px 0 50px 0; }
 
 @media (min-width: 768px) {
   .container {
@@ -362,8 +485,35 @@
   margin-bottom: 3em; }
 
 footer {
-  background-color: #5268d3;
+  display: flex !important;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+  background-color: #431c78;
   margin: 0;
   padding: 20px;
-  height: 60px;
   color: white; }
+
+footer > div > h4 {
+  font-size: 1em; }
+
+footer > div > ul > li {
+  font-size: 0.8em; }
+
+footer > div > ul {
+  list-style: none;
+  margin: 0 !important; }
+
+footer > p {
+  margin: 0 !important; }
+
+.center {
+  text-align: center; }
+
+.btn--primary-gold:hover {
+  color: white !important;
+  text-decoration: none !important; }
+
+a:hover {
+  color: black !important;
+  text-decoration: none !important; }

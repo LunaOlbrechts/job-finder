@@ -29,14 +29,14 @@
                             <!-- Right Side Of Navbar -->
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
-                                @if (Route::has('login'))
+                                @auth
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('companies') }}">{{ __('Companies') }}</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('internships') }}">{{ __('Internships') }}</a>
                                     </li>
-                                @endif
+                                @endauth
                                 @guest
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{ route('login/student') }}">{{ __('Login student') }}</a>
@@ -79,6 +79,7 @@
             <div class="hero">
                 <div class="hero--text">
                     <h1>Next step</h1>
+                    {{-- TODO <h1>{{ Auth::guard('company')->user()->name }}</h1> --}}
                     <h2>De perfecte match tussen studenten en bedrijven</h2>  
                     <a href="" class="btn--primary">Ontdek</a>  
                 </div>

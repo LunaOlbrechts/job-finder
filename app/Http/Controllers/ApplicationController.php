@@ -20,7 +20,7 @@ class ApplicationController extends Controller
             ->where('internships.company_id', $companyId)
             ->get();
 
-        return view('companies/filter')->withApplications($applications);
+        return view('companies/filter')->withApplications( $applications);
     }
 
     public function filterApplications(Request $request, $companyId)

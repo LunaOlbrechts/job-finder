@@ -96,9 +96,7 @@ class CompanySeeder extends Seeder
                 We are an international digital partner specialised in User Experience optimization, Agile transformation, Product Ownership, Customer Analytics and Project Management through an active collaboration.",
                 'projects' => "224",
                 'employees' => "140",
-                'location' => "Sluisweg 1/bus 15
-                Blue Tower 1
-                9000 Gent",
+                'location' => "Charleroise Steenweg 112, 1060 Brussels",
                 'latitude' => '50.827814',
                 'longitude' => '4.355807',
                 'email' => "",
@@ -116,9 +114,7 @@ class CompanySeeder extends Seeder
                 This team, which also has entrepreneurial expertise, will be able to meet your needs and expectations by offering you personalized, effective and sustainable solutions.",
                 'projects' => "Makisu, Beci, MIEU, Star, Posidonia",
                 'employees' => "7",
-                'location' => "
-                    RUE DU MAIL, 50
-                    1050 BRUSSELS",
+                'location' => "Maliestraat 50, 1050 Elsene",
                 'latitude' => '50.822216',
                 'longitude' => '4.360111',
                 'email' => "hello@8trust.com",

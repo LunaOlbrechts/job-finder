@@ -63,7 +63,7 @@
                             </div>
                         </div>
 
-                      <!--  <div class="form-group row coordinates">
+                        <div class="form-group row coordinates">
                             <label for="longitude" class="col-md-4 col-form-label text-md-right">{{ __('longitude') }}</label>
 
                             <div class="col-md-6">
@@ -77,7 +77,7 @@
                             <div class="col-md-6">
                                 <input id="latitude" type="text" class="form-control" name="latitude" value="{{ old('latitude') }}" required autocomplete="latitude">
                             </div>
-                        </div>-->
+                        </div>
 
                         <div class="form-group row">
                             <label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('Bio') }}</label>

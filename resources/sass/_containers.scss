@@ -1,0 +1,24 @@
+.container-page{
+    margin-bottom: 100px;
+}
+.container-profile{
+    margin-top: 50px;
+}
+
+.container-profile > h3{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.container-applications{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.col-md-12{
+    margin-top: 100px !important;
+}
+
