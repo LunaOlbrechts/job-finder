@@ -321,6 +321,16 @@
   color: white !important;
 }
 
+.sitenav--applications {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
 .page--title {
   text-align: center;
 }

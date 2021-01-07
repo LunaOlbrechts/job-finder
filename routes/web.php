@@ -43,6 +43,7 @@ Route::post('/internships/{internship}/detail', [InternshipController::class, 'a
 
 Route::get('/internships/create/{company_id}', [InternshipController::class, 'create'])->middleware(["auth:company"]);
 Route::post('/internships', [InternshipController::class, 'createInternship'])->middleware(["auth:company"]);
+Route::get('/internship/{internshipId}/applications', [ApplicationController::class, 'showOneInternshipApplications'])->name('oneInternshipApplications')->middleware(["auth:company"]);
 
 // Route for register and login student
 

@@ -88,4 +88,16 @@ class ApplicationController extends Controller
 
         return redirect()->back();
     }
+
+    public function showOneInternshipApplications($internshipId)
+    {
+        $applications = Application::select('applications.*')
+            ->join('internships', 'internships.id', '=', 'applications.internship_id')
+            ->with(['internship', 'student', 'applicationFase'])
+            ->where('internships.id', $internshipId)
+            ->get();
+        
+
+            return view('internships/applications')->withApplications($applications);
+    }
 }

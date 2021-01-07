@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Internship;
+use App\Models\Application;
 use App\Models\StudentPreferences;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;

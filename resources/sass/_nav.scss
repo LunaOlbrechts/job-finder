@@ -10,3 +10,22 @@
 .navbar-nav li > a:hover{
     color: white !important;
 }
+
+.sitenav--applications{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+// .sitenav--applications > ul{
+//     list-style: none;    
+// }
+
+// .sitenav--applications > ul > a{
+//     color: black;
+//     text-decoration: none;
+// }
