@@ -65,7 +65,7 @@ class CompanySeeder extends Seeder
                 'password' => "test",
                 'longitude' => '4.406332266183368', 
                 'latitude' => '50.795362267067105',
-                'logo' => 'https://media.licdn.com/dms/image/C560BAQFoFkIKhe8IOw/company-logo_200_200/0?e=2159024400&v=beta&t=dAsSKZRLwMA-E4IXpbqcEOOoqyJt9ulo0vKtKnx42No',
+                'logo' => 'https://media-exp1.licdn.com/dms/image/C4E0BAQEp-Cr9qaqKNg/company-logo_200_200/0/1524069773021?e=1617840000&v=beta&t=af8D6IsKBi24SMfDNOMggR7XpFbuYicu9M5DPAXmXGY',
 
             ],
             [
@@ -87,7 +87,7 @@ class CompanySeeder extends Seeder
                 'password' => "test",
                 'latitude' => '51.22445',
                 'longitude' => '4.40099',
-                'logo' => 'https://media.licdn.com/dms/image/C560BAQFoFkIKhe8IOw/company-logo_200_200/0?e=2159024400&v=beta&t=dAsSKZRLwMA-E4IXpbqcEOOoqyJt9ulo0vKtKnx42No',
+                'logo' => 'https://media-exp1.licdn.com/dms/image/C560BAQHhE65uwuwiBg/company-logo_200_200/0/1552647089831?e=1617840000&v=beta&t=PUP2ZLyPpVrdaB2oP5Df_VVpNnpV-mkVKFI8BjfrHJ4',
 
             ],
             [
@@ -102,7 +102,7 @@ class CompanySeeder extends Seeder
                 'email' => "",
                 'phone' => "+3228992020",
                 'password' => "test",
-                'logo' => 'https://media.licdn.com/dms/image/C560BAQFoFkIKhe8IOw/company-logo_200_200/0?e=2159024400&v=beta&t=dAsSKZRLwMA-E4IXpbqcEOOoqyJt9ulo0vKtKnx42No',
+                'logo' => 'https://media-exp1.licdn.com/dms/image/C560BAQEKeGSdwnJERw/company-logo_200_200/0/1519882155202?e=1617840000&v=beta&t=EWad0Exbz-QlKeRRVlQxtNLrBgvaxJBnjaQqKCB_hVg',
 
             ],
             [

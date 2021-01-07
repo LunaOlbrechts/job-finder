@@ -11,7 +11,7 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, $role=null)
     {
         if (!Auth::guard('company')->check() && !Auth::guard('web')->check()) {
-            return redirect('welcome');
+            return redirect('/');
         }
 
         return $next($request);

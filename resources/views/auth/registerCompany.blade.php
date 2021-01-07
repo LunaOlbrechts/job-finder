@@ -60,7 +60,7 @@
                             <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Locatie') }}</label>
 
                             <div class="col-md-6">
-                                <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('location') }}" required autocomplete="location">
+                                <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" required autocomplete="location">
 
                                 @error('location')
                                     <span class="invalid-feedback" role="alert">

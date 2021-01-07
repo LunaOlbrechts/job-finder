@@ -11,7 +11,7 @@
 }
 
 .btn--primary-gold{
-    color: #fff;
+    color: #fff !important;
     background-color: $darkgold !important;
     border-color: $darkgold !important;
     border-radius: 20px;
@@ -20,6 +20,10 @@
     display: flex;
     justify-content: center;
     align-self: center;
+}
+
+.btn--primary-gold > a    {
+    color: #fff !important;
 }
 
 .btn--primary-gold:hover{

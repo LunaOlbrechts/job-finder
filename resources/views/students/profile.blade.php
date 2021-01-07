@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<br><br><br>
 <div class="container-page">
-    <button type="button" class="btn btn-outline-info btn-lg"><a class="card-link"href="/students/{{ $student->id}}/update">Update profile</a></button>
     <br><br>
     <div class="page--title-companies">
         <img src="{{ asset('images/avatar.jpg') }}" class="img--profile">
@@ -20,6 +18,10 @@
             <li class="list-group-item">Portfolio: <a href="{{ $student->portfolio}}" target="_blank">{{ $student->portfolio}}</a></li>
             <li class="list-group-item">Linkedin:  <a href=" {{ $student->linkedin}}" target="_blank"> {{ $student->linkedin}}</a></li>
         </ul>
+
+        @if(Auth::guard('web')->user() && Auth::guard('web')->user()->id == $student->id)
+            <button type="button" class="btn btn-outline-info btn-lg"><a class="card-link"href="/students/{{ $student->id}}/update">Update profile</a></button>
+        @endif
 
         @if(Auth::guard('web')->user() && Auth::guard('web')->user()->id == $student->id)
             <h3>Stage solicitatie fases</h3>

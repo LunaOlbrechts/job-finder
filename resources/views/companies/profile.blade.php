@@ -4,11 +4,14 @@
 
     <div class="list">
         <br><br><br><br>
-    <button type="button" class="btn btn-outline-info btn-lg"><a class="card-link"href="/companies/{{ $company->id}}/update">Update profile</a></button>
         <div class="list--logo">
             <img src=" {{$company->logo }}">
         </div>
         <h1 class="list--name">{{ $company->name}}</h1>
+
+        @if(Auth::guard('company')->user() && Auth::guard('company')->user()->id == $company->id)
+            <button type="button" class="btn btn-primary btn--primary-gold"><a href="/companies/{{ $company->id}}/update">Update profile</a></button>
+        @endif
         <div>
             <h4>Biografie</h4>
             <p>{{ $company->bio }}</p>
