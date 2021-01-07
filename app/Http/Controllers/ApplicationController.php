@@ -6,6 +6,7 @@ use App\Models\Application;
 use App\Models\ApplicationFase;
 use Illuminate\Http\Request;
 use App\Models\Internship;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
 use App\Models\Company;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,11 @@ class ApplicationController extends Controller
 {
     public function showListOfAllApplications($companyId)
     {
+
+        if(Auth::guard('company')->user()->id != $companyId){
+            return redirect()->back();
+        }
+        
         $applications = Application::select('applications.*')
             ->join('internships', 'internships.id', '=', 'applications.internship_id')
             ->with(['internship', 'student', 'applicationFase'])
@@ -96,8 +102,9 @@ class ApplicationController extends Controller
             ->with(['internship', 'student', 'applicationFase'])
             ->where('internships.id', $internshipId)
             ->get();
-        
 
-            return view('internships/applications')->withApplications($applications);
+        $internship = Internship::where('id', $internshipId)->first();
+            
+        return view('internships/applications')->withApplications($applications)->withInternship($internship);
     }
 }

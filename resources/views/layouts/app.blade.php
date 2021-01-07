@@ -74,7 +74,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('internships') }}">{{ __('Stages') }}</a>
                                 </li>
-                                
+
+                                @if(Auth::guard('company'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/company/{{ Auth::guard('company')->user()->id }}/dashboard">{{ __('Dashboard') }}</a>
+                                    </li>
+                                @endif
                                 <li class="nav-item">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

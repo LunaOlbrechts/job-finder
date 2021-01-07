@@ -41,9 +41,9 @@ Route::get('/internships/search', [InternshipController::class, 'searchResultsLi
 Route::get('/internships/{internship}/detail', [InternshipController::class, 'detail'])->middleware(['auth:web'],['auth:company']);
 Route::post('/internships/{internship}/detail', [InternshipController::class, 'apply'])->middleware(["auth:web"]);
 
+Route::get('/internship/{internshipId}/applications', [ApplicationController::class, 'showOneInternshipApplications'])->name('oneInternshipApplications')->middleware(["auth:company"]);
 Route::get('/internships/create/{company_id}', [InternshipController::class, 'create'])->middleware(["auth:company"]);
 Route::post('/internships', [InternshipController::class, 'createInternship'])->middleware(["auth:company"]);
-Route::get('/internship/{internshipId}/applications', [ApplicationController::class, 'showOneInternshipApplications'])->name('oneInternshipApplications')->middleware(["auth:company"]);
 
 // Route for register and login student
 
@@ -64,6 +64,9 @@ Route::post('/register/company', [RegisterController::class, 'createCompany']);
 // Route for companies
 Route::get('/companies', [CompanyController::class, 'getAllCompanies'])->middleware(['auth'])->name('companies');
 Route::get('/api/companies', [CompanyController::class, 'apiGetAllCompanies'])->middleware(['auth:web'], ['auth:company']);
+
+//route for company dashboard
+Route::get('/company/{companyId}/dashboard', [InternshipController::class, 'showDashboard'])->name('dashboard')->middleware(["auth:company"]);
 
 // Route for company profile
 Route::get('/companies/{company}', [CompanyController::class, 'getCompanyWithNearestTrainStation'])->middleware(['auth:web'], ['auth:company'])->name('company');

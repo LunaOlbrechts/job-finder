@@ -1,12 +1,43 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-applications">
-    <div class=""> 
-        <h1 class="page--title">{{ $internship->title }}</h1>
+<div class="container-dashboard">
+        <h1 class="page--title-companies">Dashboard</h1>
+        <div class="list"> 
 
-        <div class="col-md-12">
-            <h2 class="page--title">Overzicht solicitanten</h2>
+            <div class="list--logo">
+                <img src=" {{$company->logo }}">
+            </div>
+            <h1 class="list--name">{{ $company->name}}</h1>
+
+            <div class="create--internship-container">
+                <a href="/internships/create/{{ Auth::guard('company')->user()->id }}" class="btn--create">Nieuwe stage aanmaken</a>
+            </div>
+
+        <h2 class="page--title">Overzicht stages</h2>
+
+          <div class="cards">
+            @forelse ($internships as $internship)
+                <div class="card--preview">
+                    <div class="card--imgContainer">
+                        <img src="{{ $internship->company->logo}}" class="card--logo">
+                    </div>
+                    <a href="/internships/{{ $internship->id }}/detail" class="card--name"><p>{{ $internship->title}}</p></a>
+                    <p class="card--text">{{ $internship->type }}</p>
+                    <div class="card--button">
+                        <a href="/internship/{{ $internship->id }}/applications">></a>
+                    </div>
+                </div>
+
+            @empty
+                <div>
+                    <p>Er zijn geen stages gevonden met jouw zoekopdracht</p>
+                </div>
+            @endforelse
+          </div>
+
+          <div class="col-md-12">
+            <h2 class="page--title">Overzicht aanvragen</h2>
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
@@ -37,6 +68,7 @@
                             <thead>
                                 <tr>
                                     <th>Student</th>
+                                    <th>Stage</th>
                                     <th>Label</th>
                                     <th>Fase</th>
                                     <th>Naar de volgende fase?</th>
@@ -48,6 +80,7 @@
                                         @if($application->label == "approved" or $application->label == "new" )
                                         <tr class="application_data" data-label="{{$application->label}}">
                                             <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
+                                            <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->internship->title }}</a></td>
                                             <td>{{$application->label}}</td>
                                             <td>{{$application->applicationFase->title}}</td>
                                             <td style="width: 250px;">
@@ -84,6 +117,7 @@
                     <thead>
                         <tr>
                             <th>Student</th>
+                            <th>Stage</th>
                             <th>Label</th>
                             <th>Laatste fase</th>
                         </tr>
@@ -94,6 +128,7 @@
                                 @if($application->label == "declined")
                                 <tr class="application_data" data-label="{{$application->label}}">
                                     <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
+                                    <td><a href="/internships/{{ $application->internship_id }}/detail">{{ $application->internship->title }}</a></td>
                                     <td>{{$application->label}}</td>
                                     <td>{{$application->applicationFase->title}}</td>
                                 </tr>
@@ -112,46 +147,3 @@
 </div>
 @endsection
 
-@section('javascript')
-    <script type="text/javascript">
-        var dropDownValue = document.getElementById("label_filter");
-        var applicationData = document.querySelectorAll(".application_data");
-        var keywordValue = '';
-        var applicationName = '';
-        var applicationBio = '';
-        document.getElementById("search_button").addEventListener("click", function(){
-            keywordValue = document.getElementById("keyword").value;
-            var dropDownResult = dropDownValue.options[dropDownValue.selectedIndex].value;
-            for(var i = 0; i<applicationData.length; i++){
-                var applicationDataLabel = applicationData[i].getAttribute('data-label');
-                applicationName = applicationData[i].childNodes[2].nextSibling.childNodes[0].innerHTML.toLowerCase();
-                applicationBio = applicationData[i].childNodes[5].innerText.toLowerCase();
-
-                if(dropDownResult != 'none' && keywordValue != ''){
-                    if(applicationDataLabel == dropDownResult && applicationName.includes(keywordValue.toLowerCase()) || applicationBio.includes(keywordValue.toLowerCase()) && applicationDataLabel == dropDownResult){
-                        applicationData[i].style.display = "table-row";
-                    } else {
-                        applicationData[i].style.display = "none";
-                    }
-                } else {
-                    if(dropDownResult != 'none'){
-                        if(applicationDataLabel == dropDownResult){
-                            applicationData[i].style.display = "table-row"; 
-                        } else {
-                            applicationData[i].style.display = "none";
-                        }
-                    } else {
-                        if(applicationName.includes(keywordValue.toLowerCase()) || applicationBio.includes(keywordValue.toLowerCase())){
-                            applicationData[i].style.display = "table-row";
-                        } else {
-                            applicationData[i].style.display = "none";
-                        }
-                    }
-                }
-
-
-
-            }
-        });
-    </script>
-@endsection

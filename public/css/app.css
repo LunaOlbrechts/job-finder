@@ -325,10 +325,16 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
+  background-color: #7246ab;
+  padding-top: 100px;
+}
+
+.sitenav--applications > ul > a {
+  color: white;
+}
+
+.sitenav--applications > ul {
+  list-style: none;
 }
 
 .page--title {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Internship;
 use App\Models\Application;
+use App\Models\Company;
 use App\Models\StudentPreferences;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -116,5 +117,20 @@ class InternshipController extends Controller
         $lastWeek = $now->subtract(7, 'days');
 
         return $lastWeek;
+    }
+
+    public function showDashboard($companyId)
+    {
+        $internships = Internship::where('company_id', $companyId)->get();
+
+        $applications = Application::select('applications.*')
+            ->join('internships', 'internships.id', '=', 'applications.internship_id')
+            ->with(['internship', 'student', 'applicationFase'])
+            ->where('internships.company_id', $companyId)
+            ->get();
+
+        $company = Company::where('id', $companyId)->first();
+
+        return view('/companies/dashboard')->withInternships($internships)->withCompany($company)->withApplications($applications);
     }
 }
