@@ -93,14 +93,14 @@ a > h4{
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background-color: whitesmoke;
+    background-color: $darkgold;
     height: 50px;
     padding-right: 10px;
     border-radius: 0 0 6px 6px;
 }
 
 .card--button > a{
-    color: black;
+    color: white;
 }
 
 @media (min-width: 700px){

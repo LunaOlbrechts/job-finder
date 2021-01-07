@@ -9,9 +9,7 @@
             </a>
             <p class="card--text">{{ company.bio }}</p>
             <p class="card--text-sm">{{ company.location }}</p>
-            <div class="card--button">
-                <a v-bind:href="'/companies/' + company.id">></a>
-            </div>
+            <a v-bind:href="'/companies/' + company.id" class="btn--primary-gold btn--primary-sm">Bekijk profiel</a>
         </div>
     </div>
 </template>

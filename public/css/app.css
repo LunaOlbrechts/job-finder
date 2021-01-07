@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-.hero--image > img {
-  object-fit: contain;
+@import url(https://fonts.googleapis.com/css?family=Nunito);.hero--image > img {
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
 }
 
@@ -137,7 +137,8 @@
 
 .card-body--image > img {
   width: 40%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .card-body--image {
@@ -294,11 +295,14 @@
 }
 
 .card--registration {
+  height: -webkit-max-content !important;
+  height: -moz-max-content !important;
   height: max-content !important;
 }
 
 .login--img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100%;
 }
 
@@ -427,7 +431,8 @@ a > h4 {
 }
 
 .card--logo {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 100px;
 }
 
@@ -435,14 +440,14 @@ a > h4 {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: #dfab1f;
   height: 50px;
   padding-right: 10px;
   border-radius: 0 0 6px 6px;
 }
 
 .card--button > a {
-  color: black;
+  color: white;
 }
 
 @media (min-width: 700px) {
@@ -462,6 +467,7 @@ a > h4 {
     margin-top: 50px;
   }
 }
+
 .list {
   display: flex;
   flex-direction: column;
@@ -480,7 +486,8 @@ a > h4 {
 }
 
 .list--logo > img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   height: inherit;
 }
 
@@ -585,11 +592,13 @@ a > h4 {
     max-width: 760px !important;
   }
 }
+
 @media (min-width: 992px) {
   .container {
     max-width: 960px !important;
   }
 }
+
 .dribbble--card {
   margin-bottom: 3em;
 }
@@ -636,4 +645,3 @@ a:hover {
   text-decoration: none !important;
 }
 
-/*# sourceMappingURL=app.css.map */

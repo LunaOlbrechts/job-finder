@@ -1924,8 +1924,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1988,7 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
       var that = this;
       var url = window.location.href;
       var urlid = url.substr(url.lastIndexOf('/') + 1);
-      fetch("http://homestead.test/api/students/" + urlid).then(function (res) {
+      fetch("/api/students/" + urlid).then(function (res) {
         return res.json();
       }).then(function (json) {
         that.shots = json;
@@ -37610,11 +37608,14 @@ var render = function() {
           _vm._v(_vm._s(company.location))
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card--button" }, [
-          _c("a", { attrs: { href: "/companies/" + company.id } }, [
-            _vm._v(">")
-          ])
-        ])
+        _c(
+          "a",
+          {
+            staticClass: "btn--primary-gold btn--primary-sm",
+            attrs: { href: "/companies/" + company.id }
+          },
+          [_vm._v("Bekijk profiel")]
+        )
       ])
     }),
     0
