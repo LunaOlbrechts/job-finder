@@ -1936,7 +1936,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getCompanies: function getCompanies() {
       var that = this;
-      fetch("https://nextstep.chickenkiller.com/companies/api/companies").then(function (res) {
+      fetch("https://nextstep.chickenkiller.com/api/companies").then(function (res) {
         return res.json();
       }).then(function (json) {
         that.companies = json;
