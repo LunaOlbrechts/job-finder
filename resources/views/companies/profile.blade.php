@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="list">
+        <br><br><br><br>
+    <button type="button" class="btn btn-outline-info btn-lg"><a class="card-link"href="/companies/{{ $company->id}}/update">Update profile</a></button>
         <div class="list--logo">
             <img src=" {{$company->logo }}">
         </div>
