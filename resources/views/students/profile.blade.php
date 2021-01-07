@@ -1,15 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-<br>
-<br>
-<br>
-<div class="container-fluid">
-=======
+<br><br><br>
 <div class="container-page">
->>>>>>> a4d010b3e731ac2d66af4300e36e4abb22667523
     <button type="button" class="btn btn-outline-info btn-lg"><a class="card-link"href="/students/{{ $student->id}}/update">Update profile</a></button>
+    <br><br>
     <div class="page--title-companies">
         <img src="{{ asset('images/avatar.jpg') }}" class="img--profile">
         <h1 class="list--name">{{ $student->name }}</h1>

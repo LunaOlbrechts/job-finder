@@ -48,4 +48,45 @@ class CompanyController extends Controller
 
         return view('companies/profile', $data, $nearestTrainStation);
     }
+
+
+
+
+
+    public function showAllInfoForUpdateProfile($company)
+    {
+        $company = Company::where('id', $company)->first();
+        $data['company'] = $company;
+        return view('companies/update', $data);
+    }
+
+    public function updateCompanyProfile(Request $request, $company)
+    {
+        //Alle huidige informatie van de huidige company ophalen
+        $user = Company::where('id', $company)->first();
+
+        //Als er geen user gevonden wordt met de id: terugsturen
+        if (!$user) {
+            return redirect()->back();
+        }
+        //Alle data van de huidige user valideren
+        if ($user) {
+            $request->validate([
+                'name' => 'required|min:2',
+                'bio' => 'nullable',
+                'projects' => 'nullable',
+                'employees' => 'nullable',
+                'location' => 'nullable',
+                'email' => 'required|email',
+                'phone' => 'required|min:2',
+                'logo' => 'nullable|url'
+            ]);
+        
+            //Alles toevoegen aan db
+            Company::where('id', $company)->update($request->except('_token', 'submit'));
+            //success boodschap printen
+            $request->session()->flash('success', 'Your details have now been updated.');
+            return redirect()->back();
+        }
+    }
 }

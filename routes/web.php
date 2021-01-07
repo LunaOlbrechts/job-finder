@@ -72,6 +72,10 @@ Route::patch('/companies/{companyId}/applications', [ApplicationController::clas
 Route::get('/companies/{companyId}/applications', [ApplicationController::class, 'showListOfAllApplications'])->name('company/applications')->middleware(["auth:company"]);
 Route::post('/companies/{companyId}/applications', [ApplicationController::class, 'filterApplications'])->name('filterApplications')->middleware(["auth:company"]);
 
+// Route for company update
+Route::get('/companies/{companyId}/update', [CompanyController::class, 'showAllInfoForUpdateProfile'])->name('companies/edit')->middleware(["auth:company"]);
+Route::post('/companies/{companyId}/update', [CompanyController::class, 'updateCompanyProfile'])->name('companies/update')->middleware(["auth:company"]);
+
 // Route for students
 Route::get('/students', [StudentController::class, 'getAllStudents'])->middleware(['auth:web'], ['auth:company'])->name('students');
 
