@@ -65,7 +65,7 @@
                     </div>
                     <a href="/internships/{{ $internship->id }}/detail" class="card--name"><p>{{ $internship->title}}</p></a>
                     <p class="card--text">{{ $internship->type }}</p>
-                    <a href="/internships/{{ $internship->id }}/detail" class="btn--primary-gold btn--primary-sm">Bekijk stage</a>
+                    <a href="/internships/{{ $internship->id }}/detail" class="btn--primary-purple btn--primary-sm">Bekijk stage</a>
                 </div>
 
             @empty

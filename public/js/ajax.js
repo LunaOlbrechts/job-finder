@@ -2,6 +2,7 @@ $(function() {
     $("#companyName").on("input", function(event) {
         var target = $(event.target);
         inputValue = target.val();
+        var id= [];
 
         $.ajax({
             dataType: "json",
@@ -14,30 +15,31 @@ $(function() {
 
                 if (inputValue != "") {
 
-                    $.each(response, function(i, venue) {
+                    $.each(response, function(i, venue) {                        
                         if(!venue.location.city){
                             $place = "";
                         }
                         else{
                             $place = venue.location.city;
                         }
-
-                        $id = venue.id;
  
                         if(venue.location.city){
-                            $("#companyNameDivAuto").append('<a href="#" class="autocompleteResponse" id= $id><div>' + venue.name + " " + $place +'</div></a>');
-                            $(".autocompleteResponse").on("click", function() {
-                                $("#companyName").val(null);
-                                $("#location").val(null);
-
-                                $name = $(this).text();
-                                $("#location").val(venue.location["address"] + " " + venue.location["city"]);
-                                $("#longitude").val(venue.location["lng"]);
-                                $("#latitude").val(venue.location["lat"]);
-                                $("#companyName").val($name);
-                            });
+                            $("#companyNameDivAuto").append('<div><a href="#" class="autocompleteResponse" data-address="'+ venue.location["address"] + " " + venue.location["city"] +'" data-long="'+ venue.location["lng"] +'" data-lat="'+ venue.location["lat"] +'">' + venue.name + " " + $place +'</a></div>');
                         }
-        
+
+                        id.push(venue.name);
+                    });
+
+                    $(".autocompleteResponse").on("click", function(e) {
+                        e.preventDefault();
+                        $target = $(e.target);
+                        $name = $(this).text();
+
+                        $("#location").val($target.data("address"));
+                        $("#longitude").val($target.data("long"));
+                        $("#latitude").val($target.data("lat"));
+                        $("#companyName").val($name);                           
+                       
                     });
                 }
             },

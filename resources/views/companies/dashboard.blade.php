@@ -11,7 +11,7 @@
             <h1 class="list--name">{{ $company->name}}</h1>
 
             <div class="create--internship-container">
-                <a href="/internships/create/{{ Auth::guard('company')->user()->id }}" class="btn--create">Nieuwe stage aanmaken</a>
+                <a href="/internships/create/{{ Auth::guard('company')->user()->id }}" class="btn--create btn-gold">Nieuwe stage aanmaken</a>
             </div>
 
         <h2 class="page--title">Overzicht stages</h2>

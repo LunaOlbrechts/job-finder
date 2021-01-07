@@ -22,6 +22,8 @@
     align-self: center;
 }
 
+
+
 .btn--primary-gold > a    {
     color: #fff !important;
 }
@@ -64,6 +66,20 @@
     max-width: 174px;
     display: flex;
     justify-content: center;
+    align-self: center;
+}
+
+.btn--primary-purple > a    {
+    color: #fff !important;
+}
+
+.btn--primary-purple:hover{
+    transform: scale(1.1);
+    color: #fff !important;
+}
+
+.btn--primary-purple > a:hover{
+    color: white !important;
 }
 
 
@@ -99,4 +115,19 @@
 .btn-secondary{
     background-color: $darkgold !important;
     border-color: none !important;
+}
+
+.btn-gold{
+    color: white;
+    background-color: $darkgold !important;
+    border-color: $darkgold !important ;
+}
+
+.btn-gold:hover{
+    transform: scale(1.1);
+    color: #fff !important;
+}
+
+.btn-gold > a:hover{
+    color: white !important;
 }

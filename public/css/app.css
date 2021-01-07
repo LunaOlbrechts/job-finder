@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.hero--image > img {
-  -o-object-fit: contain;
-     object-fit: contain;
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+.hero--image > img {
+  object-fit: contain;
   width: 100%;
 }
 
@@ -137,8 +137,7 @@
 
 .card-body--image > img {
   width: 40%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .card-body--image {
@@ -229,6 +228,20 @@
   max-width: 174px;
   display: flex;
   justify-content: center;
+  align-self: center;
+}
+
+.btn--primary-purple > a {
+  color: #fff !important;
+}
+
+.btn--primary-purple:hover {
+  transform: scale(1.1);
+  color: #fff !important;
+}
+
+.btn--primary-purple > a:hover {
+  color: white !important;
 }
 
 .btn-primary {
@@ -265,6 +278,21 @@
   border-color: none !important;
 }
 
+.btn-gold {
+  color: white;
+  background-color: #dfab1f !important;
+  border-color: #dfab1f !important;
+}
+
+.btn-gold:hover {
+  transform: scale(1.1);
+  color: #fff !important;
+}
+
+.btn-gold > a:hover {
+  color: white !important;
+}
+
 .login {
   background-color: white;
   min-height: 100vh;
@@ -295,14 +323,11 @@
 }
 
 .card--registration {
-  height: -webkit-max-content !important;
-  height: -moz-max-content !important;
   height: max-content !important;
 }
 
 .login--img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   width: 100%;
 }
 
@@ -431,8 +456,7 @@ a > h4 {
 }
 
 .card--logo {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   width: 100px;
 }
 
@@ -467,7 +491,6 @@ a > h4 {
     margin-top: 50px;
   }
 }
-
 .list {
   display: flex;
   flex-direction: column;
@@ -486,8 +509,7 @@ a > h4 {
 }
 
 .list--logo > img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   height: inherit;
 }
 
@@ -592,13 +614,11 @@ a > h4 {
     max-width: 760px !important;
   }
 }
-
 @media (min-width: 992px) {
   .container {
     max-width: 960px !important;
   }
 }
-
 .dribbble--card {
   margin-bottom: 3em;
 }
@@ -645,3 +665,4 @@ a:hover {
   text-decoration: none !important;
 }
 
+/*# sourceMappingURL=app.css.map */

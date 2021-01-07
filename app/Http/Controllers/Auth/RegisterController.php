@@ -62,7 +62,7 @@ class RegisterController extends Controller
             'longitude' => $request->input('longitude'),
             'latitude' => $request->input('latitude'),
             'bio' => $request->input('bio'),
-            'logo' => "logo",
+            'logo' => "https://media-exp1.licdn.com/dms/image/C560BAQEz1oTWv7drKA/company-logo_200_200/0/1519899028243?e=1617840000&v=beta&t=MjcLhtp4ejYGgEtZxiCLtA1dyZ1TK2J8Rgt9Mb1XKyg",
             'phone' => $request->input('phone'),
             'password' => Hash::make($request->input('password')),
         ]);      
