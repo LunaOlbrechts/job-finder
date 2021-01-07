@@ -2,7 +2,6 @@ $(function() {
     $("#companyName").on("input", function(event) {
         var target = $(event.target);
         inputValue = target.val();
-        var id= [];
 
         $.ajax({
             dataType: "json",
@@ -27,7 +26,6 @@ $(function() {
                             $("#companyNameDivAuto").append('<div><a href="#" class="autocompleteResponse" data-address="'+ venue.location["address"] + " " + venue.location["city"] +'" data-long="'+ venue.location["lng"] +'" data-lat="'+ venue.location["lat"] +'">' + venue.name + " " + $place +'</a></div>');
                         }
 
-                        id.push(venue.name);
                     });
 
                     $(".autocompleteResponse").on("click", function(e) {
