@@ -28,7 +28,7 @@ export default {
         getCompanies: function() {
             var that = this;
 
-            fetch("http://homestead.test/api/companies")
+            fetch("https://nextstep.chickenkiller.com/companies/api/companies")
                 .then(res => {
                     return res.json();
                 })
