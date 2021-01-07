@@ -1,6 +1,6 @@
 <template>
     <div class="cards">
-        <div v-for="company in companies" v-bind:key="company" class="card--preview" >
+        <div v-for="company in companies" v-bind:key="company" class="card--preview card--preview-padd" >
             <div class="card--imgContainer">
                 <img class="card--logo" v-bind:src='company.logo' />
             </div>

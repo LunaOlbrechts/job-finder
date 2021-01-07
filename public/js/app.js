@@ -37591,32 +37591,43 @@ var render = function() {
     "div",
     { staticClass: "cards" },
     _vm._l(_vm.companies, function(company) {
-      return _c("div", { key: company, staticClass: "card--preview" }, [
-        _c("div", { staticClass: "card--imgContainer" }, [
-          _c("img", { staticClass: "card--logo", attrs: { src: company.logo } })
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "card--title", attrs: { href: "/companies" } }, [
-          _c("h3", { staticClass: "card--name" }, [
-            _vm._v(_vm._s(company.name))
-          ])
-        ]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card--text" }, [_vm._v(_vm._s(company.bio))]),
-        _vm._v(" "),
-        _c("p", { staticClass: "card--text-sm" }, [
-          _vm._v(_vm._s(company.location))
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn--primary-gold btn--primary-sm",
-            attrs: { href: "/companies/" + company.id }
-          },
-          [_vm._v("Bekijk profiel")]
-        )
-      ])
+      return _c(
+        "div",
+        { key: company, staticClass: "card--preview card--preview-padd" },
+        [
+          _c("div", { staticClass: "card--imgContainer" }, [
+            _c("img", {
+              staticClass: "card--logo",
+              attrs: { src: company.logo }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            { staticClass: "card--title", attrs: { href: "/companies" } },
+            [
+              _c("h3", { staticClass: "card--name" }, [
+                _vm._v(_vm._s(company.name))
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "card--text" }, [_vm._v(_vm._s(company.bio))]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card--text-sm" }, [
+            _vm._v(_vm._s(company.location))
+          ]),
+          _vm._v(" "),
+          _c(
+            "a",
+            {
+              staticClass: "btn--primary-gold btn--primary-sm",
+              attrs: { href: "/companies/" + company.id }
+            },
+            [_vm._v("Bekijk profiel")]
+          )
+        ]
+      )
     }),
     0
   )
