@@ -32,7 +32,7 @@
           <div class="cards">
             @if(isset($suggestion))
               @foreach ($suggestion as $suggestion)
-                <div class="card--preview">
+                <div class="card--preview card--preview-padd">
                       @if($suggestion->created_at > $lastWeek )
                       <div class="card--badge">Nieuw</div>                    
                       @endif
@@ -41,9 +41,8 @@
                       </div>
                       <a href="/internships/{{ $suggestion->id }}/detail" class="card--name"><p>{{ $suggestion->title}}</p></a>
                       <p class="card--text">{{ $suggestion->type }}</p>
-                      <div class="card--button">
-                          <a href="/internships/{{ $suggestion->id }}/detail">></a>
-                      </div>
+                      <a href="/internships/{{ $suggestion->id }}/detail" class="btn--primary-gold btn--primary-sm">></a>
+                      
                 </div>
               @endforeach
             @else
