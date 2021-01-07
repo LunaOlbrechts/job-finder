@@ -1936,7 +1936,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getCompanies: function getCompanies() {
       var that = this;
-      fetch("http://homestead.test/api/companies").then(function (res) {
+      fetch("https://nextstep.chickenkiller.com/companies/api/companies").then(function (res) {
         return res.json();
       }).then(function (json) {
         that.companies = json;
@@ -49884,6 +49884,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_DribbbleShotComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/DribbbleShotComponent.vue */ "./resources/js/components/DribbbleShotComponent.vue");
+/* harmony import */ var _components_CompanyCardsComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/CompanyCardsComponent */ "./resources/js/components/CompanyCardsComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -49904,6 +49905,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('dribbble-shot-component', __webpack_require__(/*! ./components/DribbbleShotComponent.vue */ "./resources/js/components/DribbbleShotComponent.vue")["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('company-cards-component', __webpack_require__(/*! ./components/CompanyCardsComponent.vue */ "./resources/js/components/CompanyCardsComponent.vue")["default"]);
 /**
@@ -49919,7 +49921,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   },
   delimiters: ['{(', ')}'],
   components: {
-    'dribbble-shot-component': _components_DribbbleShotComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    'dribbble-shot-component': _components_DribbbleShotComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    'company-cards-component': _components_CompanyCardsComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -50126,8 +50129,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/lunaolbrechts/Documents/3IMD/Backend/Laravel/job-finder/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/lunaolbrechts/Documents/3IMD/Backend/Laravel/job-finder/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/code/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
