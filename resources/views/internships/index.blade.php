@@ -41,7 +41,7 @@
                       </div>
                       <a href="/internships/{{ $suggestion->id }}/detail" class="card--name"><p>{{ $suggestion->title}}</p></a>
                       <p class="card--text">{{ $suggestion->type }}</p>
-                      <a href="/internships/{{ $suggestion->id }}/detail" class="btn--primary-gold btn--primary-sm">></a>
+                      <a href="/internships/{{ $suggestion->id }}/detail" class="btn--primary-purple btn--primary-sm">></a>
                       
                 </div>
               @endforeach
@@ -65,9 +65,7 @@
                     </div>
                     <a href="/internships/{{ $internship->id }}/detail" class="card--name"><p>{{ $internship->title}}</p></a>
                     <p class="card--text">{{ $internship->type }}</p>
-                    <div class="card--button">
-                        <a href="/internships/{{ $internship->id }}/detail">></a>
-                    </div>
+                    <a href="/internships/{{ $suggestion->id }}/detail" class="btn--primary-purple btn--primary-sm">></a>
                 </div>
 
             @empty
