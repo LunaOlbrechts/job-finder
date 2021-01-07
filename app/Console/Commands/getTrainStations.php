@@ -40,6 +40,8 @@ class getTrainStations extends Command
      */
     public function handle()
     {
+        TrainStation::truncate();
+        
         $apiLink = 'https://api.irail.be/stations/?lang=nl&format=json';
         $response = Http::withHeaders([
             'Accept' => 'application/json'])->get($apiLink)->json();

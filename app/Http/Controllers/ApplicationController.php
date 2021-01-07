@@ -37,7 +37,7 @@ class ApplicationController extends Controller
             $application->whereHas('internship', 'LIKE', '%' . $request->keyword . '%');
         }
 
-        //return view('companies/filter')->withApplications($data);
+        return view('companies/filter')->withApplications($data);
     }
 
     public function editApplicationFase(Request $request, $applicationId)
