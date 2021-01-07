@@ -56,7 +56,7 @@
         @endif
         <div class="cards">
             @forelse ($internships as $internship)
-                <div class="card--preview">
+                <div class="card--preview card--preview-padd">
                     @if($internship->created_at > $lastWeek )
                     <div class="card--badge">Nieuw</div>                    
                     @endif
@@ -65,7 +65,7 @@
                     </div>
                     <a href="/internships/{{ $internship->id }}/detail" class="card--name"><p>{{ $internship->title}}</p></a>
                     <p class="card--text">{{ $internship->type }}</p>
-                    <a href="/internships/{{ $suggestion->id }}/detail" class="btn--primary-purple btn--primary-sm">></a>
+                    <a href="/internships/{{ $internship->id }}/detail" class="btn--primary-gold btn--primary-sm">Bekijk stage</a>
                 </div>
 
             @empty
