@@ -43,7 +43,7 @@ class RegisterController extends Controller
         Auth::guard('web')->login($student);
         $id = Auth::guard('web')->user()->id;
 
-        return  redirect()->route('showPreferencesForm',['student' => $id]);
+        return  redirect()->route('showPreferencesForm',['studentId' => $id]);
     }
 
     protected function createCompany(Request $request)
