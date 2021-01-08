@@ -39,9 +39,6 @@
                                 Moet nog beoordeeld worden
                             @endif
                         </p>
-                        @if($application->label != "approved")
-                            <p>Volgende afspraak: </p>
-                        @endif
                         <a href="/internships/{{ $application->internship->id }}/detail" class="btn--primary-purple btn--primary-sm">Bekijk stage</a>
                     </div>
                 </div>
