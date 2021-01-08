@@ -101,6 +101,7 @@ class ApplicationController extends Controller
             ->join('internships', 'internships.id', '=', 'applications.internship_id')
             ->with(['internship', 'student', 'applicationFase'])
             ->where('internships.id', $internshipId)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $internship = Internship::where('id', $internshipId)->first();

@@ -41,7 +41,7 @@
                       </div>
                       <a href="/internships/{{ $suggestion->id }}/detail" class="card--name"><p>{{ $suggestion->title}}</p></a>
                       <p class="card--text">{{ $suggestion->type }}</p>
-                      <a href="/internships/{{ $suggestion->id }}/detail" class="btn--primary-purple btn--primary-sm">></a>
+                      <a href="/internships/{{ $suggestion->id }}/detail" class="btn--primary-purple btn--primary-sm">Bekijk</a>
                       
                 </div>
               @endforeach

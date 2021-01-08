@@ -37,6 +37,7 @@
                             <thead>
                                 <tr>
                                     <th>Student</th>
+                                    <th>Motivatie</th>
                                     <th>Label</th>
                                     <th>Fase</th>
                                     <th>Naar de volgende fase?</th>
@@ -48,7 +49,12 @@
                                         @if($application->label == "approved" or $application->label == "new" )
                                         <tr class="application_data" data-label="{{$application->label}}">
                                             <td><a href="/students/{{ $application->user_id }}">{{$application->student->name}}</a></td>
-                                            <td>{{$application->label}}</td>
+                                            <td>{{$application->motivation}}</td>
+                                            @if($application->label == "new")
+                                                <td>{{$application->label}}</td>
+                                            @else
+                                                 <td>verwerkt</td>
+                                            @endif
                                             <td>{{$application->applicationFase->title}}</td>
                                             <td style="width: 250px;">
 

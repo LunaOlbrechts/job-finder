@@ -54,4 +54,11 @@ class Student extends Authenticatable
         */
         return $this->hasMany('App\Models\Application');
     }
+
+    public function reviews(){
+        /* Many to many relationship between student and application 
+        *   An students has many applications
+        */
+        return $this->hasMany('App\Models\Review');
+    }
 }

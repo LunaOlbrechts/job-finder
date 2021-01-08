@@ -24,7 +24,7 @@
         @endif
 
         @if(Auth::guard('web')->user() && Auth::guard('web')->user()->id == $student->id)
-            <h3>Stage solicitatie fases</h3>
+            <h3>Stage solicitaties</h3>
             @foreach($applications as $application)
                 <div class="cards">
                     <div class="card--preview card--preview-padd">
@@ -32,7 +32,16 @@
                         </div>
                         <h4>{{ $application->internship->title}}</h4>
                         <p class="card--text">Solicitatie fase: {{ $application->applicationFase->title}}</p>
-                        <p class="card--text">Status: {{ $application->label}}</p>
+                        <p class="card--text">Status: 
+                            @if($application->label != "new")
+                                { $application->label}}
+                            @else
+                                Moet nog beoordeeld worden
+                            @endif
+                        </p>
+                        @if($application->label != "approved")
+                            <p>Volgende afspraak: </p>
+                        @endif
                         <a href="/internships/{{ $application->internship->id }}/detail" class="btn--primary-purple btn--primary-sm">Bekijk stage</a>
                     </div>
                 </div>

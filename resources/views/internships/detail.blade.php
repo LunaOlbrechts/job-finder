@@ -37,6 +37,16 @@
       <p>{{ $internship->location}}</p>
     </div>
 
+    <div class="company--profile-contact">
+      <h4>Reviews</h4>
+      @foreach($review as $review)
+      <div>
+        <p>{{ $review->content}}</p>
+      </div>
+      @endforeach
+    </div>
+    
+
     <div class="card--internshipApplication list--background">
       <h3>Soliciteer</h3> 
       <form method="post" action="">

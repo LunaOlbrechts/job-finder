@@ -16,7 +16,7 @@ class InternshipSeeder extends Seeder
     public function run()
     {
         Internship::factory()
-        ->times(5)
+        ->times(10)
         ->create();
     }
 }

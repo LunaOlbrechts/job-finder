@@ -17,8 +17,8 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->bigInteger('internship_id')->unsigned();
             $table->foreign('internship_id')->references('id')->on('internships');
-            $table->bigInteger('students_id')->unsigned();
-            $table->foreign('students_id')->references('id')->on('students');
+            $table->bigInteger('student_id')->unsigned();
+            $table->foreign('student_id')->references('id')->on('students');
             $table->text('content');
             $table->integer('stars');
             $table->timestamps();
