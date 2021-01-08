@@ -35,7 +35,7 @@
                         <p class="card--text">Status: 
                             @if($application->label != "new")
                                 {{  $application->label }}
-                            @elseif()
+                            @else
                                 Moet nog beoordeeld worden
                             @endif
                         </p>
