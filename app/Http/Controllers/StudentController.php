@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Application;
+use App\Models\Internship;
 use Illuminate\Support\Facades\Http;
 use Goutte\Client;
 
@@ -62,7 +63,7 @@ class StudentController extends Controller
         //alle data van studenten en internships ophalen
         $student= Student::where('id', $studentId)->first();
         $application = Application::where('student_id', $studentId)->with(['student', 'applicationFase'])->get();
-        
+       
         return view('students/profile')->withApplications($application)->withStudent($student);
     }
 

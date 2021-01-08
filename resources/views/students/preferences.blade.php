@@ -1,7 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="form--container">
-    <h1>Voorkeuren</h1>
+    <div class="preferences--header">
+        <h1 class="center">Hallo {{ $student->name }}</h1>
+        <p class="center suggestion--text">Om jouw zoektocht gemakkelijker te maken 
+            gaat Next-Step voor jou opzoek naar stageplaatsen op basis van jouw voorkeuren
+        </p>
+        <h2 class="center">Stage voorkeuren</h2>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="card">
@@ -48,7 +54,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn--primary-gold">
                                     {{ __('Bevestig') }}
                                 </button>
                             </div>

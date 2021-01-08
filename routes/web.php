@@ -83,7 +83,7 @@ Route::post('/companies/{companyId}/update', [CompanyController::class, 'updateC
 // Route for students
 Route::get('/students', [StudentController::class, 'getAllStudents'])->middleware(['auth:web'], ['auth:company'])->name('students');
 
-Route::get('/students/{student}/preferences', [StudentPreferencesController::class, 'showPreferencesForm'])->middleware(['auth:web'])->name('showPreferencesForm');
+Route::get('/students/{studentId}/preferences', [StudentPreferencesController::class, 'showPreferencesForm'])->middleware(['auth:web'])->name('showPreferencesForm');
 Route::post('/students/{student}/preferences', [StudentPreferencesController::class, 'createStudentPreferences'])->middleware(['auth:web'])->name('createPreferencesForm');
 
 // Route for student profile

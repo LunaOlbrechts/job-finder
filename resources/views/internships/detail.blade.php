@@ -44,7 +44,7 @@
 
         <div class="form-group">
           <label for="exampleFormControlFile1">CV*</label>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1" name="cv">
+          <input type="file" class="form-control-file" required id="exampleFormControlFile1" name="cv">
         </div>
 
         <div class="form-group">
@@ -54,7 +54,7 @@
 
         <div class="form-group">
           <label for="motivation">Motivatie*</label>
-          <textarea class="form-control" id="motivation" name="motivation" rows="3" placeholder=""></textarea>
+          <textarea class="form-control" id="motivation" required name="motivation" rows="3" placeholder=""></textarea>
         </div>
 
         <button type="submit" class="btn btn--primary-gold" name="internship" value="{{request()->route('internship')}}">Inzenden</button>
