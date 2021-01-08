@@ -41,7 +41,7 @@ class RegisterController extends Controller
         ]);
 
         Auth::guard('web')->login($student);
-        $id = Auth::id();
+        $id = Auth::guard('web')->user()->id;
 
         return  redirect()->route('showPreferencesForm',['student' => $id]);
     }
