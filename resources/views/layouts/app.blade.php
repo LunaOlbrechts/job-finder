@@ -75,7 +75,7 @@
                                     <a class="nav-link" href="{{ route('internships') }}">{{ __('Stages') }}</a>
                                 </li>
 
-                                @if(Auth::guard('company'))
+                                @if(Auth::guard('company')->user())
                                     <li class="nav-item">
                                         <a class="nav-link" href="/company/{{ Auth::guard('company')->user()->id }}/dashboard">{{ __('Dashboard') }}</a>
                                     </li>
