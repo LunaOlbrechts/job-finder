@@ -34,8 +34,8 @@
                         <p class="card--text">Solicitatie fase: {{ $application->applicationFase->title}}</p>
                         <p class="card--text">Status: 
                             @if($application->label != "new")
-                                { $application->label}}
-                            @else
+                                {{  $application->label }}
+                            @elseif()
                                 Moet nog beoordeeld worden
                             @endif
                         </p>
